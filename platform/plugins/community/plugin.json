@@ -1,0 +1,11 @@
+{
+    "id": "acm/community",
+    "name": "Community",
+    "namespace": "Acm\\Community\\",
+    "provider": "Acm\\Community\\Providers\\CommunityServiceProvider",
+    "author": "AllCatholicMedia",
+    "url": "",
+    "version": "1.0.0",
+    "description": "Community features: activity feed, groups, and forums for AllCatholicMedia.com.",
+    "minimum_core_version": "7.3.0"
+}

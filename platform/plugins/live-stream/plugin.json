@@ -1,0 +1,11 @@
+{
+    "id": "acm/live-stream",
+    "name": "Live Stream",
+    "namespace": "Acm\\LiveStream\\",
+    "provider": "Acm\\LiveStream\\Providers\\LiveStreamServiceProvider",
+    "author": "AllCatholicMedia",
+    "url": "",
+    "version": "1.0.0",
+    "description": "Live streaming hub — manage and display Catholic liturgy streams worldwide.",
+    "minimum_core_version": "7.3.0"
+}
