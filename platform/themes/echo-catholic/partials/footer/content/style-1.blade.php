@@ -1,4 +1,5 @@
 <div class="catholic-footer-inner">
+
     {{-- Footer widget columns --}}
     <div class="container">
         <div class="row echo-row">
@@ -9,17 +10,17 @@
     {{-- Footer bottom bar --}}
     <div class="catholic-footer-bottom">
         <div class="container">
-            <div class="catholic-footer-bottom-inner d-flex align-items-center justify-content-between flex-wrap gap-2">
+            <div class="catholic-footer-bottom-inner d-flex align-items-center justify-content-between flex-wrap">
 
                 {{-- Logo --}}
                 @if ($logoDark = theme_option('logo_dark'))
                     <div class="footer-logo">
-                        <a href="{{ route('public.index') }}">
-                            {{ RvMedia::image($logoDark, theme_option('site_title'), attributes: ['style' => 'height: 36px']) }}
+                        <a href="{{ route('public.index') }}" aria-label="{{ theme_option('site_title', 'AllCatholicMedia') }}">
+                            {{ RvMedia::image($logoDark, theme_option('site_title'), attributes: ['style' => 'height: 34px; width: auto;']) }}
                         </a>
                     </div>
                 @else
-                    <a href="{{ route('public.index') }}" class="catholic-text-logo footer-text-logo">
+                    <a href="{{ route('public.index') }}" class="catholic-text-logo footer-text-logo" aria-label="AllCatholicMedia — Home">
                         <span class="text-logo-main">AllCatholicMedia</span><span class="text-logo-dot">.</span>
                     </a>
                 @endif
@@ -44,4 +45,5 @@
             </div>
         </div>
     </div>
+
 </div>

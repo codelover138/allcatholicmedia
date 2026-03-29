@@ -1,5 +1,9 @@
 <?php
 
+use App\Models\PodcastEpisode;
+use App\Models\PodcastShow;
+use App\Models\YouTubeChannel;
+use App\Models\YouTubeChannelVideo;
 use Acm\Community\Models\CommunityGroup;
 use Acm\Community\Models\ForumTopic;
 use Acm\LiveStream\Models\LiveStream;
@@ -9,6 +13,7 @@ use Botble\Blog\Models\Tag;
 use Botble\Member\Models\Member;
 use Botble\Theme\Facades\Theme;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['web', 'core']], function (): void {
@@ -103,6 +108,77 @@ Route::group(['middleware' => ['web', 'core']], function (): void {
         return Theme::scope('videos', compact('videos', 'videoTags', 'tagId', 'sort'))->render();
     })->name('public.videos');
 
+    Route::get('watch', function () {
+        $channels = Cache::remember('watch.channels', now()->addMinutes(10), function () {
+            return YouTubeChannel::query()
+                ->active()
+                ->withCount('videos')
+                ->orderBy('sort_order')
+                ->orderBy('name')
+                ->get();
+        });
+
+        return Theme::scope('watch-channels', compact('channels'))->render();
+    })->name('public.watch');
+
+    Route::get('channel-list', fn () => redirect()->route('public.watch'));
+
+    Route::get('watch/{slug}', function (Request $request, string $slug) {
+        $channel = YouTubeChannel::query()
+            ->active()
+            ->withCount('videos')
+            ->where('slug', $slug)
+            ->firstOrFail();
+
+        $videos = YouTubeChannelVideo::query()
+            ->where('youtube_channel_id', $channel->id)
+            ->orderByDesc('is_live')
+            ->orderByDesc('published_at')
+            ->paginate(18)
+            ->withQueryString();
+
+        $selectedVideo = null;
+        $videoId = trim((string) $request->input('video', ''));
+
+        if ($videoId !== '') {
+            $selectedVideo = YouTubeChannelVideo::query()
+                ->where('youtube_channel_id', $channel->id)
+                ->where('youtube_video_id', $videoId)
+                ->first();
+        }
+
+        $selectedVideo ??= $videos->first();
+
+        return Theme::scope('watch-channel', compact('channel', 'videos', 'selectedVideo'))->render();
+    })->name('public.watch.channel');
+
+    Route::get('watch-page', function (Request $request) {
+        $channelValue = trim((string) $request->input('channel', ''));
+        $videoValue = trim((string) $request->input('video', ''));
+
+        $channel = YouTubeChannel::query()
+            ->active()
+            ->when($channelValue !== '', function ($query) use ($channelValue) {
+                $slug = \Illuminate\Support\Str::slug($channelValue);
+
+                $query->where(function ($inner) use ($channelValue, $slug) {
+                    $inner->where('slug', $slug)
+                        ->orWhere('name', $channelValue);
+                });
+            })
+            ->orderBy('sort_order')
+            ->first();
+
+        if (! $channel) {
+            return redirect()->route('public.watch');
+        }
+
+        return redirect()->route('public.watch.channel', array_filter([
+            'slug' => $channel->slug,
+            'video' => $videoValue ?: null,
+        ]));
+    })->name('public.watch.legacy');
+
     /*
     |--------------------------------------------------------------------------
     | Live Streaming Hub — /live
@@ -166,25 +242,72 @@ Route::group(['middleware' => ['web', 'core']], function (): void {
     |--------------------------------------------------------------------------
     | Browse Catholic audio content (posts with 'audio' meta key).
     */
+    /*
+    |--------------------------------------------------------------------------
+    | Podcast Shows Directory — /listen
+    |--------------------------------------------------------------------------
+    | Grid of all active podcast shows (like the YouTube channel list).
+    */
     Route::get('listen', function (Request $request) {
-        $tagId = $request->integer('tag');
-        $sort  = $request->input('sort', 'latest');
+        $category = trim((string) $request->input('category', ''));
+        $sort = $request->input('sort', 'name');
 
-        $audios = Post::query()
-            ->with(['slugable', 'categories', 'tags'])
-            ->wherePublished()
-            ->whereHas('metadata', fn ($q) => $q->where('meta_key', 'audio')->whereNotNull('meta_value')->where('meta_value', '!=', ''))
-            ->when($tagId, fn ($q) => $q->whereHas('tags', fn ($tq) => $tq->where('id', $tagId)))
-            ->when($sort === 'popular', fn ($q) => $q->orderByDesc('views'), fn ($q) => $q->latest())
-            ->paginate(12)
+        $shows = PodcastShow::query()
+            ->active()
+            ->withCount('episodes')
+            ->when($category !== '', fn ($query) => $query->where('category', $category))
+            ->when(
+                $sort === 'episodes',
+                fn ($query) => $query->orderByDesc('episodes_count')->orderBy('name'),
+                fn ($query) => $query->orderBy('sort_order')->orderBy('name')
+            )
+            ->get();
+
+        $categories = PodcastShow::query()
+            ->active()
+            ->whereNotNull('category')
+            ->where('category', '!=', '')
+            ->distinct()
+            ->orderBy('category')
+            ->pluck('category');
+
+        return Theme::scope('listen-shows', compact('shows', 'categories', 'category', 'sort'))->render();
+    })->name('public.listen');
+
+    /*
+    |--------------------------------------------------------------------------
+    | Podcast Show Episodes — /listen/{slug}
+    |--------------------------------------------------------------------------
+    | Individual show page with episode list + audio player.
+    */
+    Route::get('listen/{slug}', function (Request $request, string $slug) {
+        $show = PodcastShow::query()
+            ->active()
+            ->withCount('episodes')
+            ->where('slug', $slug)
+            ->firstOrFail();
+
+        $episodes = PodcastEpisode::query()
+            ->where('podcast_show_id', $show->id)
+            ->orderByDesc('is_featured')
+            ->orderByDesc('published_at')
+            ->orderByDesc('episode_number')
+            ->paginate(18)
             ->withQueryString();
 
-        $audioTags = Tag::query()->whereHas('posts', fn ($q) => $q->wherePublished()
-            ->whereHas('metadata', fn ($mq) => $mq->where('meta_key', 'audio'))
-        )->orderBy('name')->get();
+        $selectedEpisode = null;
+        $epId = (int) $request->input('episode', 0);
 
-        return Theme::scope('listen', compact('audios', 'audioTags', 'tagId', 'sort'))->render();
-    })->name('public.listen');
+        if ($epId > 0) {
+            $selectedEpisode = PodcastEpisode::query()
+                ->where('podcast_show_id', $show->id)
+                ->find($epId);
+        }
+
+        $selectedEpisode ??= $episodes->first();
+
+        return Theme::scope('listen-show', compact('show', 'episodes', 'selectedEpisode'))->render();
+    })->name('public.listen.show');
 
     /*
     |--------------------------------------------------------------------------

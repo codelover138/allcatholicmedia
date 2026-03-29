@@ -1,69 +1,253 @@
 /* ============================================================
    Echo Catholic — Custom Theme Styles
-   AllCatholicMedia.com
-   Primary: #046bd2  |  Gold accent: #c9a227  |  Dark: #0f172a
+   AllCatholicMedia.com  |  Inspired by allcatholicmedia.com
+   Primary #046bd2  ·  Gold #c9a227  ·  Dark #0f172a
    ============================================================ */
 
-/* ------------------------------------------------------------
-   1. Google Fonts Import
-   ------------------------------------------------------------ */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
 
-/* ------------------------------------------------------------
-   2. Root Color Overrides (Catholic palette)
-   ------------------------------------------------------------ */
+/* ── 1. Variables ─────────────────────────────────────────── */
 :root {
-    --color-primary:           #046bd2;
-    --color-primary-hover:     #045cb4;
-    --accent-gold:             #c9a227;
-    --accent-gold-hover:       #b08a1e;
-    --color-heading-1:         #1e293b;
-    --color-body:              #475569;
-    --bg-light:                #f0f5fa;
-    --bg-card:                 #ffffff;
-    --border-color:            #e2e8f0;
-    --header-bg:               #ffffff;
-    --header-shadow:           0 1px 0 0 #e2e8f0;
-    --footer-bg:               #0f172a;
-    --footer-text:             #94a3b8;
-    --footer-heading:          #f8fafc;
-    --card-shadow:             0 1px 3px rgba(0,0,0,.07), 0 1px 2px rgba(0,0,0,.04);
-    --border-radius:           6px;
-    --transition:              0.2s ease;
+    /* Brand */
+    --c-primary:          #046bd2;
+    --c-primary-h:        #0358b0;
+    --c-primary-light:    rgba(4,107,210,.08);
+    --c-gold:             #c9a227;
+    --c-gold-h:           #a88520;
+    --c-gold-light:       rgba(201,162,39,.12);
+
+    /* Text */
+    --c-heading:          #0f172a;
+    --c-body:             #475569;
+    --c-muted:            #94a3b8;
+
+    /* Surfaces */
+    --bg-page:            #f8fafc;
+    --bg-light:           #f1f5f9;
+    --bg-card:            #ffffff;
+    --border:             #e2e8f0;
+    --border-subtle:      #f0f4f8;
+
+    /* Header */
+    --header-bg:          #ffffff;
+    --header-h:           80px;        /* matches allcatholicmedia.com */
+    --header-shadow:      0 1px 0 0 var(--border);
+
+    /* Breaking bar */
+    --breaking-bg:        #0f172a;
+    --breaking-h:         36px;
+
+    /* Footer */
+    --footer-bg:          #0b1526;
+    --footer-text:        #8fa8c8;
+    --footer-heading:     #f0f6ff;
+    --footer-border:      rgba(255,255,255,.07);
+
+    /* Elevation */
+    --shadow-sm:    0 1px 3px rgba(15,23,42,.06), 0 1px 2px rgba(15,23,42,.04);
+    --shadow-md:    0 4px 12px rgba(15,23,42,.08), 0 2px 4px rgba(15,23,42,.05);
+    --shadow-lg:    0 8px 28px rgba(15,23,42,.10), 0 3px 8px rgba(15,23,42,.06);
+
+    /* Misc */
+    --radius:       8px;
+    --radius-sm:    5px;
+    --radius-pill:  100px;
+    --t:            .2s ease;
+    --t-slow:       .35s ease;
+
+    /* Category colors (7 colours cycling) */
+    --cat-1: #046bd2;
+    --cat-2: #16a34a;
+    --cat-3: #9333ea;
+    --cat-4: #dc2626;
+    --cat-5: #ea580c;
+    --cat-6: #0891b2;
+    --cat-7: #c9a227;
 }
 
-/* Primary color cascade — override echo base defaults */
-.echo-site-main-logo-menu-social,
+/* ── 2. Base ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    background: var(--bg-page);
+    color: var(--c-body);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { transition: color var(--t); }
+a:hover { color: var(--c-primary); text-decoration: none; }
+
+img { max-width: 100%; height: auto; }
+
+/* ── 3. Faith bar ─────────────────────────────────────────── */
+.catholic-faith-bar {
+    height: 3px;
+    background: linear-gradient(90deg, var(--c-primary) 0%, var(--c-gold) 50%, var(--c-primary) 100%);
+    background-size: 200% 100%;
+    animation: faith-shimmer 7s ease-in-out infinite;
+}
+@keyframes faith-shimmer {
+    0%,100% { background-position: 0% 50%; }
+    50%      { background-position: 100% 50%; }
+}
+
+/* ── 4. Breaking news ticker ──────────────────────────────── */
+.catholic-breaking-bar {
+    background: var(--breaking-bg);
+    height: var(--breaking-h);
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.catholic-breaking-inner {
+    display: flex;
+    align-items: center;
+    height: var(--breaking-h);
+    gap: 0;
+}
+
+.catholic-breaking-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--c-primary);
+    color: #fff;
+    font-size: 0.675rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 0 14px;
+    height: 100%;
+    white-space: nowrap;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Clip/arrow right edge of label */
+.catholic-breaking-label::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 0; bottom: 0;
+    width: 0;
+    border-top: var(--breaking-h) solid var(--c-primary);
+    border-right: 10px solid transparent;
+}
+
+.breaking-dot {
+    width: 6px; height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    animation: pulse-live 1.3s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+/* Ticker scroll container */
+.catholic-ticker-wrap {
+    flex: 1;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    mask-image: linear-gradient(90deg, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
+}
+
+.catholic-ticker-track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    white-space: nowrap;
+    animation: ticker-scroll 40s linear infinite;
+    padding-left: 20px;
+}
+
+.catholic-ticker-wrap:hover .catholic-ticker-track { animation-play-state: paused; }
+
+.catholic-ticker-item {
+    color: rgba(255,255,255,.82);
+    font-size: 0.80rem;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color var(--t);
+    padding: 0 4px;
+}
+.catholic-ticker-item:hover { color: var(--c-gold); }
+
+.catholic-ticker-sep {
+    color: rgba(255,255,255,.25);
+    font-size: 0.75rem;
+    padding: 0 14px;
+    flex-shrink: 0;
+}
+
+@keyframes ticker-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Dark mode: breaking bar darker */
+html[data-theme='dark'] .catholic-breaking-bar { background: #060d1a; }
+
+/* ── 5. Header ────────────────────────────────────────────── */
 .echo-header-area {
-    background-color: var(--header-bg) !important;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--header-bg) !important;
     box-shadow: var(--header-shadow);
+    transition: box-shadow var(--t), background var(--t);
+}
+.echo-header-area.scrolled {
+    box-shadow: 0 2px 16px rgba(15,23,42,.09);
 }
 
-/* ------------------------------------------------------------
-   3. Header — Catholic style
-   ------------------------------------------------------------ */
-.catholic-header-main {
-    padding: 0;
+.echo-site-main-logo-menu-social,
+.echo-header-area .echo-home-1-menu.catholic-header-main {
+    background: var(--header-bg) !important;
+    padding: 0 !important;
 }
 
-.echo-header-area .echo-home-1-menu.catholic-header-main,
-.echo-header-area .echo-site-main-logo-menu-social {
-    padding: 10px 0;
-    background: var(--header-bg);
+.echo-header-area .echo-home-1-menu.catholic-header-main .container > .d-flex {
+    min-height: var(--header-h);
+    gap: 16px;
 }
 
-/* -------------------------------------------------------
-   FIX: Make desktop menu items horizontal (flex row)
-   The echo base CSS only sets inline-block on .echo-has-dropdown
-   items. Plain <li> links default to display:block (vertical).
-   We force flexbox on the ul so ALL items line up horizontally.
-   ------------------------------------------------------- */
+/* Logo */
+.catholic-text-logo {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 1px;
+    transition: opacity var(--t);
+}
+.catholic-text-logo:hover { opacity: .82; text-decoration: none; }
+
+.catholic-text-logo .text-logo-main {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--c-heading);
+    letter-spacing: -.02em;
+    line-height: 1.2;
+}
+.catholic-text-logo .text-logo-dot {
+    color: var(--c-gold);
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1;
+}
+.footer-text-logo .text-logo-main { color: var(--footer-heading); }
+
+/* ── 6. Desktop navigation ────────────────────────────────── */
 ul.echo-desktop-menu {
     display: flex !important;
     flex-direction: row !important;
-    align-items: center !important;
+    align-items: stretch !important;
     flex-wrap: nowrap;
-    gap: 2px;
+    gap: 0;
     list-style: none !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -71,424 +255,645 @@ ul.echo-desktop-menu {
 
 ul.echo-desktop-menu > li {
     display: flex !important;
-    align-items: center;
+    align-items: stretch;
     white-space: nowrap;
+    position: relative;
 }
 
 ul.echo-desktop-menu > li > a {
     font-family: 'Inter', sans-serif !important;
     font-weight: 500 !important;
-    font-size: 0.9rem !important;
-    color: var(--color-heading-1) !important;
-    padding: 8px 14px !important;
-    display: block;
-    transition: color var(--transition) !important;
+    font-size: 0.875rem !important;
+    color: var(--c-body) !important;
+    padding: 0 13px !important;
+    display: flex !important;
+    align-items: center;
+    height: var(--header-h);
+    transition: color var(--t) !important;
     text-decoration: none !important;
+    position: relative;
+    letter-spacing: .01em;
+}
+
+/* Animated underline — same pattern as allcatholicmedia.com */
+ul.echo-desktop-menu > li > a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 13px; right: 13px;
+    height: 2px;
+    background: var(--c-gold);
+    border-radius: 2px 2px 0 0;
+    transform: scaleX(0);
+    transition: transform var(--t);
 }
 
 ul.echo-desktop-menu > li > a:hover,
 ul.echo-desktop-menu > li.current-menu-item > a,
-ul.echo-desktop-menu > li.current > a {
-    color: var(--color-primary) !important;
-}
+ul.echo-desktop-menu > li.current > a { color: var(--c-gold) !important; }
 
-/* Dark mode: menu link colors */
-html[data-theme='dark'] ul.echo-desktop-menu > li > a {
-    color: rgba(255, 255, 255, 0.8) !important;
-}
-html[data-theme='dark'] ul.echo-desktop-menu > li > a:hover,
-html[data-theme='dark'] ul.echo-desktop-menu > li.current-menu-item > a {
-    color: #60a5fa !important;
-}
+ul.echo-desktop-menu > li > a:hover::after,
+ul.echo-desktop-menu > li.current-menu-item > a::after,
+ul.echo-desktop-menu > li.current > a::after { transform: scaleX(1); }
 
-/* -------------------------------------------------------
-   FIX: Dark mode toggle icon — sun shown in light, moon in dark
-   ------------------------------------------------------- */
-html[data-theme='light'] .icon-moon,
-html[data-theme='auto'] .icon-moon { display: none !important; }
-html[data-theme='light'] .icon-sun,
-html[data-theme='auto'] .icon-sun  { display: block !important; }
-
-html[data-theme='dark'] .icon-sun  { display: none !important; }
-html[data-theme='dark'] .icon-moon { display: block !important; }
-
-/* Default (no data-theme set yet) */
-body:not([data-theme]) .icon-moon  { display: none; }
-html:not([data-theme]) .icon-moon  { display: none; }
-
-/* Text logo (shown when no image logo is uploaded) */
-.catholic-text-logo {
-    text-decoration: none;
-    display: inline-flex;
-    align-items: baseline;
-    gap: 1px;
+/* Dropdown: 2px solid primary top border (allcatholicmedia.com pattern) */
+ul.echo-desktop-menu .sub-menu {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    min-width: 210px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--c-gold); /* ← the real site's nav accent */
+    border-radius: 0 0 var(--radius) var(--radius);
+    box-shadow: var(--shadow-lg);
+    padding: 6px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity var(--t), transform var(--t), visibility var(--t);
+    z-index: 200;
+    list-style: none;
 }
-.catholic-text-logo .text-logo-main {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1.4rem;
-    color: var(--color-heading-1);
-    letter-spacing: -0.02em;
+ul.echo-desktop-menu > li:hover > .sub-menu {
+    opacity: 1; visibility: visible; transform: translateY(0);
 }
-.catholic-text-logo .text-logo-dot {
-    color: var(--accent-gold);
-    font-size: 1.6rem;
-    font-weight: 700;
-    line-height: 1;
-}
-.footer-text-logo .text-logo-main {
-    color: #f8fafc;
-}
-
-/* Desktop nav links */
-.catholic-menu > li > a {
-    font-family: 'Inter', sans-serif;
+ul.echo-desktop-menu .sub-menu li a {
+    display: block;
+    padding: 9px 18px;
+    font-size: 0.845rem;
     font-weight: 500;
-    font-size: 0.9rem;
-    color: var(--color-heading-1) !important;
-    padding: 8px 14px !important;
-    transition: color var(--transition);
+    color: var(--c-body) !important;
+    transition: color var(--t), background var(--t);
+    text-decoration: none;
 }
-.catholic-menu > li > a:hover,
-.catholic-menu > li.active > a {
-    color: var(--color-primary) !important;
+ul.echo-desktop-menu .sub-menu li a:hover {
+    color: var(--c-gold) !important;
+    background: var(--c-gold-light);
+    padding-left: 22px;
 }
 
-/* Icon buttons in header */
+/* Dark menu colors */
+html[data-theme='dark'] ul.echo-desktop-menu > li > a { color: rgba(240,246,255,.70) !important; }
+html[data-theme='dark'] ul.echo-desktop-menu > li > a:hover,
+html[data-theme='dark'] ul.echo-desktop-menu > li.current-menu-item > a { color: var(--c-gold) !important; }
+html[data-theme='dark'] ul.echo-desktop-menu > li > a::after { background: var(--c-gold); }
+html[data-theme='dark'] ul.echo-desktop-menu .sub-menu { background: #1a2236; border-color: rgba(255,255,255,.08); border-top-color: var(--c-gold); }
+
+/* ── 7. Header controls ───────────────────────────────────── */
+.catholic-header-controls { gap: 4px; }
+
 .catholic-icon-btn {
     background: none;
     border: none;
-    padding: 6px;
-    border-radius: var(--border-radius);
+    padding: 8px;
+    border-radius: var(--radius-sm);
     cursor: pointer;
-    color: var(--color-heading-1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background var(--transition), color var(--transition);
-    line-height: 1;
+    color: var(--c-body);
+    display: flex; align-items: center; justify-content: center;
+    transition: background var(--t), color var(--t), transform var(--t);
+    line-height: 1; flex-shrink: 0;
 }
-.catholic-icon-btn:hover {
-    background: var(--bg-light);
-    color: var(--color-primary);
-}
+.catholic-icon-btn:hover { background: var(--bg-light); color: var(--c-gold); transform: translateY(-1px); }
+.catholic-icon-btn:active { transform: none; }
 
-/* Search overlay */
-.search-input-area {
-    display: none;
-    padding: 14px 0;
-    background: var(--bg-card);
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-}
-.search-input-area.open {
-    display: block;
-}
-.search-input-inner {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.search-input-inner .form-control {
-    border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
-    font-size: 0.95rem;
-    padding: 8px 14px;
-    outline: none;
-    flex: 1;
-}
-.search-input-inner .form-control:focus {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(4, 107, 210, 0.12);
-}
+/* Dark mode toggle icons */
+html[data-theme='light'] .icon-moon,
+html[data-theme='auto']  .icon-moon { display: none !important; }
+html[data-theme='light'] .icon-sun,
+html[data-theme='auto']  .icon-sun  { display: block !important; }
+html[data-theme='dark']  .icon-sun  { display: none !important; }
+html[data-theme='dark']  .icon-moon { display: block !important; }
+html:not([data-theme])   .icon-moon { display: none; }
 
-/* ------------------------------------------------------------
-   4. Primary Color — Buttons & Links
-   ------------------------------------------------------------ */
-.catholic-btn-primary,
-form button[type="submit"],
-.echo-subscribe-box-button button,
-.rts-btn {
-    background-color: var(--color-primary) !important;
-    border-color: var(--color-primary) !important;
-    color: #fff !important;
-    border-radius: var(--border-radius) !important;
-    transition: background var(--transition), border-color var(--transition) !important;
-}
-.catholic-btn-primary:hover,
-form button[type="submit"]:hover,
-.echo-subscribe-box-button button:hover,
-.rts-btn:hover {
-    background-color: var(--color-primary-hover) !important;
-    border-color: var(--color-primary-hover) !important;
-}
+html[data-theme='dark'] .catholic-icon-btn { color: rgba(240,246,255,.60); }
+html[data-theme='dark'] .catholic-icon-btn:hover { background: rgba(255,255,255,.07); color: var(--c-gold); }
 
-a:hover {
-    color: var(--color-primary);
-}
-
-/* ------------------------------------------------------------
-   5. Category Badges — Gold accent
-   ------------------------------------------------------------ */
-.catholic-category-badge,
-.content-catagory-tag,
-.author {
-    background-color: var(--color-primary) !important;
-    color: #ffffff !important;
-    font-family: 'Inter', sans-serif !important;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 3px 10px !important;
-    border-radius: 3px;
+/* Sign-in pill button */
+.sign-in-area .sign-in-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.825rem; font-weight: 600;
+    color: var(--c-gold) !important;
+    border: 1.5px solid var(--c-gold);
+    border-radius: var(--radius-pill);
+    padding: 6px 16px;
+    text-decoration: none;
+    transition: background var(--t), color var(--t), transform var(--t), box-shadow var(--t);
     white-space: nowrap;
-    max-width: 200px;
+}
+.sign-in-area .sign-in-btn:hover {
+    background: var(--c-gold); color: #fff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(201,162,39,.28);
+}
+.sign-in-area .sign-in-btn .avatar { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; }
+
+html[data-theme='dark'] .sign-in-area .sign-in-btn { color: var(--c-gold) !important; border-color: var(--c-gold); }
+html[data-theme='dark'] .sign-in-area .sign-in-btn:hover { background: var(--c-gold); color: #0f172a !important; }
+
+/* ── 8. Search overlay ────────────────────────────────────── */
+.search-input-area {
     overflow: hidden;
-    text-overflow: ellipsis;
+    max-height: 0; opacity: 0;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    transition: max-height .32s cubic-bezier(.4,0,.2,1), opacity .25s ease, padding .3s ease;
+    padding: 0;
+}
+.search-input-area.open { max-height: 80px; opacity: 1; padding: 12px 0; }
+
+.search-input-inner { display: flex; align-items: center; gap: 8px; }
+
+.search-input-inner .form-control {
+    border-radius: var(--radius-pill);
+    border: 1.5px solid var(--border);
+    font-size: .925rem;
+    padding: 9px 18px;
+    outline: none; flex: 1;
+    background: var(--bg-page);
+    color: var(--c-heading);
+    transition: border-color var(--t), box-shadow var(--t), background var(--t);
+}
+.search-input-inner .form-control::placeholder { color: var(--c-muted); }
+.search-input-inner .form-control:focus {
+    border-color: var(--c-primary);
+    box-shadow: 0 0 0 3px var(--c-primary-light);
+    background: var(--bg-card);
 }
 
-/* Gold variant for featured/special badges */
-.badge-gold,
-.catholic-category-badge.featured {
-    background-color: var(--accent-gold) !important;
+.search-submit-btn {
+    background: var(--c-primary); color: #fff;
+    border: none; border-radius: var(--radius-pill);
+    padding: 9px 20px;
+    font-size: .85rem; font-weight: 600; cursor: pointer;
+    transition: background var(--t), transform var(--t), box-shadow var(--t);
+    white-space: nowrap; display: flex; align-items: center; gap: 6px;
+}
+.search-submit-btn:hover { background: var(--c-primary-h); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(4,107,210,.25); }
+
+html[data-theme='dark'] .search-input-area { background: #0f172a; border-color: rgba(255,255,255,.06); }
+html[data-theme='dark'] .search-input-inner .form-control { background: #1e293b; border-color: rgba(255,255,255,.10); color: #f0f6ff; }
+html[data-theme='dark'] .search-input-inner .form-control:focus { border-color: #60a5fa; box-shadow: 0 0 0 3px rgba(96,165,250,.15); }
+
+/* ── 9. Reading progress bar ──────────────────────────────── */
+.catholic-reading-progress {
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 2px;
+    background: transparent;
+    display: none;         /* shown via JS on article pages */
+    z-index: 10;
+}
+.catholic-reading-progress.visible { display: block; }
+.catholic-reading-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--c-primary), var(--c-gold));
+    transition: width .1s linear;
+    border-radius: 0 2px 2px 0;
 }
 
-/* Live badge — red pulsing */
-.badge-live {
-    background-color: #dc2626 !important;
+/* ── 10. Section headings (allcatholicmedia.com style) ─────── */
+.echo-be-slider-btn h2,
+.echo-latest-nw-title h2,
+.echo-section-title h2,
+.echo-home-1-hero-area-top-story > h2 {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 700 !important;
+    font-size: 1.15rem !important;
+    color: var(--c-heading) !important;
+    letter-spacing: -.01em;
+    margin-bottom: 18px !important;
+    padding-bottom: 12px !important;
+    border-bottom: 2px solid var(--border) !important;
+    position: relative;
+}
+
+/* Coloured left accent on section heading */
+.echo-be-slider-btn h2::before,
+.echo-latest-nw-title h2::before,
+.echo-section-title h2::before,
+.echo-home-1-hero-area-top-story > h2::before {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0;
+    width: 48px; height: 2px;
+    background: var(--c-primary);
+    border-radius: 2px;
+}
+
+html[data-theme='dark'] .echo-be-slider-btn h2,
+html[data-theme='dark'] .echo-latest-nw-title h2,
+html[data-theme='dark'] .echo-home-1-hero-area-top-story > h2 {
+    color: var(--footer-heading) !important;
+    border-bottom-color: rgba(255,255,255,.08) !important;
+}
+
+/* ── 11. Category badges ──────────────────────────────────── */
+.catholic-category-badge,
+.content-catagory-tag {
+    display: inline-block;
+    background: var(--c-primary) !important;
     color: #fff !important;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 3px;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
+    font-family: 'Inter', sans-serif !important;
+    font-size: .67rem; font-weight: 700;
+    letter-spacing: .07em; text-transform: uppercase;
+    padding: 4px 10px !important;
+    border-radius: var(--radius-sm);
+    white-space: nowrap; max-width: 180px;
+    overflow: hidden; text-overflow: ellipsis;
+    line-height: 1.4;
+    transition: background var(--t), transform var(--t);
+}
+.catholic-category-badge:hover,
+.content-catagory-tag:hover {
+    background: var(--c-primary-h) !important;
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+/* Category colour variants — match by nth-child cycling */
+.echo-hero-section .content-catagory-tag:nth-of-type(7n+2) { background: var(--cat-2) !important; }
+.echo-hero-section .content-catagory-tag:nth-of-type(7n+3) { background: var(--cat-3) !important; }
+.echo-hero-section .content-catagory-tag:nth-of-type(7n+4) { background: var(--cat-4) !important; }
+.echo-hero-section .content-catagory-tag:nth-of-type(7n+5) { background: var(--cat-5) !important; }
+.echo-hero-section .content-catagory-tag:nth-of-type(7n+6) { background: var(--cat-6) !important; }
+.echo-hero-section .content-catagory-tag:nth-of-type(7n+7) { background: var(--cat-7) !important; }
+
+/* Featured gold / live variants */
+.badge-gold, .catholic-category-badge.featured { background: var(--c-gold) !important; }
+.badge-gold:hover { background: var(--c-gold-h) !important; }
+
+.badge-live {
+    background: #dc2626 !important; color: #fff !important;
+    font-size: .65rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    padding: 4px 9px; border-radius: var(--radius-sm);
+    display: inline-flex; align-items: center; gap: 5px;
 }
 .badge-live::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    background: #fff;
-    border-radius: 50%;
-    animation: pulse-live 1.2s infinite;
-    flex-shrink: 0;
+    content: ''; width: 5px; height: 5px;
+    background: #fff; border-radius: 50%;
+    animation: pulse-live 1.4s ease-in-out infinite; flex-shrink: 0;
 }
 @keyframes pulse-live {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%       { opacity: 0.4; transform: scale(0.7); }
+    0%,100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: .35; transform: scale(.6); }
 }
 
-/* ------------------------------------------------------------
-   6. Post / Article Cards
-   ------------------------------------------------------------ */
-.echo-hero-baner,
+/* Author chip */
+.author {
+    background: var(--bg-light) !important; color: var(--c-body) !important;
+    border-radius: var(--radius-sm);
+    font-size: .75rem; font-weight: 500;
+    padding: 3px 10px !important;
+}
+
+/* ── 12. Hero images — enforce 16:9 aspect ratio ──────────── */
+.echo-hero-banner-main-img,
+.echo-hero-banner-main-img a {
+    display: block;
+}
+.echo-hero-banner-main-img a {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    aspect-ratio: 16 / 9;
+}
+.echo-hero-banner-main-img a img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .45s cubic-bezier(.4,0,.2,1);
+}
+.echo-hero-banner-main-img a:hover img { transform: scale(1.04); }
+
+/* Gradient overlay on hero image */
+.echo-hero-banner-main-img a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(15,23,42,.30) 0%, transparent 60%);
+    pointer-events: none;
+    border-radius: var(--radius);
+    transition: opacity var(--t);
+}
+.echo-hero-banner-main-img a:hover::after { opacity: .7; }
+
+/* ── 13. Article cards ────────────────────────────────────── */
 .echo-top-story,
+.echo-home-1-hero-area-top-story,
 .echo-latest-news-single-title {
-    border-radius: var(--border-radius);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: box-shadow var(--t-slow), transform var(--t-slow);
+}
+.echo-top-story:hover,
+.echo-home-1-hero-area-top-story:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
 }
 
-/* Post title hover underline — Catholic blue */
+/* Story thumbnail — 4:3 */
+.echo-story-picture {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    aspect-ratio: 4 / 3;
+}
+.echo-story-picture a { display: block; height: 100%; }
+.echo-story-picture img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .4s cubic-bezier(.4,0,.2,1);
+}
+.echo-story-picture:hover img { transform: scale(1.05); }
+
+/* Latest news card thumbnail — 16:9 */
+.echo-latest-news-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    aspect-ratio: 16 / 9;
+}
+.echo-latest-news-img a { display: block; height: 100%; }
+.echo-latest-news-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .4s cubic-bezier(.4,0,.2,1);
+}
+.echo-latest-news-img:hover img { transform: scale(1.04); }
+
+/* Video play button overlay */
+.echo-hm2-video-icons {
+    position: absolute;
+    inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+}
+.echo-hm2-video-icons .vedio-icone { pointer-events: all; }
+.video-play-button {
+    width: 52px; height: 52px;
+    background: rgba(255,255,255,.92);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--c-primary);
+    transition: background var(--t), transform var(--t), box-shadow var(--t);
+    box-shadow: 0 4px 16px rgba(0,0,0,.22);
+}
+.video-play-button:hover {
+    background: var(--c-primary);
+    color: #fff;
+    transform: scale(1.10);
+    box-shadow: 0 6px 24px rgba(4,107,210,.35);
+}
+.video-play-button span {
+    display: inline-block;
+    width: 0; height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 16px solid currentColor;
+    margin-left: 4px;
+}
+
+/* ── 14. Post title hover ─────────────────────────────────── */
 .title-hover {
-    background-image: linear-gradient(to right, var(--color-primary) 50%, transparent 50%) !important;
+    background-image: linear-gradient(to right, var(--c-primary) 0%, var(--c-primary) 100%) !important;
+    background-size: 0% 1.5px !important;
+    background-position: 0 100% !important;
+    background-repeat: no-repeat !important;
+    transition: background-size .3s ease, color var(--t) !important;
+    padding-bottom: 1px;
+}
+.title-hover:hover {
+    background-size: 100% 1.5px !important;
+    color: var(--c-primary) !important;
 }
 
-/* ------------------------------------------------------------
-   7. Footer — Dark navy Catholic style
-   ------------------------------------------------------------ */
-.echo-footer-area {
-    background: var(--footer-bg) !important;
+html[data-theme='dark'] .title-hover {
+    background-image: linear-gradient(to right, #60a5fa 0%, #60a5fa 100%) !important;
+}
+html[data-theme='dark'] .title-hover:hover { color: #60a5fa !important; }
+
+/* ── 15. Content typography (article pages) ───────────────── */
+.echo-hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    line-height: 1.28;
+    color: var(--c-heading);
+    letter-spacing: -.02em;
 }
 
-.catholic-footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 18px 0;
-    margin-top: 8px;
+.ck-content {
+    font-size: 1.0625rem;
+    line-height: 1.80;
+    color: var(--c-body);
+}
+.ck-content h2 { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 700; margin-top: 2.2rem; margin-bottom: .9rem; color: var(--c-heading); letter-spacing: -.02em; }
+.ck-content h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; margin-top: 1.8rem; margin-bottom: .7rem; color: var(--c-heading); }
+.ck-content p  { margin-bottom: 1.35rem; }
+.ck-content blockquote {
+    border-left: 3px solid var(--c-gold);
+    padding: 14px 22px;
+    margin: 2rem 0;
+    background: var(--bg-light);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: 1.1rem;
+    color: var(--c-heading); line-height: 1.65;
+}
+.ck-content a { color: var(--c-primary); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.ck-content a:hover { color: var(--c-primary-h); }
+
+/* Drop cap first letter */
+.text-dropped-cap {
+    float: left;
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: .75;
+    color: var(--c-primary);
+    margin-right: .08em;
+    margin-top: .1em;
 }
 
-.catholic-footer-bottom-inner {
-    gap: 12px;
-}
-
-.footer-copyright {
-    font-size: 0.85rem;
-    color: var(--footer-text);
-}
-.footer-mission {
-    color: var(--accent-gold);
-    font-style: italic;
-    margin-left: 8px;
-}
-
-.echo-footer-area a {
-    color: var(--footer-text);
-    transition: color var(--transition);
-}
-.echo-footer-area a:hover {
-    color: var(--accent-gold);
-    text-decoration: none;
-}
-
-.echo-footer-area h1, .echo-footer-area h2, .echo-footer-area h3,
-.echo-footer-area h4, .echo-footer-area h5, .echo-footer-area h6 {
-    color: var(--footer-heading) !important;
-}
-
-/* ------------------------------------------------------------
-   8. Sidebar / Card shadows
-   ------------------------------------------------------------ */
+/* ── 16. Sidebar ──────────────────────────────────────────── */
 .echo-right-ct-1 .echo-home-1-hero-area-top-story,
 .echo-right-ct-1 .echo-feature-area-right-site-follower,
 .echo-right-ct-1 .echo-feature-area-right-site-newsletter,
 .echo-right-ct-1 .echo-popular-hl-img {
-    box-shadow: var(--card-shadow);
-    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius);
+    transition: box-shadow var(--t);
+}
+.echo-right-ct-1 .echo-home-1-hero-area-top-story:hover,
+.echo-right-ct-1 .echo-popular-hl-img:hover { box-shadow: var(--shadow-md); }
+
+/* ── 17. Buttons ──────────────────────────────────────────── */
+.catholic-btn-primary,
+.echo-subscribe-box-button button,
+.rts-btn.btn-primary {
+    background: linear-gradient(135deg, var(--c-primary) 0%, var(--c-primary-h) 100%) !important;
+    border: none !important; color: #fff !important;
+    border-radius: var(--radius) !important; font-weight: 600 !important;
+    letter-spacing: .01em;
+    transition: opacity var(--t), transform var(--t), box-shadow var(--t) !important;
+    box-shadow: 0 2px 8px rgba(4,107,210,.20) !important;
+}
+.catholic-btn-primary:hover,
+.echo-subscribe-box-button button:hover,
+.rts-btn.btn-primary:hover {
+    opacity: .9 !important; transform: translateY(-1px) !important;
+    box-shadow: 0 6px 18px rgba(4,107,210,.30) !important;
 }
 
-/* ------------------------------------------------------------
-   9. Sign In button
-   ------------------------------------------------------------ */
-.sign-in-area .sign-in-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--color-primary) !important;
-    border: 1px solid var(--color-primary);
-    border-radius: var(--border-radius);
-    padding: 6px 14px;
-    text-decoration: none;
-    transition: background var(--transition), color var(--transition);
-    white-space: nowrap;
+/* ── 18. Pagination ───────────────────────────────────────── */
+.page-item .page-link {
+    border-radius: var(--radius-sm); border-color: var(--border);
+    color: var(--c-body); font-weight: 500; font-size: .875rem;
+    transition: all var(--t);
 }
-.sign-in-area .sign-in-btn:hover {
-    background: var(--color-primary);
-    color: #fff !important;
+.page-item.active .page-link { background: var(--c-primary); border-color: var(--c-primary); }
+.page-item .page-link:hover { background: var(--bg-light); color: var(--c-primary); border-color: var(--c-primary); }
+
+/* ── 19. Footer ───────────────────────────────────────────── */
+.echo-footer-area {
+    background: var(--footer-bg) !important;
+    position: relative;
 }
-.sign-in-area .sign-in-btn .avatar {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    object-fit: cover;
+/* Top gradient line */
+.echo-footer-area::before {
+    content: '';
+    display: block; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--c-primary) 30%, var(--c-gold) 50%, var(--c-primary) 70%, transparent);
+    opacity: .45;
 }
 
-/* ------------------------------------------------------------
-   10. Back to top button
-   ------------------------------------------------------------ */
+.catholic-footer-inner { padding-top: 12px; }
+
+.catholic-footer-bottom {
+    border-top: 1px solid var(--footer-border);
+    padding: 20px 0; margin-top: 24px;
+}
+.catholic-footer-bottom-inner { gap: 14px; }
+
+.footer-copyright { font-size: .82rem; color: var(--footer-text); line-height: 1.5; }
+.footer-mission { color: var(--c-gold); font-style: italic; margin-left: 8px; opacity: .85; }
+
+.echo-footer-area a { color: var(--footer-text); transition: color var(--t); }
+.echo-footer-area a:hover { color: var(--c-gold); text-decoration: none; }
+
+.echo-footer-area h1,.echo-footer-area h2,.echo-footer-area h3,
+.echo-footer-area h4,.echo-footer-area h5,.echo-footer-area h6 {
+    color: var(--footer-heading) !important;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+}
+.echo-footer-area p { color: var(--footer-text); font-size: .875rem; line-height: 1.65; }
+
+html[data-theme='dark'] .echo-footer-area { background: #07101f !important; }
+html[data-theme='dark'] .echo-footer-area::before { opacity: .25; }
+
+/* ── 20. Back to top ──────────────────────────────────────── */
 .echo-progress-wrap a {
-    background-color: var(--color-primary) !important;
+    background: var(--c-primary) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 14px rgba(4,107,210,.30) !important;
 }
 
-/* ------------------------------------------------------------
-   11. Dark Mode Overrides
-   ------------------------------------------------------------ */
+/* ── 21. Dark mode global ─────────────────────────────────── */
 html[data-theme='dark'] {
+    --c-heading:    #e8f0fe;
+    --c-body:       rgba(226,232,240,.80);
+    --c-muted:      #64748b;
+    --bg-page:      #0d1117;
+    --bg-light:     #161c2a;
+    --bg-card:      #141a27;
+    --border:       rgba(255,255,255,.08);
+    --border-subtle:rgba(255,255,255,.04);
     --header-bg:    #0f172a;
-    --header-shadow: 0 1px 0 0 rgba(255,255,255,0.06);
-    --bg-light:     #1e293b;
-    --bg-card:      #1a1d2e;
-    --border-color: rgba(255,255,255,0.08);
-    --color-heading-1: #f1f5f9;
-    --color-body:   rgba(255,255,255,0.75);
+    --header-shadow:0 1px 0 0 rgba(255,255,255,.06);
+    --shadow-sm:    0 1px 4px rgba(0,0,0,.30),0 1px 2px rgba(0,0,0,.25);
+    --shadow-md:    0 4px 14px rgba(0,0,0,.40),0 2px 6px rgba(0,0,0,.30);
+    --shadow-lg:    0 8px 28px rgba(0,0,0,.50),0 3px 10px rgba(0,0,0,.35);
 }
-
-html[data-theme='dark'] body {
-    background-color: #0f1117;
-    color: rgba(255,255,255,0.8);
-}
-
+html[data-theme='dark'] body { background: #0d1117; color: var(--c-body); }
 html[data-theme='dark'] .echo-header-area,
 html[data-theme='dark'] .echo-site-main-logo-menu-social {
-    background-color: #0f172a !important;
-    box-shadow: 0 1px 0 0 rgba(255,255,255,0.06) !important;
+    background: #0f172a !important;
+    box-shadow: 0 1px 0 0 rgba(255,255,255,.06) !important;
+}
+html[data-theme='dark'] .echo-header-area.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.45) !important; }
+html[data-theme='dark'] .catholic-text-logo .text-logo-main { color: #e8f0fe; }
+html[data-theme='dark'] .ck-content blockquote { background: #161c2a; color: #e8f0fe; }
+html[data-theme='dark'] .author { background: #1e293b !important; }
+
+/* ── 22. Accessibility ────────────────────────────────────── */
+:focus-visible {
+    outline: 2px solid var(--c-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
 }
 
-html[data-theme='dark'] .catholic-text-logo .text-logo-main {
-    color: #f1f5f9;
-}
-
-html[data-theme='dark'] .catholic-menu > li > a {
-    color: rgba(255,255,255,0.8) !important;
-}
-html[data-theme='dark'] .catholic-menu > li > a:hover,
-html[data-theme='dark'] .catholic-menu > li.active > a {
-    color: #60a5fa !important;
-}
-
-html[data-theme='dark'] .catholic-icon-btn {
-    color: rgba(255,255,255,0.75);
-}
-html[data-theme='dark'] .catholic-icon-btn:hover {
-    background: rgba(255,255,255,0.07);
-    color: #60a5fa;
-}
-
-html[data-theme='dark'] .sign-in-area .sign-in-btn {
-    color: #60a5fa !important;
-    border-color: #60a5fa;
-}
-html[data-theme='dark'] .sign-in-area .sign-in-btn:hover {
-    background: #60a5fa;
-    color: #0f172a !important;
-}
-
-html[data-theme='dark'] .search-input-area {
-    background: #0f172a;
-    border-color: rgba(255,255,255,0.06);
-}
-html[data-theme='dark'] .search-input-inner .form-control {
-    background: #1e293b;
-    border-color: rgba(255,255,255,0.12);
-    color: #f1f5f9;
-}
-html[data-theme='dark'] .search-input-inner .form-control:focus {
-    border-color: #60a5fa;
-    box-shadow: 0 0 0 3px rgba(96,165,250,0.15);
-}
-
-/* Dark mode toggle icon swap */
-html[data-theme='dark'] .catholic-icon-btn .icon-sun { display: none !important; }
-html[data-theme='dark'] .catholic-icon-btn .icon-moon { display: block !important; }
-
-/* Dark mode title hover */
-html[data-theme='dark'] .title-hover {
-    background-image: linear-gradient(to right, #60a5fa 50%, transparent 50%) !important;
-}
-
-/* Dark footer stays dark */
-html[data-theme='dark'] .echo-footer-area {
-    background: #060a14 !important;
-}
-
-/* ------------------------------------------------------------
-   12. Homepage body class scoping
-   ------------------------------------------------------------ */
-body.home-catholic .echo-header-area {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-}
-
-/* ------------------------------------------------------------
-   13. Responsive
-   ------------------------------------------------------------ */
+/* ── 23. Responsive ───────────────────────────────────────── */
 @media (max-width: 991px) {
-    .catholic-desktop-nav {
-        display: none !important;
-    }
+    .catholic-desktop-nav { display: none !important; }
+    .echo-header-area .echo-home-1-menu.catholic-header-main .container > .d-flex { min-height: 60px; }
+}
+
+@media (max-width: 767px) {
+    .catholic-breaking-bar { height: 32px; --breaking-h: 32px; }
+    .catholic-ticker-item { font-size: .75rem; }
+    .echo-hero-title { font-size: 1.35rem; }
 }
 
 @media (max-width: 575px) {
-    .catholic-text-logo .text-logo-main {
-        font-size: 1.1rem;
-    }
-    .footer-mission {
-        display: block;
-        margin-left: 0;
-        margin-top: 4px;
-    }
+    .catholic-text-logo .text-logo-main { font-size: 1.1rem; }
+    .footer-mission { display: block; margin-left: 0; margin-top: 3px; }
+    .catholic-footer-bottom-inner { flex-direction: column; align-items: flex-start; }
+    .catholic-breaking-label { padding: 0 10px; font-size: .62rem; }
+}
+
+/* ── 24. Reduced motion ───────────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+/* Header hover override */
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li > a:hover,
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li.current-menu-item > a,
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li.current > a,
+.echo-header-area .echo-home-1-menu.catholic-header-main .catholic-icon-btn:hover,
+.echo-header-area .echo-home-1-menu.catholic-header-main .sign-in-area .sign-in-btn:hover,
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu .sub-menu li a:hover {
+    color: #c9a227 !important;
+}
+
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li > a:hover::after,
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li.current-menu-item > a::after,
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li.current > a::after {
+    background: #c9a227 !important;
+}
+
+.echo-header-area .echo-home-1-menu.catholic-header-main .sign-in-area .sign-in-btn {
+    color: #c9a227 !important;
+    border-color: #c9a227 !important;
+}
+
+.echo-header-area .echo-home-1-menu.catholic-header-main .sign-in-area .sign-in-btn:hover,
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu .sub-menu li a:hover {
+    background: rgba(201,162,39,.12) !important;
+    box-shadow: none !important;
+}
+
+html[data-theme='dark'] .echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li > a:hover,
+html[data-theme='dark'] .echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li.current-menu-item > a,
+html[data-theme='dark'] .echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li.current > a,
+html[data-theme='dark'] .echo-header-area .echo-home-1-menu.catholic-header-main .catholic-icon-btn:hover,
+html[data-theme='dark'] .echo-header-area .echo-home-1-menu.catholic-header-main .sign-in-area .sign-in-btn:hover,
+html[data-theme='dark'] .echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu .sub-menu li a:hover {
+    color: #c9a227 !important;
 }

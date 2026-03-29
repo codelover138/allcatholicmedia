@@ -70,6 +70,8 @@ class Youtube
             '/youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/',
             // Mobile URL: https://m.youtube.com/watch?v=VIDEO_ID
             '/m\.youtube\.com\/watch\?v=([a-zA-Z0-9_-]{11})/',
+            // Live URL: https://www.youtube.com/live/VIDEO_ID
+            '/youtube\.com\/live\/([a-zA-Z0-9_-]{11})/',
         ];
 
         foreach ($patterns as $pattern) {
