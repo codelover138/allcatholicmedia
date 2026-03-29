@@ -262,17 +262,17 @@ ul.echo-desktop-menu > li {
 
 ul.echo-desktop-menu > li > a {
     font-family: 'Inter', sans-serif !important;
-    font-weight: 500 !important;
-    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
     color: var(--c-body) !important;
-    padding: 0 13px !important;
+    padding: 0 16px !important;
     display: flex !important;
     align-items: center;
     height: var(--header-h);
     transition: color var(--t) !important;
     text-decoration: none !important;
     position: relative;
-    letter-spacing: .01em;
+    letter-spacing: .015em;
 }
 
 /* Animated underline — same pattern as allcatholicmedia.com */
@@ -280,7 +280,7 @@ ul.echo-desktop-menu > li > a::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 13px; right: 13px;
+    left: 16px; right: 16px;
     height: 2px;
     background: var(--c-gold);
     border-radius: 2px 2px 0 0;
@@ -896,4 +896,49 @@ html[data-theme='dark'] .echo-header-area .echo-home-1-menu.catholic-header-main
 html[data-theme='dark'] .echo-header-area .echo-home-1-menu.catholic-header-main .sign-in-area .sign-in-btn:hover,
 html[data-theme='dark'] .echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu .sub-menu li a:hover {
     color: #c9a227 !important;
+}
+
+/* Strong final header state override */
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li:hover > a,
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li.active > a,
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li.current-menu-item > a,
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li.current-menu-ancestor > a,
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li.current_page_item > a,
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li.current_page_ancestor > a,
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li.current > a {
+    color: #c9a227 !important;
+}
+
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li:hover > a::after,
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li.active > a::after,
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li.current-menu-item > a::after,
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li.current-menu-ancestor > a::after,
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li.current_page_item > a::after,
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li.current_page_ancestor > a::after,
+.echo-header-area .echo-home-1-menu.catholic-header-main ul.echo-desktop-menu > li.current > a::after {
+    background: #c9a227 !important;
+    transform: scaleX(1);
+}
+
+.echo-home-1-menu.catholic-header-main nav.echo-home-1-menu ul.echo-desktop-menu > li > a,
+.echo-home-1-menu.catholic-header-main nav.echo-home-1-menu ul.echo-desktop-menu > li > a:link,
+.echo-home-1-menu.catholic-header-main nav.echo-home-1-menu ul.echo-desktop-menu > li > a:visited {
+    color: #ffffff !important;
+    font-size: 1.08rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.015em !important;
+    padding-inline: 18px !important;
+}
+
+.echo-home-1-menu.catholic-header-main nav.echo-home-1-menu ul.echo-desktop-menu > li > a:hover,
+.echo-home-1-menu.catholic-header-main nav.echo-home-1-menu ul.echo-desktop-menu > li > a:focus,
+.echo-home-1-menu.catholic-header-main nav.echo-home-1-menu ul.echo-desktop-menu > li.active > a,
+.echo-home-1-menu.catholic-header-main nav.echo-home-1-menu ul.echo-desktop-menu > li.current-menu-item > a,
+.echo-home-1-menu.catholic-header-main nav.echo-home-1-menu ul.echo-desktop-menu > li.current-menu-ancestor > a,
+.echo-home-1-menu.catholic-header-main nav.echo-home-1-menu ul.echo-desktop-menu > li.current_page_item > a,
+.echo-home-1-menu.catholic-header-main nav.echo-home-1-menu ul.echo-desktop-menu > li.current_page_ancestor > a,
+.echo-home-1-menu.catholic-header-main nav.echo-home-1-menu ul.echo-desktop-menu > li.current > a {
+    color: #c9a227 !important;
+    -webkit-text-fill-color: #c9a227 !important;
+    opacity: 1 !important;
 }

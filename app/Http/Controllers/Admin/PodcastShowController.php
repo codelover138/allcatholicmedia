@@ -179,12 +179,34 @@ class PodcastShowController extends BaseController
             'slug'        => ['required', 'string', 'max:255', Rule::unique('podcast_shows', 'slug')->ignore($show?->id)],
             'thumbnail'   => ['nullable', 'string', 'max:500'],
             'banner'      => ['nullable', 'string', 'max:500'],
+            'thumbnail_file' => ['nullable', 'image', 'max:5120'],
+            'banner_file' => ['nullable', 'image', 'max:5120'],
             'description' => ['nullable', 'string'],
             'category'    => ['nullable', 'string', 'max:120'],
             'website_url' => ['nullable', 'string', 'max:500'],
             'sort_order'  => ['nullable', 'integer', 'min:0'],
             'is_active'   => ['nullable', 'boolean'],
         ]);
+
+        $uploadDirectory = public_path('uploads/podcast-shows');
+
+        if (($request->hasFile('thumbnail_file') || $request->hasFile('banner_file')) && ! File::isDirectory($uploadDirectory)) {
+            File::makeDirectory($uploadDirectory, 0755, true);
+        }
+
+        if ($request->hasFile('thumbnail_file')) {
+            $file = $request->file('thumbnail_file');
+            $filename = 'podcast-thumb-' . now()->format('YmdHis') . '-' . Str::random(6) . '.' . $file->getClientOriginalExtension();
+            $file->move($uploadDirectory, $filename);
+            $data['thumbnail'] = url('uploads/podcast-shows/' . $filename);
+        }
+
+        if ($request->hasFile('banner_file')) {
+            $file = $request->file('banner_file');
+            $filename = 'podcast-banner-' . now()->format('YmdHis') . '-' . Str::random(6) . '.' . $file->getClientOriginalExtension();
+            $file->move($uploadDirectory, $filename);
+            $data['banner'] = url('uploads/podcast-shows/' . $filename);
+        }
 
         $data['is_active']  = $request->boolean('is_active');
         $data['sort_order'] = (int) $request->input('sort_order', 0);

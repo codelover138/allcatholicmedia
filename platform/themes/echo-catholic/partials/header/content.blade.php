@@ -1,6 +1,41 @@
 {{-- Thin gradient faith bar --}}
 <div class="catholic-faith-bar" aria-hidden="true"></div>
 
+<style>
+    .catholic-header-main .echo-desktop-menu > li > a {
+        color: #fff !important;
+        -webkit-text-fill-color: #fff !important;
+        opacity: 1 !important;
+        font-size: 1.08rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.015em !important;
+        padding-inline: 18px !important;
+    }
+
+    .catholic-header-main .echo-desktop-menu > li:hover > a,
+    .catholic-header-main .echo-desktop-menu > li.active > a,
+    .catholic-header-main .echo-desktop-menu > li.current-menu-item > a,
+    .catholic-header-main .echo-desktop-menu > li.current-menu-ancestor > a,
+    .catholic-header-main .echo-desktop-menu > li.current_page_item > a,
+    .catholic-header-main .echo-desktop-menu > li.current_page_ancestor > a,
+    .catholic-header-main .echo-desktop-menu > li.current > a {
+        color: #C9A227 !important;
+        -webkit-text-fill-color: #C9A227 !important;
+        opacity: 1 !important;
+    }
+
+    .catholic-header-main .echo-desktop-menu > li:hover > a::after,
+    .catholic-header-main .echo-desktop-menu > li.active > a::after,
+    .catholic-header-main .echo-desktop-menu > li.current-menu-item > a::after,
+    .catholic-header-main .echo-desktop-menu > li.current-menu-ancestor > a::after,
+    .catholic-header-main .echo-desktop-menu > li.current_page_item > a::after,
+    .catholic-header-main .echo-desktop-menu > li.current_page_ancestor > a::after,
+    .catholic-header-main .echo-desktop-menu > li.current > a::after {
+        background: #C9A227 !important;
+        transform: scaleX(1);
+    }
+</style>
+
 {{-- Breaking news ticker --}}
 {!! Theme::partial('breaking-news') !!}
 

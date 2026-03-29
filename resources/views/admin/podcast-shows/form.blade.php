@@ -9,9 +9,12 @@
                 </x-core::card.header>
                 <x-core::card.body>
                     <form method="POST"
+                          enctype="multipart/form-data"
                           action="{{ $show->exists ? route('admin.podcast-shows.update', $show) : route('admin.podcast-shows.store') }}">
                         @csrf
-                        @if ($show->exists) @method('PUT') @endif
+                        @if ($show->exists)
+                            @method('PUT')
+                        @endif
 
                         <div class="mb-3">
                             <label class="form-label">{{ __('Show Name') }} <span class="text-danger">*</span></label>
@@ -47,7 +50,18 @@
                             <input type="text" name="thumbnail" class="form-control"
                                    value="{{ old('thumbnail', $show->thumbnail) }}"
                                    placeholder="https://...">
-                            <div class="form-text">{{ __('Square image (400×400 recommended)') }}</div>
+                            <div class="form-text">{{ __('Square image (400x400 recommended)') }}</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">{{ __('Or Upload Thumbnail Image') }}</label>
+                            <input type="file" name="thumbnail_file" class="form-control @error('thumbnail_file') is-invalid @enderror" accept="image/*">
+                            @error('thumbnail_file')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                            @if ($show->thumbnail)
+                                <div class="mt-2">
+                                    <img src="{{ $show->thumbnail }}" alt="{{ $show->name }}" style="width:88px;height:88px;object-fit:cover;border-radius:12px;border:1px solid #dbe3ee;">
+                                </div>
+                            @endif
                         </div>
 
                         <div class="mb-3">
@@ -55,7 +69,18 @@
                             <input type="text" name="banner" class="form-control"
                                    value="{{ old('banner', $show->banner) }}"
                                    placeholder="https://...">
-                            <div class="form-text">{{ __('Wide banner image (1200×300 recommended)') }}</div>
+                            <div class="form-text">{{ __('Wide banner image (1200x300 recommended)') }}</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">{{ __('Or Upload Banner Image') }}</label>
+                            <input type="file" name="banner_file" class="form-control @error('banner_file') is-invalid @enderror" accept="image/*">
+                            @error('banner_file')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                            @if ($show->banner)
+                                <div class="mt-2">
+                                    <img src="{{ $show->banner }}" alt="{{ $show->name }}" style="width:100%;max-width:280px;height:78px;object-fit:cover;border-radius:12px;border:1px solid #dbe3ee;">
+                                </div>
+                            @endif
                         </div>
 
                         <div class="mb-3">
@@ -115,7 +140,7 @@
                             <tbody>
                                 @forelse ($episodes as $ep)
                                     <tr>
-                                        <td class="text-secondary small">{{ $ep->episode_number ?: '—' }}</td>
+                                        <td class="text-secondary small">{{ $ep->episode_number ?: 'N/A' }}</td>
                                         <td>
                                             <div class="fw-semibold small">{{ Str::limit($ep->title, 40) }}</div>
                                             @if ($ep->published_at)
@@ -130,7 +155,8 @@
                                                 <form action="{{ route('admin.podcast-shows.episodes.destroy', [$show, $ep]) }}"
                                                       method="POST"
                                                       onsubmit="return confirm('{{ __('Delete episode?') }}');">
-                                                    @csrf @method('DELETE')
+                                                    @csrf
+                                                    @method('DELETE')
                                                     <button type="submit" class="btn btn-xs btn-danger">{{ __('Del') }}</button>
                                                 </form>
                                             </div>

@@ -1,10 +1,24 @@
 <ul {!! $options !!}>
     @foreach ($menu_nodes->loadMissing(['metadata', 'parent']) as $key => $row)
+        @php
+            $title = trim(strip_tags((string) $row->title));
+            $customActive = match ($title) {
+                'Home' => request()->routeIs('public.index'),
+                'Channels', 'Watch' => request()->routeIs('public.watch*'),
+                'Listen' => request()->routeIs('public.listen*'),
+                default => false,
+            };
+
+            $isActive = $row->active || $customActive;
+        @endphp
         <li @class([
             'menu-item',
             'nav-item' => $row->parent,
             'echo-has-dropdown' => $row->has_child,
-            'active' => $row->active,
+            'active' => $isActive,
+            'current-menu-item' => $isActive,
+            'current' => $isActive,
+            'current_page_item' => $isActive,
         ])>
             <a
                 @class(['echo-dropdown-main-element' => ! $row->parent])
