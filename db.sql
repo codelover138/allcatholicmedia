@@ -14,11 +14,6 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-
--- Dumping database structure for allcatholicmedia
-CREATE DATABASE IF NOT EXISTS `allcatholicmedia` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `allcatholicmedia`;
-
 -- Dumping structure for table allcatholicmedia.activations
 CREATE TABLE IF NOT EXISTS `activations` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -32,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `activations` (
   KEY `activations_user_id_index` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.activations: ~0 rows (approximately)
+-- Dumping data for table allcatholicmedia.activations: ~1 rows (approximately)
 REPLACE INTO `activations` (`id`, `user_id`, `code`, `completed`, `completed_at`, `created_at`, `updated_at`) VALUES
 	(1, 1, '4lkwp5kz5e9gWd4OPSGMkARJ8fRhNvy6', 1, '2025-12-24 07:30:13', '2025-12-24 07:30:13', '2025-12-24 07:30:13');
 
@@ -148,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `audit_histories` (
   KEY `audit_histories_module_index` (`module`)
 ) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.audit_histories: ~35 rows (approximately)
+-- Dumping data for table allcatholicmedia.audit_histories: ~66 rows (approximately)
 REPLACE INTO `audit_histories` (`id`, `user_id`, `user_type`, `module`, `request`, `action`, `user_agent`, `ip_address`, `actor_id`, `actor_type`, `reference_id`, `reference_name`, `type`, `created_at`, `updated_at`) VALUES
 	(1, 1, 'Botble\\ACL\\Models\\User', 'to the system', NULL, 'logged in', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '127.0.0.1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-03-27 22:30:53', '2026-03-27 22:30:53'),
 	(2, 1, 'Botble\\ACL\\Models\\User', 'of the system', '[]', 'logged out', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '127.0.0.1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-03-27 22:46:38', '2026-03-27 22:46:38'),
@@ -215,7 +210,11 @@ REPLACE INTO `audit_histories` (`id`, `user_id`, `user_type`, `module`, `request
 	(63, 1, 'Botble\\ACL\\Models\\User', 'of the system', '[]', 'logged out', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '127.0.0.1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-03-29 11:33:18', '2026-03-29 11:33:18'),
 	(64, 1, 'Botble\\ACL\\Models\\User', 'from the admin panel', NULL, 'logged out', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '127.0.0.1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-03-29 11:33:18', '2026-03-29 11:33:18'),
 	(65, 1, 'Botble\\ACL\\Models\\User', 'to the system', NULL, 'logged in', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '127.0.0.1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-03-29 12:08:31', '2026-03-29 12:08:31'),
-	(66, 1, 'Botble\\ACL\\Models\\User', 'to the system', NULL, 'logged in', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '127.0.0.1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-03-29 18:13:59', '2026-03-29 18:13:59');
+	(66, 1, 'Botble\\ACL\\Models\\User', 'to the system', NULL, 'logged in', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '127.0.0.1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-03-29 18:13:59', '2026-03-29 18:13:59'),
+	(67, 1, 'Botble\\ACL\\Models\\User', 'to the system', NULL, 'logged in', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '127.0.0.1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-03-29 21:50:29', '2026-03-29 21:50:29'),
+	(68, 1, 'Botble\\ACL\\Models\\User', 'to the system', NULL, 'logged in', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '127.0.0.1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-03-29 21:52:48', '2026-03-29 21:52:48'),
+	(69, 1, 'Botble\\ACL\\Models\\User', 'of the system', '[]', 'logged out', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '127.0.0.1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-03-29 21:53:31', '2026-03-29 21:53:31'),
+	(70, 1, 'Botble\\ACL\\Models\\User', 'from the admin panel', NULL, 'logged out', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '127.0.0.1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-03-29 21:53:31', '2026-03-29 21:53:31');
 
 -- Dumping structure for table allcatholicmedia.cache
 CREATE TABLE IF NOT EXISTS `cache` (
@@ -304,7 +303,7 @@ CREATE TABLE IF NOT EXISTS `community_groups` (
   CONSTRAINT `community_groups_creator_id_foreign` FOREIGN KEY (`creator_id`) REFERENCES `members` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.community_groups: ~2 rows (approximately)
+-- Dumping data for table allcatholicmedia.community_groups: ~3 rows (approximately)
 REPLACE INTO `community_groups` (`id`, `name`, `slug`, `description`, `cover_image`, `privacy`, `creator_id`, `members_count`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 'Rosary Confraternity', 'rosary-confraternity', 'We pray the Rosary together daily and share intentions. All are welcome regardless of experience level.', NULL, 'public', 1, 5, 'published', '2026-03-28 00:02:51', '2026-03-28 00:50:17'),
 	(2, 'Traditional Latin Mass Community', 'traditional-latin-mass-community', 'For those who love the TLM — share resources, find locations.', NULL, 'public', 1, 6, 'published', '2026-03-28 00:03:25', '2026-03-28 00:50:17'),
@@ -651,7 +650,7 @@ CREATE TABLE IF NOT EXISTS `forum_categories` (
   UNIQUE KEY `forum_categories_slug_unique` (`slug`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.forum_categories: ~6 rows (approximately)
+-- Dumping data for table allcatholicmedia.forum_categories: ~7 rows (approximately)
 REPLACE INTO `forum_categories` (`id`, `name`, `slug`, `description`, `order_column`, `topics_count`, `created_at`, `updated_at`) VALUES
 	(1, 'Vatican & Pope', 'vatican-pope', 'Papal announcements, Vatican news, and magisterial teachings.', 1, 2, '2026-03-28 00:02:51', '2026-03-28 00:50:16'),
 	(2, 'Prayer & Spirituality', 'prayer-spirituality', 'Discussion on prayer forms, retreats, and spiritual direction.', 2, 5, '2026-03-28 00:02:51', '2026-03-28 00:50:16'),
@@ -828,7 +827,7 @@ CREATE TABLE IF NOT EXISTS `gallery_meta` (
   KEY `gallery_meta_reference_id_index` (`reference_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.gallery_meta: ~20 rows (approximately)
+-- Dumping data for table allcatholicmedia.gallery_meta: ~23 rows (approximately)
 REPLACE INTO `gallery_meta` (`id`, `images`, `reference_id`, `reference_type`, `created_at`, `updated_at`) VALUES
 	(1, '[{"img":"main\\/news\\/1.jpg","description":""},{"img":"main\\/news\\/2.jpg","description":""},{"img":"main\\/news\\/3.jpg","description":""},{"img":"main\\/news\\/4.jpg","description":""},{"img":"main\\/news\\/5.jpg","description":""},{"img":"main\\/news\\/6.jpg","description":""},{"img":"main\\/news\\/7.jpg","description":""},{"img":"main\\/news\\/8.jpg","description":""},{"img":"main\\/news\\/9.jpg","description":""},{"img":"main\\/news\\/10.jpg","description":""},{"img":"main\\/news\\/11.jpg","description":""},{"img":"main\\/news\\/12.jpg","description":""},{"img":"main\\/news\\/13.jpg","description":""},{"img":"main\\/news\\/14.jpg","description":""},{"img":"main\\/news\\/15.jpg","description":""},{"img":"main\\/news\\/16.jpg","description":""},{"img":"main\\/news\\/17.jpg","description":""},{"img":"main\\/news\\/18.jpg","description":""},{"img":"main\\/news\\/19.jpg","description":""},{"img":"main\\/news\\/20.jpg","description":""}]', 1, 'Botble\\Gallery\\Models\\Gallery', '2025-12-24 07:30:26', '2025-12-24 07:30:26'),
 	(2, '[{"img":"main\\/news\\/1.jpg","description":""},{"img":"main\\/news\\/2.jpg","description":""},{"img":"main\\/news\\/3.jpg","description":""},{"img":"main\\/news\\/4.jpg","description":""},{"img":"main\\/news\\/5.jpg","description":""},{"img":"main\\/news\\/6.jpg","description":""},{"img":"main\\/news\\/7.jpg","description":""},{"img":"main\\/news\\/8.jpg","description":""},{"img":"main\\/news\\/9.jpg","description":""},{"img":"main\\/news\\/10.jpg","description":""},{"img":"main\\/news\\/11.jpg","description":""},{"img":"main\\/news\\/12.jpg","description":""},{"img":"main\\/news\\/13.jpg","description":""},{"img":"main\\/news\\/14.jpg","description":""},{"img":"main\\/news\\/15.jpg","description":""},{"img":"main\\/news\\/16.jpg","description":""},{"img":"main\\/news\\/17.jpg","description":""},{"img":"main\\/news\\/18.jpg","description":""},{"img":"main\\/news\\/19.jpg","description":""},{"img":"main\\/news\\/20.jpg","description":""}]', 2, 'Botble\\Gallery\\Models\\Gallery', '2025-12-24 07:30:26', '2025-12-24 07:30:26'),
@@ -897,7 +896,7 @@ CREATE TABLE IF NOT EXISTS `languages` (
   KEY `lang_is_default_index` (`lang_is_default`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.languages: ~0 rows (approximately)
+-- Dumping data for table allcatholicmedia.languages: ~1 rows (approximately)
 REPLACE INTO `languages` (`lang_id`, `lang_name`, `lang_locale`, `lang_code`, `lang_flag`, `lang_is_default`, `lang_order`, `lang_is_rtl`) VALUES
 	(1, 'English', 'en', 'en_US', 'us', 1, 0, 0);
 
@@ -915,7 +914,7 @@ CREATE TABLE IF NOT EXISTS `language_meta` (
   KEY `meta_reference_type_index` (`reference_type`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.language_meta: ~7 rows (approximately)
+-- Dumping data for table allcatholicmedia.language_meta: ~8 rows (approximately)
 REPLACE INTO `language_meta` (`lang_meta_id`, `lang_meta_code`, `lang_meta_origin`, `reference_id`, `reference_type`) VALUES
 	(1, 'en_US', '001fcc084e868b136aafe2aec8c3e989', 1, 'Botble\\Menu\\Models\\MenuLocation'),
 	(2, 'en_US', 'f98c5f3fcb1218b82dfbffdc0f3410d5', 1, 'Botble\\Menu\\Models\\Menu'),
@@ -971,7 +970,7 @@ CREATE TABLE IF NOT EXISTS `media_files` (
   KEY `media_files_index` (`folder_id`,`user_id`,`created_at`)
 ) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.media_files: ~77 rows (approximately)
+-- Dumping data for table allcatholicmedia.media_files: ~79 rows (approximately)
 REPLACE INTO `media_files` (`id`, `user_id`, `name`, `alt`, `folder_id`, `mime_type`, `size`, `url`, `options`, `created_at`, `updated_at`, `deleted_at`, `visibility`) VALUES
 	(1, 0, 'about-1', 'about-1', 2, 'image/png', 8467, 'main/general/about-1.png', '[]', '2025-12-24 07:30:11', '2025-12-24 07:30:11', NULL, 'public'),
 	(2, 0, 'about-2', 'about-2', 2, 'image/png', 8467, 'main/general/about-2.png', '[]', '2025-12-24 07:30:11', '2025-12-24 07:30:11', NULL, 'public'),
@@ -1096,7 +1095,7 @@ CREATE TABLE IF NOT EXISTS `media_settings` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.media_settings: ~0 rows (approximately)
+-- Dumping data for table allcatholicmedia.media_settings: ~1 rows (approximately)
 REPLACE INTO `media_settings` (`id`, `key`, `value`, `media_id`, `user_id`, `created_at`, `updated_at`) VALUES
 	(1, 'recent_items', '[{"id":79,"is_folder":false},{"id":78,"is_folder":false}]', NULL, 1, '2026-03-27 22:58:04', '2026-03-28 21:55:33');
 
@@ -1122,7 +1121,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   UNIQUE KEY `members_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.members: ~8 rows (approximately)
+-- Dumping data for table allcatholicmedia.members: ~9 rows (approximately)
 REPLACE INTO `members` (`id`, `first_name`, `last_name`, `description`, `gender`, `email`, `password`, `avatar_id`, `dob`, `phone`, `confirmed_at`, `email_verify_token`, `remember_token`, `created_at`, `updated_at`, `status`) VALUES
 	(1, 'John', 'Smith', 'NOT marked \'poison,\' it is.', NULL, 'member@archielite.com', '$2y$12$OXloF7xmIvAsWc4mXt45..pW45gSJHfQj9vOCiuu2BlnbLX/G4Ncy', 16, '2009-02-05', '(470) 632-4613', '2025-12-24 14:30:14', NULL, NULL, '2025-12-24 07:30:14', '2025-12-24 07:30:14', 'published'),
 	(2, 'Blanca', 'Schultz', 'Hi, I’m Blanca Schultz, Your Blogging Journey Guide 🖋️. Writing, one blog post at a time, to inspire, inform, and ignite your curiosity. Join me as we explore the world through words and embark on a limitless adventure of knowledge and creativity. Let’s bring your thoughts to life on these digital pages. 🌟 #BloggingAdventures', NULL, 'duane70@gmail.com', '$2y$12$dH1AudJvyjW1rlBQNSMhwOK0Tw9aapi3JkieJjdwrEEVs00HMl/O2', 17, '1998-07-20', '+1.425.376.2772', '2025-12-24 14:30:14', NULL, NULL, '2025-12-24 07:30:14', '2025-12-24 07:30:14', 'published'),
@@ -1174,7 +1173,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   UNIQUE KEY `menus_slug_unique` (`slug`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.menus: ~0 rows (approximately)
+-- Dumping data for table allcatholicmedia.menus: ~1 rows (approximately)
 REPLACE INTO `menus` (`id`, `name`, `slug`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 'Main menu', 'main-menu', 'published', '2025-12-24 07:30:28', '2026-03-29 09:30:59');
 
@@ -1189,7 +1188,7 @@ CREATE TABLE IF NOT EXISTS `menu_locations` (
   KEY `menu_locations_menu_id_created_at_index` (`menu_id`,`created_at`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.menu_locations: ~0 rows (approximately)
+-- Dumping data for table allcatholicmedia.menu_locations: ~1 rows (approximately)
 REPLACE INTO `menu_locations` (`id`, `menu_id`, `location`, `created_at`, `updated_at`) VALUES
 	(1, 1, 'main-menu', '2025-12-24 07:30:28', '2025-12-24 07:30:28');
 
@@ -1216,7 +1215,7 @@ CREATE TABLE IF NOT EXISTS `menu_nodes` (
   KEY `reference_type` (`reference_type`)
 ) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.menu_nodes: ~5 rows (approximately)
+-- Dumping data for table allcatholicmedia.menu_nodes: ~6 rows (approximately)
 REPLACE INTO `menu_nodes` (`id`, `menu_id`, `parent_id`, `reference_id`, `reference_type`, `url`, `icon_font`, `position`, `title`, `css_class`, `target`, `has_child`, `created_at`, `updated_at`) VALUES
 	(24, 1, 0, 0, NULL, '/', '', 0, 'Home', '', '_self', 0, '2026-03-27 22:28:10', '2026-03-29 09:30:59'),
 	(25, 1, 0, 0, NULL, '/watch', '', 1, 'Channels', '', '_self', 0, '2026-03-27 22:28:10', '2026-03-29 09:30:59'),
@@ -1238,7 +1237,7 @@ CREATE TABLE IF NOT EXISTS `meta_boxes` (
   KEY `meta_boxes_reference_id_index` (`reference_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.meta_boxes: ~40 rows (approximately)
+-- Dumping data for table allcatholicmedia.meta_boxes: ~44 rows (approximately)
 REPLACE INTO `meta_boxes` (`id`, `meta_key`, `meta_value`, `reference_id`, `reference_type`, `created_at`, `updated_at`) VALUES
 	(1, 'title', '["Chef Marketing Officer"]', 1, 'Botble\\Member\\Models\\Member', '2025-12-24 07:30:14', '2025-12-24 07:30:14'),
 	(2, 'social_links', '[[[{"key":"name","value":"Facebook"},{"key":"icon","value":"ti ti-brand-facebook"},{"key":"url","value":"https:\\/\\/www.facebook.com\\/"}],[{"key":"name","value":"Instagram"},{"key":"icon","value":"ti ti-brand-instagram"},{"key":"url","value":"https:\\/\\/www.instagram.com\\/"}],[{"key":"name","value":"Twitter"},{"key":"icon","value":"ti ti-brand-x"},{"key":"url","value":"https:\\/\\/www.twitter.com\\/"}],[{"key":"name","value":"YouTube"},{"key":"icon","value":"ti ti-brand-youtube"},{"key":"url","value":"https:\\/\\/www.youtube.com\\/"}],[{"key":"name","value":"Pinterest"},{"key":"icon","value":"ti ti-brand-pinterest"},{"key":"url","value":"https:\\/\\/www.pinterest.com\\/"}]]]', 1, 'Botble\\Member\\Models\\Member', '2025-12-24 07:30:14', '2025-12-24 07:30:14'),
@@ -1293,7 +1292,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.migrations: ~97 rows (approximately)
+-- Dumping data for table allcatholicmedia.migrations: ~103 rows (approximately)
 REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '0001_01_01_000001_create_cache_table', 1),
 	(2, '2013_04_09_032329_create_base_tables', 1),
@@ -1481,7 +1480,7 @@ CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.password_reset_tokens: ~0 rows (approximately)
+-- Dumping data for table allcatholicmedia.password_reset_tokens: ~1 rows (approximately)
 REPLACE INTO `password_reset_tokens` (`email`, `token`, `created_at`) VALUES
 	('babu313136@gmail.com', '$2y$12$7ssGAZ6SGxWpZlKKdXOii.TFlFc/q2R/7HNs75w6ZkTbk4xUeymSO', '2026-03-29 09:11:54');
 
@@ -1526,7 +1525,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   KEY `posts_created_at_index` (`created_at`)
 ) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.posts: ~45 rows (approximately)
+-- Dumping data for table allcatholicmedia.posts: ~48 rows (approximately)
 REPLACE INTO `posts` (`id`, `name`, `description`, `content`, `status`, `author_id`, `author_type`, `is_featured`, `image`, `views`, `format_type`, `created_at`, `updated_at`) VALUES
 	(1, 'Pope Francis Calls for Global Peace at Sunday Angelus', 'Explore the intricate web of international relations and the impact of global alliances on political landscapes. Delve into the nuances that shape diplomatic strategies and geopolitical shifts.', '<p>Our mission is to assist you in achieving better financial shape, not just for today, but for the long term. We believe that financial security and freedom are within reach for everyone, and we’re dedicated to providing the guidance and support you need to get there.</p><div>[content-quote author="Celine Dion" quote="‘‘Life Imposes Things On You That You Can’t Control, But You Still Have The Choice Of How You’re Going To Live Through This.’’"][/content-quote]</div><div>[content-image number_of_columns="col-2" quantity="2" image_1="main/news/6.jpg" image_2="main/news/2.jpg"][/content-image]</div><h3>Better financial shape</h3><p>Our comprehensive range of financial services and expert guidance are designed to empower individuals, families, and businesses to make informed financial decisions. Whether you’re looking to manage debt, build savings, invest wisely, or plan for retirement, our team of seasoned financial professionals is committed to helping you reach your goals. We offer personalized financial assessments, tailored strategies, and cutting-edge tools to maximize your financial well-being. By partnering with us, you gain access to a wealth of knowledge and resources that can transform your financial future.</p><div>[content-listing-style style="style-1" quantity="6" item_1="Diverse Solutions Guidance." item_2="Professionals Assisting You." item_3="Tailored Strategies for Success." item_4="Informed Decisions with Technology." item_5="Health Assessments Provided." item_6="Strategies for Building Prosperity."][/content-listing-style]</div><p>Achieving financial stability and prosperity is a shared goal we all aspire to. At Echo, we understand the significance of being in better financial shape, and we are here to guide you on your journey.</p><br> </br><br> </br>', 'published', 2, 'Botble\\Member\\Models\\Member', 1, 'politics/news/1.jpg', 241, NULL, '2025-12-24 07:30:26', '2026-03-27 23:27:34'),
 	(2, 'The Daily Rosary: A Guide for Families', 'Trace the evolution of political discourse through the ages, examining how communication styles, rhetoric, and public engagement have shaped the political narrative.', '<p>The title conveys a sense of confidence that the economy will weather the banking crisis without suffering severe damage. The term "banking crisis" likely refers to a situation where financial institutions face significant challenges, such as insolvency, liquidity problems, or other issues that could affect the stability of the financial sector.</p><div>[content-quote style="style-2" quote="Life Imposes Things On You That You Can’t Control, But You Still Have The Choice Of How You’re Going To Live Through This" author="Celine Dion" description="Acknowledgment of Life’s Challenges: The quote recognizes that life can be unpredictable and present challenges, obstacles, and hardships that are beyond an individual’s control. It emphasizes that adversity is a natural part of the human experience." top_left_image="main/general/blog-shape-image.png"][/content-quote]</div><h3>I love how relaxed and flowy this dress is and that it has really delicate</h3><p>Indulge in the epitome of comfort and style with our "Relaxed and Flowy" dress, a masterpiece of delicate design and effortless elegance. This dress offers the perfect blend of comfort and sophistication, allowing you to move gracefully through any occasion. Crafted with meticulous attention to detail, its delicate fabric and relaxed silhouette make it a wardrobe essential for those who appreciate both style and comfort. Whether you’re strolling through a garden party or enjoying a serene evening out, this dress will be your trusted companion. Discover the beauty of ease and elegance with this exquisite garment.</p><br> </br><div>[content-image number_of_columns="col-2" quantity="2" image_1="main/news/3.jpg" image_2="main/news/7.jpg"][/content-image]</div><div>[content-capitalize text="Step into the world of tranquility and charm with our Relaxed and Flowy dress. Its effortless design is a testament to the beauty of simplicity. The gentle, delicate fabric cascades with every movement, creating a mesmerizing dance of fabric and form. This dress embraces you in a feeling of relaxation and freedom, making it perfect for those serene, carefree moments you cherish"][/content-capitalize]</div><div>[content-capitalize blog_content="This dress has a captivating allure with its relaxed and flowy silhouette that exudes a sense of effortlessness. What truly sets it apart are the exquisite, delicate details that adorn the fabric. The dress strikes a harmonious balance between comfort and sophistication, making it a perfect choice for those who value both the ease of relaxed attire and the subtle, intricate beauty that these delicate features bring to the overall design."][/content-capitalize]</div><p>It encourages taking personal responsibility for one’s responses to life’s trials. Even when faced with difficult circumstances, individuals have the autonomy to choose their emotional and behavioral reactions.</p><br> </br><p>The subtle details and the relaxed fit come together to create an ensemble that effortlessly combines fashion and comfort. Whether you’re attending a summer soirée or savoring a quiet day by the beach, this dress will be your go-to choice for a look that is both relaxed and elegantly delicate. Elevate your style with this captivating dress that celebrates the beauty of flowy, effortless fashion."</p><br> </br><br> </br>', 'published', 3, 'Botble\\Member\\Models\\Member', 1, 'politics/news/2.jpg', 2295, NULL, '2025-12-24 07:30:26', '2026-03-27 23:27:34'),
@@ -1599,7 +1598,7 @@ CREATE TABLE IF NOT EXISTS `post_categories` (
   KEY `post_categories_post_id_index` (`post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.post_categories: ~39 rows (approximately)
+-- Dumping data for table allcatholicmedia.post_categories: ~48 rows (approximately)
 REPLACE INTO `post_categories` (`category_id`, `post_id`) VALUES
 	(1, 1),
 	(7, 2),
@@ -1658,7 +1657,7 @@ CREATE TABLE IF NOT EXISTS `post_tags` (
   KEY `post_tags_post_id_index` (`post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.post_tags: ~30 rows (approximately)
+-- Dumping data for table allcatholicmedia.post_tags: ~65 rows (approximately)
 REPLACE INTO `post_tags` (`tag_id`, `post_id`) VALUES
 	(1, 1),
 	(2, 2),
@@ -1794,12 +1793,12 @@ CREATE TABLE IF NOT EXISTS `request_logs` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.request_logs: ~0 rows (approximately)
+-- Dumping data for table allcatholicmedia.request_logs: ~15 rows (approximately)
 REPLACE INTO `request_logs` (`id`, `status_code`, `url`, `count`, `user_id`, `referrer`, `created_at`, `updated_at`) VALUES
 	(1, 404, 'http://127.0.0.1:8000/storage/main/general/newsletter-popup.png', 57, NULL, NULL, '2026-03-27 21:44:59', '2026-03-29 18:20:39'),
 	(2, 404, 'http://127.0.0.1:8000/blog/scientists-make-breakthrough-in-cancer-research', 1, NULL, NULL, '2026-03-27 21:45:41', '2026-03-27 21:45:41'),
 	(3, 404, 'http://127.0.0.1:8000/themes/echo/images/shape/feature-bg-shape.png', 5, NULL, NULL, '2026-03-27 22:29:25', '2026-03-27 22:47:17'),
-	(4, 404, 'http://127.0.0.1:8000/themes/echo/plugins/fontawesome5/css/fontawesome.min.css?v=1.5.1', 202, NULL, NULL, '2026-03-27 22:30:18', '2026-03-29 18:15:16'),
+	(4, 404, 'http://127.0.0.1:8000/themes/echo/plugins/fontawesome5/css/fontawesome.min.css?v=1.5.1', 206, NULL, NULL, '2026-03-27 22:30:18', '2026-03-29 21:53:34'),
 	(5, 404, 'http://127.0.0.1:8000/videos', 1, NULL, NULL, '2026-03-27 23:04:14', '2026-03-27 23:04:14'),
 	(6, 404, 'http://localhost/main/admin/youtube-channels', 1, NULL, NULL, '2026-03-29 09:08:59', '2026-03-29 09:08:59'),
 	(7, 404, 'http://localhost:8000/main/admin/youtube-channels', 1, NULL, NULL, '2026-03-29 09:09:12', '2026-03-29 09:09:12'),
@@ -1827,7 +1826,7 @@ CREATE TABLE IF NOT EXISTS `revisions` (
   KEY `revisions_revisionable_id_revisionable_type_index` (`revisionable_id`,`revisionable_type`)
 ) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.revisions: ~28 rows (approximately)
+-- Dumping data for table allcatholicmedia.revisions: ~33 rows (approximately)
 REPLACE INTO `revisions` (`id`, `revisionable_type`, `revisionable_id`, `user_id`, `key`, `old_value`, `new_value`, `created_at`, `updated_at`) VALUES
 	(1, 'Botble\\Blog\\Models\\Post', 21, NULL, 'image', NULL, 'politics/news/1.jpg', '2026-03-28 21:44:54', '2026-03-28 21:44:54'),
 	(2, 'Botble\\Blog\\Models\\Post', 22, NULL, 'image', NULL, 'politics/news/2.jpg', '2026-03-28 21:44:54', '2026-03-28 21:44:54'),
@@ -1881,7 +1880,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   KEY `roles_updated_by_index` (`updated_by`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.roles: ~0 rows (approximately)
+-- Dumping data for table allcatholicmedia.roles: ~1 rows (approximately)
 REPLACE INTO `roles` (`id`, `slug`, `name`, `permissions`, `description`, `is_default`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', 'Admin', '{"users.index":true,"users.create":true,"users.edit":true,"users.destroy":true,"roles.index":true,"roles.create":true,"roles.edit":true,"roles.destroy":true,"core.system":true,"core.cms":true,"core.manage.license":true,"systems.cronjob":true,"core.tools":true,"tools.data-synchronize":true,"media.index":true,"files.index":true,"files.create":true,"files.edit":true,"files.trash":true,"files.destroy":true,"folders.index":true,"folders.create":true,"folders.edit":true,"folders.trash":true,"folders.destroy":true,"settings.index":true,"settings.common":true,"settings.options":true,"settings.email":true,"settings.media":true,"settings.admin-appearance":true,"settings.cache":true,"settings.datatables":true,"settings.email.rules":true,"settings.phone-number":true,"settings.others":true,"menus.index":true,"menus.create":true,"menus.edit":true,"menus.destroy":true,"optimize.settings":true,"pages.index":true,"pages.create":true,"pages.edit":true,"pages.destroy":true,"plugins.index":true,"plugins.edit":true,"plugins.remove":true,"plugins.marketplace":true,"sitemap.settings":true,"core.appearance":true,"theme.index":true,"theme.activate":true,"theme.remove":true,"theme.options":true,"theme.custom-css":true,"theme.custom-js":true,"theme.custom-html":true,"theme.robots-txt":true,"settings.website-tracking":true,"widgets.index":true,"ads.index":true,"ads.create":true,"ads.edit":true,"ads.destroy":true,"ads.settings":true,"analytics.general":true,"analytics.page":true,"analytics.browser":true,"analytics.referrer":true,"analytics.settings":true,"announcements.index":true,"announcements.create":true,"announcements.edit":true,"announcements.destroy":true,"announcements.settings":true,"audit-log.index":true,"audit-log.destroy":true,"backups.index":true,"backups.create":true,"backups.restore":true,"backups.destroy":true,"plugins.blog":true,"posts.index":true,"posts.create":true,"posts.edit":true,"posts.destroy":true,"categories.index":true,"categories.create":true,"categories.edit":true,"categories.destroy":true,"tags.index":true,"blog.reports":true,"tags.create":true,"tags.edit":true,"tags.destroy":true,"blog.settings":true,"posts.export":true,"posts.import":true,"captcha.settings":true,"contacts.index":true,"contacts.edit":true,"contacts.destroy":true,"contact.custom-fields":true,"contact.settings":true,"fob-comment.index":true,"fob-comment.comments.index":true,"fob-comment.comments.edit":true,"fob-comment.comments.destroy":true,"fob-comment.comments.reply":true,"fob-comment.settings":true,"galleries.index":true,"galleries.create":true,"galleries.edit":true,"galleries.destroy":true,"languages.index":true,"languages.create":true,"languages.edit":true,"languages.destroy":true,"translations.import":true,"translations.export":true,"property-translations.import":true,"property-translations.export":true,"member.index":true,"member.create":true,"member.edit":true,"member.destroy":true,"member.settings":true,"newsletter.index":true,"newsletter.destroy":true,"newsletter.settings":true,"request-log.index":true,"request-log.destroy":true,"social-login.settings":true,"plugins.translation":true,"translations.locales":true,"translations.theme-translations":true,"translations.index":true,"theme-translations.export":true,"other-translations.export":true,"theme-translations.import":true,"other-translations.import":true,"api.settings":true,"api.sanctum-token.index":true,"api.sanctum-token.create":true,"api.sanctum-token.destroy":true}', 'Admin users role', 1, 1, 1, '2025-12-24 07:30:13', '2025-12-24 07:30:13');
 
@@ -1924,7 +1923,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
   UNIQUE KEY `settings_key_unique` (`key`)
 ) ENGINE=InnoDB AUTO_INCREMENT=235 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.settings: ~77 rows (approximately)
+-- Dumping data for table allcatholicmedia.settings: ~132 rows (approximately)
 REPLACE INTO `settings` (`id`, `key`, `value`, `created_at`, `updated_at`) VALUES
 	(2, 'api_enabled', '0', NULL, '2026-03-29 18:16:28'),
 	(3, 'activated_plugins', '["language","language-advanced","ads","ai-writer","analytics","announcement","audit-log","backup","blog","captcha","contact","cookie-consent","fob-comment","gallery","member","newsletter","note","request-log","rss-feed","social-login","translation","live-stream","community"]', NULL, '2026-03-29 18:16:28'),
@@ -2077,7 +2076,7 @@ CREATE TABLE IF NOT EXISTS `slugs` (
   KEY `idx_slugs_reference` (`reference_type`,`reference_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.slugs: ~99 rows (approximately)
+-- Dumping data for table allcatholicmedia.slugs: ~107 rows (approximately)
 REPLACE INTO `slugs` (`id`, `key`, `reference_id`, `reference_type`, `prefix`, `created_at`, `updated_at`) VALUES
 	(1, 'smith', 1, 'Botble\\Member\\Models\\Member', 'author', '2025-12-24 07:30:15', '2025-12-24 07:30:28'),
 	(2, 'schultz', 2, 'Botble\\Member\\Models\\Member', 'author', '2025-12-24 07:30:15', '2025-12-24 07:30:28'),
@@ -2283,9 +2282,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_username_unique` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.users: ~0 rows (approximately)
+-- Dumping data for table allcatholicmedia.users: ~1 rows (approximately)
 REPLACE INTO `users` (`id`, `email`, `phone`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `first_name`, `last_name`, `username`, `avatar_id`, `super_user`, `manage_supers`, `permissions`, `last_login`, `sessions_invalidated_at`) VALUES
-	(1, 'babu313136@gmail.com', NULL, '2026-03-29 11:16:04', '$2y$12$AxfmBgPKwJX4NG.oYrBtF.ferY2Scc53IPoeAZZXzFCtF.JuRnjzy', 'XEYIlsgzdNkpcUMkb4T9lrXL6ZlbL6ZUIjdRO7uUrdMQ92GD5S2GBTHrFblX', '2025-12-24 07:30:13', '2026-03-29 18:13:59', 'System', 'Admin', 'admin', NULL, 1, 1, NULL, '2026-03-29 18:13:59', NULL);
+	(1, 'babu313136@gmail.com', NULL, '2026-03-29 11:16:04', '$2y$12$AxfmBgPKwJX4NG.oYrBtF.ferY2Scc53IPoeAZZXzFCtF.JuRnjzy', 'k1SA07K7Jujx6iizCh92laQP5Uk4jTfjHGPtIyUEnsigwVptCoxXC7qSYVWN', '2025-12-24 07:30:13', '2026-03-29 21:52:48', 'System', 'Admin', 'admin', NULL, 1, 1, NULL, '2026-03-29 21:52:48', NULL);
 
 -- Dumping structure for table allcatholicmedia.user_meta
 CREATE TABLE IF NOT EXISTS `user_meta` (
@@ -2332,7 +2331,7 @@ CREATE TABLE IF NOT EXISTS `widgets` (
   UNIQUE KEY `widgets_unique_index` (`theme`,`sidebar_id`,`widget_id`,`position`)
 ) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.widgets: ~30 rows (approximately)
+-- Dumping data for table allcatholicmedia.widgets: ~45 rows (approximately)
 REPLACE INTO `widgets` (`id`, `widget_id`, `sidebar_id`, `theme`, `position`, `data`, `created_at`, `updated_at`) VALUES
 	(1, 'BlogPostsWidget', 'menu_sidebar', 'echo-politics', 1, '{"type":"recent","category_ids":[1,2,3],"limit":3}', '2025-12-24 07:30:28', '2025-12-24 07:30:28'),
 	(2, 'SocialLinksWidget', 'menu_sidebar', 'echo-politics', 2, '[]', '2025-12-24 07:30:28', '2025-12-24 07:30:28'),
@@ -2402,7 +2401,7 @@ CREATE TABLE IF NOT EXISTS `youtube_channels` (
   UNIQUE KEY `youtube_channels_youtube_channel_id_unique` (`youtube_channel_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.youtube_channels: ~0 rows (approximately)
+-- Dumping data for table allcatholicmedia.youtube_channels: ~6 rows (approximately)
 REPLACE INTO `youtube_channels` (`id`, `name`, `slug`, `youtube_channel_id`, `youtube_handle`, `uploads_playlist_id`, `thumbnail`, `banner`, `description`, `custom_url`, `is_active`, `sort_order`, `last_synced_at`, `created_at`, `updated_at`) VALUES
 	(1, 'CatholicTV', 'catholictv', 'UCORAZZmab8apqy2TMHZlZVQ', '@CatholicTV', 'UUORAZZmab8apqy2TMHZlZVQ', 'https://yt3.ggpht.com/ytc/AIdro_mqZQR6hReIYjrPTb7-ecaoaQX-TIRxEeyb0Tpp13fxd-g=s800-c-k-c0x00ffffff-no-rj', 'https://yt3.googleusercontent.com/HSMGAarWU9bpvS4t3XWpbT4vZ16M81i2WOI5aljRDfRMt3eFQOjVAwLYZ5x2VT0SQRk22t5TqX8', 'Welcome to The CatholicTV Network YouTube channel! Here you’ll find our daily Masses, Catholic prayers, content from our broadcast TV shows, and original videos produced to help you live your faith more fully. Whether you’ve been Catholic for 85 years or have never set foot in a church, we’re here to serve you! Join us on YouTube and experience the goodness, beauty, and truth of Catholicism.', '@catholictv', 1, 1, '2026-03-29 09:33:10', '2026-03-29 09:18:49', '2026-03-29 09:33:10'),
 	(2, 'EWTN', 'ewtn', 'UCijDos-LUTh9RQvSCMQqN6Q', '@EWTN', 'UUijDos-LUTh9RQvSCMQqN6Q', 'https://yt3.ggpht.com/-ViWxGG9QKwBOZPz0zKK60Hsyh6q-XQOtm__GvrFrblmFoiFoU1Pq0OgKo5R64hlIUvT6uCS=s800-c-k-c0x00ffffff-no-rj', 'https://yt3.googleusercontent.com/l6r8wqAX1OOQ8Mp_Uu26ioG74c4z1T8TgIVSjCrVQByp3lPDIB8mjZiqRjYsiUP1BGl8a8VP_Q', 'EWTN brings you powerful stories of faith, hope, and truth as you experience daily live Mass and Papal events with Pope Leo XIV, along with original series, news, and inspiring talks that connect Catholics around the world.\n\nWatch live coverage of Pope Leo XIV’s Mass, Angelus Prayer, and General Audience directly from Rome. Explore Catholic news, pray the Rosary, and discover faith-based documentaries that deepen your relationship with Christ.\n\nEWTN is the Global Catholic Network, sharing the Gospel through apologetics, Catholic teaching, and uplifting programming for every age and stage of life. Join millions of viewers worldwide and be part of a community united in faith.\n\nSubscribe and turn on notifications to grow in your Catholic faith every day.\n\nTo learn more about EWTN please visit https://www.ewtn.com\n', '@ewtn', 1, 2, '2026-03-29 09:33:13', '2026-03-29 09:18:49', '2026-03-29 09:33:13'),
@@ -2436,7 +2435,7 @@ CREATE TABLE IF NOT EXISTS `youtube_channel_videos` (
   CONSTRAINT `youtube_channel_videos_youtube_channel_id_foreign` FOREIGN KEY (`youtube_channel_id`) REFERENCES `youtube_channels` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.youtube_channel_videos: ~0 rows (approximately)
+-- Dumping data for table allcatholicmedia.youtube_channel_videos: ~144 rows (approximately)
 REPLACE INTO `youtube_channel_videos` (`id`, `youtube_channel_id`, `youtube_video_id`, `title`, `slug`, `description`, `thumbnail`, `published_at`, `video_url`, `embed_url`, `duration`, `view_count`, `is_live`, `position`, `raw_payload`, `created_at`, `updated_at`) VALUES
 	(1, 1, 'lMGGCF3RhSg', 'La Santa Misa | Domingo de Ramos de la Pasión del Señor', 'la-santa-misa-domingo-de-ramos-de-la-pasion-del-senor', 'El Padre Carlos Suarez celebra la santa misa del 29 de marzo de 2026.\n\nSubscribe to our YouTube channel so you never miss a daily Mass: http://bit.ly/31Ceiuu\n\nJoin this channel to get access to perks like custom CatholicTV emojis:\nhttps://www.youtube.com/channel/UCORAZZmab8apqy2TMHZlZVQ/join\n\nDonate to CatholicTV and join us in our mission: https://www.catholictv.org/donate\nCatholicTV website: http://bit.ly/2KlLFuX\nLike us on Facebook: http://bit.ly/2LWw1tm\nFollow us on Twitter: http://bit.ly/31eG1lf\nFollow us on Instagram: http://bit.ly/339rEAf\n\n#CatholicMass #DailyMass #CatholicMassToday #CatholicMassOnline #VirtualMass #CatholicTV #BishopReed', 'https://i.ytimg.com/vi/lMGGCF3RhSg/maxresdefault.jpg', '2026-03-28 15:15:00', 'https://www.youtube.com/watch?v=lMGGCF3RhSg', 'https://www.youtube.com/embed/lMGGCF3RhSg', 'PT28M48S', 516, 0, 0, '{"id": "lMGGCF3RhSg", "etag": "xZ4i3rwmRFEAENeETgDw2mhHTYM", "kind": "youtube#video", "snippet": {"tags": ["Sunday Spanish Mass", "La Santa Misa", "Catholic", "spanish mass", "espanol mass", "misa espanol"], "title": "La Santa Misa | Domingo de Ramos de la Pasión del Señor", "channelId": "UCORAZZmab8apqy2TMHZlZVQ", "localized": {"title": "La Santa Misa | Domingo de Ramos de la Pasión del Señor", "description": "El Padre Carlos Suarez celebra la santa misa del 29 de marzo de 2026.\\n\\nSubscribe to our YouTube channel so you never miss a daily Mass: http://bit.ly/31Ceiuu\\n\\nJoin this channel to get access to perks like custom CatholicTV emojis:\\nhttps://www.youtube.com/channel/UCORAZZmab8apqy2TMHZlZVQ/join\\n\\nDonate to CatholicTV and join us in our mission: https://www.catholictv.org/donate\\nCatholicTV website: http://bit.ly/2KlLFuX\\nLike us on Facebook: http://bit.ly/2LWw1tm\\nFollow us on Twitter: http://bit.ly/31eG1lf\\nFollow us on Instagram: http://bit.ly/339rEAf\\n\\n#CatholicMass #DailyMass #CatholicMassToday #CatholicMassOnline #VirtualMass #CatholicTV #BishopReed"}, "categoryId": "29", "thumbnails": {"high": {"url": "https://i.ytimg.com/vi/lMGGCF3RhSg/hqdefault.jpg", "width": 480, "height": 360}, "maxres": {"url": "https://i.ytimg.com/vi/lMGGCF3RhSg/maxresdefault.jpg", "width": 1280, "height": 720}, "medium": {"url": "https://i.ytimg.com/vi/lMGGCF3RhSg/mqdefault.jpg", "width": 320, "height": 180}, "default": {"url": "https://i.ytimg.com/vi/lMGGCF3RhSg/default.jpg", "width": 120, "height": 90}, "standard": {"url": "https://i.ytimg.com/vi/lMGGCF3RhSg/sddefault.jpg", "width": 640, "height": 480}}, "description": "El Padre Carlos Suarez celebra la santa misa del 29 de marzo de 2026.\\n\\nSubscribe to our YouTube channel so you never miss a daily Mass: http://bit.ly/31Ceiuu\\n\\nJoin this channel to get access to perks like custom CatholicTV emojis:\\nhttps://www.youtube.com/channel/UCORAZZmab8apqy2TMHZlZVQ/join\\n\\nDonate to CatholicTV and join us in our mission: https://www.catholictv.org/donate\\nCatholicTV website: http://bit.ly/2KlLFuX\\nLike us on Facebook: http://bit.ly/2LWw1tm\\nFollow us on Twitter: http://bit.ly/31eG1lf\\nFollow us on Instagram: http://bit.ly/339rEAf\\n\\n#CatholicMass #DailyMass #CatholicMassToday #CatholicMassOnline #VirtualMass #CatholicTV #BishopReed", "publishedAt": "2026-03-28T16:15:00Z", "channelTitle": "The CatholicTV Network", "defaultLanguage": "es", "defaultAudioLanguage": "en-US", "liveBroadcastContent": "none"}, "statistics": {"likeCount": "20", "viewCount": "516", "commentCount": "3", "favoriteCount": "0"}, "contentDetails": {"caption": "true", "duration": "PT28M48S", "dimension": "2d", "definition": "hd", "projection": "rectangular", "contentRating": [], "licensedContent": false}}', '2026-03-29 09:18:51', '2026-03-29 09:33:12'),
 	(2, 1, 'keSjA0_Rrjg', 'Catholic Mass Today | Sunday March 29, 2026 | CatholicTV Daily Mass', 'catholic-mass-today-sunday-march-29-2026-catholictv-daily-mass', 'Welcome! Join The CatholicTV Network as we begin this holiest of weeks celebrating Palm Sunday of the Passion of the Lord. Together, we enter into the sacred mysteries of our redemption, following our Savior from His triumphant entry into Jerusalem to the profound sacrifice of the Cross.\n\nIn today’s moving Homily, Bishop Robert P. Reed reflects on how we should respond to the "tremendous display of divine love" revealed in the Passion. He invites us to meet this great act of self-sacrifice with deep gratitude and a commitment to imitation. By mirroring Christ\'s spirit of generosity and compassion, we turn our own acts of love into "cobblestones on the road to heaven". This Mass is a powerful invitation to let our attitudes be like that of Christ as we follow Him through suffering and death toward the hope of the Resurrection.\n\nThe Scriptures highlight the prophetic suffering and the ultimate obedience of the Son of God:\n-The First Reading (Isaiah 50:4-7): The Prophet speaks of the "well-trained tongue" given by God to rouse the weary. He describes a servant who does not rebel but remains steadfast even through buffets and spitting, setting his "face like flint" in the knowledge that the Lord God is his help.\n-The Responsorial Psalm (Ps 22): A cry of both anguish and trust: "My God, my God, why have you abandoned me?".\n-The Second Reading (Philippians 2:6-11): St. Paul describes Christ’s total self-emptying—taking the form of a slave and becoming obedient to the point of death on a cross. Because of this humility, God exalted Him and bestowed the name at which every knee shall bend.\n-The Holy Gospel (Matthew 26:14–27:66): The Passion narrative recounts Jesus\' trial before Pilate, His rejection by the crowd in favor of Barabbas, the mockery of the soldiers, and His crucifixion at Golgotha. As He gives up His spirit, the centurion declares, "Truly, this was the Son of God".\n\nMay we be nourished by these sacred gifts and led to the fullness of what we believe as we follow Christ this week.\n\nMass Chapters for Navigation\n\n-Introductory Rites / Penitential Act: 0:47\n-Collect (Opening Prayer): 1:32\n-First Reading: 2:14\n-Responsorial Psalm: 3:10\n-Second Reading: 5:05\n-Gospel: 7:00\n-Homily: 12:59\n-Nicene Creed: 15:22\n-Prayers of the Faithful: 16:44\n-Liturgy of the Eucharist Begins: 17:40\n-Eucharistic Prayer / Consecration: 18:42\n-The Lord\'s Prayer: 23:49\n-Communion: 25:20\n-Concluding Rites / Final Blessing: 26:25\n\nTheological & Liturgical Context\n-Season: Palm Sunday of the Passion of the Lord, the gateway to Holy Week.\n-Gospel Focus: The Kenosis (Self-Emptying) of Christ; through His suffering, Jesus reveals the heart of God’s mercy, gathering the human family into one and purchasing our justification through His death and resurrection.\n-Homily Key Message: We are called to "behold and to be grateful" for this personal show of love; our Lenten journey culminates in a call to follow Jesus’ way of generosity, ensuring that our lives mirror the light of the paschal candle.\n\nIf today\'s Mass helped you prepare for Holy Week, please Like this video and Subscribe to The CatholicTV Network. You can text your intentions to 844-697-5221 so our community can pray with you. Your support allows us to continue bringing this "great prayer" to the whole world!\n\nSubscribe to our YouTube channel so you never miss a daily Mass: http://bit.ly/31Ceiuu\n\nJoin this channel to get access to perks like custom CatholicTV emojis:\nhttps://www.youtube.com/channel/UCORAZZmab8apqy2TMHZlZVQ/join\n\nDonate to CatholicTV and join us in our mission: https://www.catholictv.org/donate\nCatholicTV website: http://bit.ly/2KlLFuX\nLike us on Facebook: http://bit.ly/2LWw1tm\nFollow us on Twitter: http://bit.ly/31eG1lf\nFollow us on Instagram: http://bit.ly/339rEAf\n\n#PalmSunday #CatholicMass #HolyWeek2026 #PassionOfChrist #GospelOfMatthew #Lent2026 #Isaiah50 #DivineMercy #Catholic #Theology #VirtualMass #CatholicTV', 'https://i.ytimg.com/vi/keSjA0_Rrjg/maxresdefault.jpg', '2026-03-28 15:00:00', 'https://www.youtube.com/watch?v=keSjA0_Rrjg', 'https://www.youtube.com/embed/keSjA0_Rrjg', 'PT28M26S', 13674, 0, 1, '{"id": "keSjA0_Rrjg", "etag": "ucBK_i--01607ox0BDyrShbowsc", "kind": "youtube#video", "snippet": {"tags": ["daily Mass", "Catholic", "tv mass", "streaming mass", "roman catholic", "youtube mass", "archdiocese of boston mass", "todays mass", "online liturgy", "Sunday Mass", "Bishop Robert P. Reed"], "title": "Catholic Mass Today | Sunday March 29, 2026 | CatholicTV Daily Mass", "channelId": "UCORAZZmab8apqy2TMHZlZVQ", "localized": {"title": "Catholic Mass Today | Sunday March 29, 2026 | CatholicTV Daily Mass", "description": "Welcome! Join The CatholicTV Network as we begin this holiest of weeks celebrating Palm Sunday of the Passion of the Lord. Together, we enter into the sacred mysteries of our redemption, following our Savior from His triumphant entry into Jerusalem to the profound sacrifice of the Cross.\\n\\nIn today’s moving Homily, Bishop Robert P. Reed reflects on how we should respond to the \\"tremendous display of divine love\\" revealed in the Passion. He invites us to meet this great act of self-sacrifice with deep gratitude and a commitment to imitation. By mirroring Christ\'s spirit of generosity and compassion, we turn our own acts of love into \\"cobblestones on the road to heaven\\". This Mass is a powerful invitation to let our attitudes be like that of Christ as we follow Him through suffering and death toward the hope of the Resurrection.\\n\\nThe Scriptures highlight the prophetic suffering and the ultimate obedience of the Son of God:\\n-The First Reading (Isaiah 50:4-7): The Prophet speaks of the \\"well-trained tongue\\" given by God to rouse the weary. He describes a servant who does not rebel but remains steadfast even through buffets and spitting, setting his \\"face like flint\\" in the knowledge that the Lord God is his help.\\n-The Responsorial Psalm (Ps 22): A cry of both anguish and trust: \\"My God, my God, why have you abandoned me?\\".\\n-The Second Reading (Philippians 2:6-11): St. Paul describes Christ’s total self-emptying—taking the form of a slave and becoming obedient to the point of death on a cross. Because of this humility, God exalted Him and bestowed the name at which every knee shall bend.\\n-The Holy Gospel (Matthew 26:14–27:66): The Passion narrative recounts Jesus\' trial before Pilate, His rejection by the crowd in favor of Barabbas, the mockery of the soldiers, and His crucifixion at Golgotha. As He gives up His spirit, the centurion declares, \\"Truly, this was the Son of God\\".\\n\\nMay we be nourished by these sacred gifts and led to the fullness of what we believe as we follow Christ this week.\\n\\nMass Chapters for Navigation\\n\\n-Introductory Rites / Penitential Act: 0:47\\n-Collect (Opening Prayer): 1:32\\n-First Reading: 2:14\\n-Responsorial Psalm: 3:10\\n-Second Reading: 5:05\\n-Gospel: 7:00\\n-Homily: 12:59\\n-Nicene Creed: 15:22\\n-Prayers of the Faithful: 16:44\\n-Liturgy of the Eucharist Begins: 17:40\\n-Eucharistic Prayer / Consecration: 18:42\\n-The Lord\'s Prayer: 23:49\\n-Communion: 25:20\\n-Concluding Rites / Final Blessing: 26:25\\n\\nTheological & Liturgical Context\\n-Season: Palm Sunday of the Passion of the Lord, the gateway to Holy Week.\\n-Gospel Focus: The Kenosis (Self-Emptying) of Christ; through His suffering, Jesus reveals the heart of God’s mercy, gathering the human family into one and purchasing our justification through His death and resurrection.\\n-Homily Key Message: We are called to \\"behold and to be grateful\\" for this personal show of love; our Lenten journey culminates in a call to follow Jesus’ way of generosity, ensuring that our lives mirror the light of the paschal candle.\\n\\nIf today\'s Mass helped you prepare for Holy Week, please Like this video and Subscribe to The CatholicTV Network. You can text your intentions to 844-697-5221 so our community can pray with you. Your support allows us to continue bringing this \\"great prayer\\" to the whole world!\\n\\nSubscribe to our YouTube channel so you never miss a daily Mass: http://bit.ly/31Ceiuu\\n\\nJoin this channel to get access to perks like custom CatholicTV emojis:\\nhttps://www.youtube.com/channel/UCORAZZmab8apqy2TMHZlZVQ/join\\n\\nDonate to CatholicTV and join us in our mission: https://www.catholictv.org/donate\\nCatholicTV website: http://bit.ly/2KlLFuX\\nLike us on Facebook: http://bit.ly/2LWw1tm\\nFollow us on Twitter: http://bit.ly/31eG1lf\\nFollow us on Instagram: http://bit.ly/339rEAf\\n\\n#PalmSunday #CatholicMass #HolyWeek2026 #PassionOfChrist #GospelOfMatthew #Lent2026 #Isaiah50 #DivineMercy #Catholic #Theology #VirtualMass #CatholicTV"}, "categoryId": "29", "thumbnails": {"high": {"url": "https://i.ytimg.com/vi/keSjA0_Rrjg/hqdefault.jpg", "width": 480, "height": 360}, "maxres": {"url": "https://i.ytimg.com/vi/keSjA0_Rrjg/maxresdefault.jpg", "width": 1280, "height": 720}, "medium": {"url": "https://i.ytimg.com/vi/keSjA0_Rrjg/mqdefault.jpg", "width": 320, "height": 180}, "default": {"url": "https://i.ytimg.com/vi/keSjA0_Rrjg/default.jpg", "width": 120, "height": 90}, "standard": {"url": "https://i.ytimg.com/vi/keSjA0_Rrjg/sddefault.jpg", "width": 640, "height": 480}}, "description": "Welcome! Join The CatholicTV Network as we begin this holiest of weeks celebrating Palm Sunday of the Passion of the Lord. Together, we enter into the sacred mysteries of our redemption, following our Savior from His triumphant entry into Jerusalem to the profound sacrifice of the Cross.\\n\\nIn today’s moving Homily, Bishop Robert P. Reed reflects on how we should respond to the \\"tremendous display of divine love\\" revealed in the Passion. He invites us to meet this great act of self-sacrifice with deep gratitude and a commitment to imitation. By mirroring Christ\'s spirit of generosity and compassion, we turn our own acts of love into \\"cobblestones on the road to heaven\\". This Mass is a powerful invitation to let our attitudes be like that of Christ as we follow Him through suffering and death toward the hope of the Resurrection.\\n\\nThe Scriptures highlight the prophetic suffering and the ultimate obedience of the Son of God:\\n-The First Reading (Isaiah 50:4-7): The Prophet speaks of the \\"well-trained tongue\\" given by God to rouse the weary. He describes a servant who does not rebel but remains steadfast even through buffets and spitting, setting his \\"face like flint\\" in the knowledge that the Lord God is his help.\\n-The Responsorial Psalm (Ps 22): A cry of both anguish and trust: \\"My God, my God, why have you abandoned me?\\".\\n-The Second Reading (Philippians 2:6-11): St. Paul describes Christ’s total self-emptying—taking the form of a slave and becoming obedient to the point of death on a cross. Because of this humility, God exalted Him and bestowed the name at which every knee shall bend.\\n-The Holy Gospel (Matthew 26:14–27:66): The Passion narrative recounts Jesus\' trial before Pilate, His rejection by the crowd in favor of Barabbas, the mockery of the soldiers, and His crucifixion at Golgotha. As He gives up His spirit, the centurion declares, \\"Truly, this was the Son of God\\".\\n\\nMay we be nourished by these sacred gifts and led to the fullness of what we believe as we follow Christ this week.\\n\\nMass Chapters for Navigation\\n\\n-Introductory Rites / Penitential Act: 0:47\\n-Collect (Opening Prayer): 1:32\\n-First Reading: 2:14\\n-Responsorial Psalm: 3:10\\n-Second Reading: 5:05\\n-Gospel: 7:00\\n-Homily: 12:59\\n-Nicene Creed: 15:22\\n-Prayers of the Faithful: 16:44\\n-Liturgy of the Eucharist Begins: 17:40\\n-Eucharistic Prayer / Consecration: 18:42\\n-The Lord\'s Prayer: 23:49\\n-Communion: 25:20\\n-Concluding Rites / Final Blessing: 26:25\\n\\nTheological & Liturgical Context\\n-Season: Palm Sunday of the Passion of the Lord, the gateway to Holy Week.\\n-Gospel Focus: The Kenosis (Self-Emptying) of Christ; through His suffering, Jesus reveals the heart of God’s mercy, gathering the human family into one and purchasing our justification through His death and resurrection.\\n-Homily Key Message: We are called to \\"behold and to be grateful\\" for this personal show of love; our Lenten journey culminates in a call to follow Jesus’ way of generosity, ensuring that our lives mirror the light of the paschal candle.\\n\\nIf today\'s Mass helped you prepare for Holy Week, please Like this video and Subscribe to The CatholicTV Network. You can text your intentions to 844-697-5221 so our community can pray with you. Your support allows us to continue bringing this \\"great prayer\\" to the whole world!\\n\\nSubscribe to our YouTube channel so you never miss a daily Mass: http://bit.ly/31Ceiuu\\n\\nJoin this channel to get access to perks like custom CatholicTV emojis:\\nhttps://www.youtube.com/channel/UCORAZZmab8apqy2TMHZlZVQ/join\\n\\nDonate to CatholicTV and join us in our mission: https://www.catholictv.org/donate\\nCatholicTV website: http://bit.ly/2KlLFuX\\nLike us on Facebook: http://bit.ly/2LWw1tm\\nFollow us on Twitter: http://bit.ly/31eG1lf\\nFollow us on Instagram: http://bit.ly/339rEAf\\n\\n#PalmSunday #CatholicMass #HolyWeek2026 #PassionOfChrist #GospelOfMatthew #Lent2026 #Isaiah50 #DivineMercy #Catholic #Theology #VirtualMass #CatholicTV", "publishedAt": "2026-03-28T16:00:00Z", "channelTitle": "The CatholicTV Network", "defaultLanguage": "en", "defaultAudioLanguage": "en-US", "liveBroadcastContent": "none"}, "statistics": {"likeCount": "511", "viewCount": "13674", "commentCount": "92", "favoriteCount": "0"}, "contentDetails": {"caption": "true", "duration": "PT28M26S", "dimension": "2d", "definition": "hd", "projection": "rectangular", "contentRating": [], "licensedContent": false}}', '2026-03-29 09:18:51', '2026-03-29 09:33:12'),
