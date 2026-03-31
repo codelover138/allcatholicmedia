@@ -4,6 +4,46 @@
             ul li a {
                 color: rgba(255, 255, 255, 0.8);
             }
+
+            ul.echo-desktop-menu {
+                > li {
+                    > a {
+                        border-bottom: 2px solid transparent;
+                        color: rgba(255, 255, 255, 0.82);
+                        display: inline-block;
+                        transition: color 0.18s ease, border-bottom-color 0.18s ease;
+                    }
+
+                    &:hover > a,
+                    &.active > a,
+                    &.current > a,
+                    &.current-menu-item > a,
+                    &.current-menu-parent > a,
+                    &.current-menu-ancestor > a,
+                    &.current_page_item > a,
+                    &.current_page_parent > a,
+                    &.menu-item-has-children:hover > a {
+                        color: #C9A227 !important;
+                        border-bottom-color: #C9A227 !important;
+                    }
+                }
+
+                .sub-menu {
+                    li {
+                        &.active > a,
+                        &.current > a,
+                        &.current-menu-item > a,
+                        &.current-menu-parent > a,
+                        &.current-menu-ancestor > a,
+                        &.current_page_item > a,
+                        &.current_page_parent > a,
+                        > a:hover,
+                        > a:focus-visible {
+                            color: #C9A227 !important;
+                        }
+                    }
+                }
+            }
         }
 
         .account-actions {
@@ -401,6 +441,52 @@ html[data-theme='dark'] {
     .blog-post-style-5 {
         .post-meta {
             --text-body-color: #ffffff
+        }
+    }
+}
+
+.echo-header-area {
+    .echo-site-main-logo-menu-social {
+        .echo-home-1-menu {
+            ul.echo-desktop-menu {
+                > li {
+                    > a,
+                    > a.echo-dropdown-main-element {
+                        color: rgba(255, 255, 255, 0.82) !important;
+                        transition: color 0.18s ease !important;
+                    }
+
+                    &.echo-has-dropdown:hover > a,
+                    &:hover > a,
+                    &.active > a,
+                    &.current > a,
+                    &.current-menu-item > a,
+                    &.current-menu-parent > a,
+                    &.current-menu-ancestor > a,
+                    &.current_page_item > a,
+                    &.current_page_parent > a {
+                        color: #C9A227 !important;
+                    }
+                }
+
+                .echo-submenu {
+                    border-top: 2px solid #C9A227 !important;
+
+                    li {
+                        > a:hover,
+                        > a:focus-visible,
+                        &.active > a,
+                        &.current > a,
+                        &.current-menu-item > a,
+                        &.current-menu-parent > a,
+                        &.current-menu-ancestor > a,
+                        &.current_page_item > a,
+                        &.current_page_parent > a {
+                            color: #C9A227 !important;
+                        }
+                    }
+                }
+            }
         }
     }
 }
