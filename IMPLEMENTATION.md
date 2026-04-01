@@ -653,6 +653,12 @@ $transition:       0.2s ease;
 ## Important Commands
 
 ```bash
+# Fresh machine setup (local/default)
+bash setup.sh
+
+# Production/shared-hosting style setup
+bash setup.sh production
+
 # Clear all caches after config changes
 php artisan optimize:clear
 
@@ -686,6 +692,16 @@ tail -f storage/logs/laravel.log
 | 2026-03-28 | Community features (groups, activity, forums) to be custom plugins — no BuddyBoss equivalent for Laravel. |
 | 2026-03-28 | Live streaming is purely embed aggregation (YouTube/Vimeo iframes) — not self-hosted video. |
 | 2026-03-28 | Demo data will use real public Catholic YouTube channels (EWTN, Vatican News) for embeds. |
+
+
+php artisan optimize:clear
+rm -rf node_modules vendor public/themes public/vendor/core
+composer install
+npm install
+npm run prod
+php artisan cms:publish:assets
+php artisan storage:link
+
 
 ---
 
