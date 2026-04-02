@@ -83,6 +83,45 @@
             }
         }
     }
+
+    .home-2-card-etc {
+        .card-inner {
+            a.cart-bar {
+                color: var(--primary-color) !important;
+
+                &:hover,
+                &:focus-visible {
+                    color: var(--primary-color) !important;
+                }
+
+                span {
+                    background: var(--primary-color) !important;
+                    color: #ffffff !important;
+                }
+
+                &:hover span,
+                &:focus-visible span {
+                    background: var(--primary-color) !important;
+                    color: #ffffff !important;
+                }
+            }
+        }
+    }
+
+    &.header-six.header-sticky {
+        .echo-site-main-logo-menu-social {
+            .home-2-card-etc {
+                .card-inner {
+                    a.cart-bar {
+                        span {
+                            background: var(--primary-color) !important;
+                            color: #ffffff !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .home-eight {

@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700&display=swap');
+
+.watch-learn-pray-section {
+    padding: 58px 0 54px;
+    background-size: cover;
+    background-position: center 18%;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    background-color: #080808;
+}
+
+.watch-learn-pray-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.34) 22%, rgba(0, 0, 0, 0.28) 78%, rgba(0, 0, 0, 0.68) 100%);
+}
+
+.watch-learn-pray-section .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1600px;
+}
+
+.watch-learn-pray-card {
+    background: #ffffff;
+    border: 5px solid #cba11d;
+    border-radius: 31px;
+    padding: 82px 92px 96px;
+    max-width: 1510px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.22);
+}
+
+.watch-learn-pray-card h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(3.1rem, 3.55vw, 4.6rem);
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    color: #32343a;
+    margin-bottom: 24px;
+    border-bottom: none !important;
+}
+
+.watch-learn-pray-card h2::before {
+    display: none !important;
+}
+
+.watch-learn-pray-subtext {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.02rem, 1.18vw, 1.34rem);
+    line-height: 1.1;
+    font-weight: 400;
+    color: #0e0f12;
+    max-width: 1080px;
+    margin: 0 auto 34px;
+}
+
+.watch-learn-pray-decorative-box {
+    border: 1.5px dashed rgba(59, 59, 59, 0.45);
+    border-radius: 20px;
+    padding: 54px 36px 30px;
+    margin: 0 auto;
+    max-width: 1180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    background: rgba(255, 255, 255, 0.88);
+}
+
+.watch-learn-pray-motto {
+    font-size: clamp(2.9rem, 3.5vw, 4.85rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    color: #4a4f58;
+    flex-wrap: wrap;
+    line-height: .92;
+}
+
+.watch-learn-pray-motto .word {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: #4d535d;
+}
+
+.watch-learn-pray-motto .cursive {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.42em;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.watch-learn-pray-motto-part {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.16em;
+}
+
+.watch-learn-pray-motto .dot {
+    font-size: 0.58em;
+    color: #1f232a;
+    transform: translateY(-0.05em);
+}
+
+.watch-learn-pray-signature {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2d3035;
+    margin-top: 0;
+}
+
+@media (max-width: 991px) {
+    .watch-learn-pray-card {
+        padding: 56px 32px 64px;
+        border-radius: 24px;
+    }
+
+    .watch-learn-pray-card h2 {
+        font-size: 3rem;
+    }
+
+    .watch-learn-pray-subtext {
+        line-height: 1.25;
+    }
+
+    .watch-learn-pray-motto {
+        font-size: 2.35rem;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    .watch-learn-pray-section {
+        padding: 44px 0;
+    }
+
+    .watch-learn-pray-card {
+        padding: 38px 18px 42px;
+        border-radius: 16px;
+        border-width: 4px;
+    }
+
+    .watch-learn-pray-card h2 {
+        font-size: 2.3rem;
+        margin-bottom: 18px;
+    }
+
+    .watch-learn-pray-subtext {
+        font-size: 1rem;
+        line-height: 1.32;
+        margin-bottom: 22px;
+    }
+
+    .watch-learn-pray-motto {
+        font-size: 1.85rem;
+        gap: 8px;
+    }
+
+    .watch-learn-pray-decorative-box {
+        padding: 24px 14px 20px;
+        border-radius: 14px;
+    }
+
+    .watch-learn-pray-motto-part {
+        justify-content: center;
+    }
+}
