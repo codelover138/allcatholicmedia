@@ -460,6 +460,40 @@ form {
     }
 }
 
+/* Remove ALL spacing from main on homepage */
+main {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Hide stray editor paragraphs (empty or span-only) between shortcodes */
+p:empty,
+p:blank {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 0 !important;
+    height: 0 !important;
+}
+
+/* Target paragraphs that contain only empty spans (editor artifacts) */
+main > p,
+main p:has(> span:only-child),
+main p:has(> span > span:empty) {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+}
+
+/* Zero gap between hero-intro and watch-listen-read shortcodes */
+.hero-intro-section,
+.watch-listen-read-section {
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
 .echo-trending-news-area, .echo-latest-news-area {
     .hm5-feature-title {
         .hm-5-main-title {

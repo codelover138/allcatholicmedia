@@ -10,6 +10,8 @@ use Botble\Base\Forms\Fields\ColorField;
 use Botble\Base\Forms\Fields\MediaImageField;
 use Botble\Base\Forms\Fields\TextareaField;
 use Botble\Base\Forms\Fields\TextField;
+use Botble\Base\Forms\Fields\SelectField;
+use Botble\Base\Forms\FieldOptions\SelectFieldOption;
 use Botble\Base\Forms\FormFieldOptions;
 use Botble\Theme\Facades\Theme;
 
@@ -30,8 +32,116 @@ app()->booted(function (): void {
         return $html;
     }, 20, 1);
 
+    // ── Hero Intro Banner ──────────────────────────────────────────────────────
+    Shortcode::register('hero-intro', __('Hero Intro Banner'), __('Full-width hero banner with background image, play icon and title'), function (ShortcodeCompiler $shortcode): ?string {
+        return Theme::partial('shortcodes.hero-intro.index', compact('shortcode'));
+    });
+
+    Shortcode::setAdminConfig('hero-intro', function (array $attributes) {
+        $form = ShortcodeForm::createFromArray($attributes)
+            ->add('background_image', MediaImageField::class,
+                MediaImageFieldOption::make()
+                    ->label(__('Background Image'))
+                    ->defaultValue(theme_option('hero_intro_background_image'))
+                    ->toArray()
+            )
+            ->add('title', TextField::class,
+                TextFieldOption::make()
+                    ->label(__('Title Text'))
+                    ->placeholder(__('Watch, Learn, Pray.'))
+                    ->defaultValue(theme_option('hero_intro_title', 'Watch, Learn, Pray.'))
+                    ->toArray()
+            )
+            ->add('link', TextField::class,
+                TextFieldOption::make()
+                    ->label(__('Play Button Link (optional)'))
+                    ->placeholder(__('https://...'))
+                    ->defaultValue(theme_option('hero_intro_link', ''))
+                    ->toArray()
+            );
+
+        for ($i = 1; $i <= 4; $i++) {
+            $form
+                ->add("card_{$i}_image", MediaImageField::class,
+                    MediaImageFieldOption::make()
+                        ->label(__("Card {$i}: Image"))
+                        ->defaultValue(theme_option("hero_intro_card_{$i}_image"))
+                        ->toArray()
+                )
+                ->add("card_{$i}_text", TextField::class,
+                    TextFieldOption::make()
+                        ->label(__("Card {$i}: Label Text"))
+                        ->placeholder(__('Enter label...'))
+                        ->defaultValue(theme_option("hero_intro_card_{$i}_text", ''))
+                        ->toArray()
+                )
+                ->add("card_{$i}_link", TextField::class,
+                    TextFieldOption::make()
+                        ->label(__("Card {$i}: Link (optional)"))
+                        ->placeholder(__('https://...'))
+                        ->defaultValue(theme_option("hero_intro_card_{$i}_link", ''))
+                        ->toArray()
+                );
+        }
+
+        return $form;
+    });
+
+    // ── Watch Listen Read ─────────────────────────────────────────────────────
+    Shortcode::register('watch-listen-read', __('Watch Listen Read'), __('Three feature cards (Watch / Listen / Read) over a background image'), function (ShortcodeCompiler $shortcode): ?string {
+        return Theme::partial('shortcodes.watch-listen-read.index', compact('shortcode'));
+    });
+
+    Shortcode::setAdminConfig('watch-listen-read', function (array $attributes) {
+        $icons = ['watch' => 'Watch (Play)', 'listen' => 'Listen (Headphones)', 'read' => 'Read (Book)', 'pray' => 'Pray (Cross)'];
+
+        $form = ShortcodeForm::createFromArray($attributes)
+            ->add('background_image', MediaImageField::class,
+                MediaImageFieldOption::make()
+                    ->label(__('Background Image'))
+                    ->defaultValue(theme_option('wlr_background_image'))
+                    ->toArray()
+            );
+
+        $defaults = [
+            1 => ['title' => 'Watch',  'icon' => 'watch',  'color' => '#1e3a8a', 'desc' => 'Experience your faith come alive. Watch powerful reflections, Mass celebrations, and inspiring stories that bring you closer to God—anytime, anywhere.'],
+            2 => ['title' => 'Listen', 'icon' => 'listen', 'color' => '#7f1d1d', 'desc' => 'Let the Word of God speak to you. Tune into prayers, sermons, and audio reflections that uplift your spirit—even in the busiest moments of your day.'],
+            3 => ['title' => 'Read',   'icon' => 'read',   'color' => '#c9a227', 'desc' => "Dive deeper into God's Word. Explore scripture, devotionals, and faith-filled articles designed to guide, inspire, and strengthen your journey."],
+        ];
+
+        for ($i = 1; $i <= 3; $i++) {
+            $d = $defaults[$i];
+            $form
+                ->add("card_{$i}_title", TextField::class,
+                    TextFieldOption::make()->label(__("Card {$i}: Title"))->defaultValue(theme_option("wlr_card_{$i}_title", $d['title']))->toArray()
+                )
+                ->add("card_{$i}_desc", TextareaField::class,
+                    TextareaFieldOption::make()->label(__("Card {$i}: Description"))->defaultValue(theme_option("wlr_card_{$i}_desc", $d['desc']))->toArray()
+                )
+                ->add("card_{$i}_color", ColorField::class,
+                    FormFieldOptions::make()->label(__("Card {$i}: Background Color"))->defaultValue(theme_option("wlr_card_{$i}_color", $d['color']))->toArray()
+                )
+                ->add("card_{$i}_icon", SelectField::class,
+                    SelectFieldOption::make()->label(__("Card {$i}: Icon"))->choices($icons)->defaultValue(theme_option("wlr_card_{$i}_icon", $d['icon']))->toArray()
+                )
+                ->add("card_{$i}_link", TextField::class,
+                    TextFieldOption::make()->label(__("Card {$i}: Link (optional)"))->placeholder('https://...')->defaultValue(theme_option("wlr_card_{$i}_link", ''))->toArray()
+                );
+        }
+
+        return $form;
+    });
+
+    // ── Watch Learn Pray ───────────────────────────────────────────────────────
     Shortcode::register('watch-learn-pray', __('Watch Learn Pray'), __('Display building faith section'), function (ShortcodeCompiler $shortcode): ?string {
         Theme::asset()->add('watch-learn-pray-css', 'css/watch-learn-pray.css');
+        add_filter(THEME_FRONT_HEADER, function (?string $html): string {
+            $html = (string) $html;
+            if (strpos($html, 'Great+Vibes') === false) {
+                $html .= '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700&display=swap">' . PHP_EOL;
+            }
+            return $html;
+        }, 25, 1);
 
         return Theme::partial('shortcodes.watch-learn-pray.index', compact('shortcode'));
     });
