@@ -35,7 +35,7 @@
 @endphp
 
 @if($bgImage)
-<section style="display: block; width: 100%; margin: 0 !important; padding: 0; font-family: 'Inter', sans-serif;">
+<section class="hero-intro-section" style="display: block; width: 100%; margin: 0 !important; padding: 0; font-family: 'Inter', sans-serif;">
 
     {{-- ── Main Hero Area ── --}}
     <div style="position: relative; width: 100%; min-height: 520px; background-image: url('{{ $bgImage }}'); background-size: cover; background-position: center; background-repeat: no-repeat; display: flex; align-items: flex-end; overflow: hidden;">
@@ -97,3 +97,4 @@
 
 </section>
 @endif
+

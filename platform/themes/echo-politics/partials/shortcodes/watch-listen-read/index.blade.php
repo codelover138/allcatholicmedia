@@ -37,7 +37,7 @@
     ];
 @endphp
 
-<section style="position: relative; width: 100%; margin: 0 !important; overflow: hidden; {{ $bgImage ? 'background-image: url(\'' . $bgImage . '\');' : 'background-color: #111827;' }} background-size: cover; background-position: center; background-repeat: no-repeat; padding: 90px 0;">
+<section class="watch-listen-read-section" style="position: relative; width: 100%; margin: 0 !important; overflow: hidden; {{ $bgImage ? 'background-image: url(\'' . $bgImage . '\');' : 'background-color: #111827;' }} background-size: cover; background-position: center; background-repeat: no-repeat; padding: 90px 0;">
 
     {{-- Dark overlay --}}
     <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.62); pointer-events: none; z-index: 1;"></div>
@@ -70,3 +70,4 @@
 
     </div>
 </section>
+

@@ -2,24 +2,23 @@
     Theme::set('pageTitle', __('Sign In'));
     Theme::layout('full-width');
     SeoHelper::setTitle('Sign In | AllCatholicMedia');
+
+    $form->setFormOption('has_wrapper', 'no');
+    $form->setFormOption('banner', null);
 @endphp
 
-@push('header')
-<style>
-.acm-auth-hero { background: linear-gradient(135deg,#0f172a,#1e293b); padding: 36px 0 28px; text-align: center; margin-bottom: 0; }
-.acm-auth-cross { font-size: 1.8rem; line-height: 1; margin-bottom: 8px; }
-.acm-auth-title { font-size: 1.5rem; font-weight: 700; color: #f8fafc; margin: 0 0 4px; }
-.acm-auth-sub { font-size: .88rem; color: #94a3b8; }
-.acm-auth-wrap { padding: 0 0 60px; }
-</style>
-@endpush
+<section class="member-login-shell">
+    <div class="container">
+        <div class="member-login-layout member-login-layout--single">
+            <div class="member-login-form member-login-form--single">
+                <div class="member-login-intro">
+                    <span class="member-login-intro__eyebrow">{{ __('Member Login') }}</span>
+                    <h2>{{ __('Welcome Back') }}</h2>
+                    <p>{{ __('Sign in to continue watching, listening, reading, and managing your account.') }}</p>
+                </div>
 
-<section class="acm-auth-hero">
-    <div class="acm-auth-cross">✝</div>
-    <h1 class="acm-auth-title">{{ __('Welcome Back') }}</h1>
-    <p class="acm-auth-sub">{{ __('Sign in to your AllCatholicMedia account') }}</p>
+                {!! $form->renderForm() !!}
+            </div>
+        </div>
+    </div>
 </section>
-
-<div class="acm-auth-wrap">
-    {!! $form->renderForm() !!}
-</div>

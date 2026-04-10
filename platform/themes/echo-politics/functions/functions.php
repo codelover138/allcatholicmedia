@@ -32,6 +32,66 @@ app()->booted(function (): void {
         return $html;
     }, 20, 1);
 
+    /*
+     * Inject breadcrumb hero styles — must run late (priority 99) so it
+     * outputs after all theme CSS files and wins over their !important rules.
+     */
+    add_filter(THEME_FRONT_HEADER, function (?string $html): string {
+        $html = (string) $html;
+        $html .= '<style>
+/* ── Inner-page breadcrumb hero — Saints Directory style ── */
+.echo-breadcrumb-area{
+    position:relative!important;
+    background:linear-gradient(158deg,#060e1d 0%,#0d1f3c 42%,#0b1a35 72%,#050c18 100%)!important;
+    background-image:none!important;
+    padding:48px 0 40px!important;
+    text-align:center!important;
+    overflow:hidden!important;
+}
+.echo-breadcrumb-area::before{
+    content:""!important;
+    position:absolute!important;
+    top:-100px;left:50%;transform:translateX(-50%)!important;
+    width:800px;height:500px!important;
+    background:radial-gradient(ellipse at 50% 30%,rgba(201,162,39,.20) 0%,rgba(4,107,210,.06) 48%,transparent 68%)!important;
+    pointer-events:none!important;
+    z-index:0!important;
+}
+.echo-breadcrumb-area::after{
+    content:""!important;
+    position:absolute!important;
+    bottom:0;left:0;right:0;height:1px!important;
+    background:linear-gradient(90deg,transparent 5%,rgba(201,162,39,.45) 50%,transparent 95%)!important;
+}
+.echo-breadcrumb-area .breadcrumb-inner{position:relative!important;z-index:2!important;}
+.echo-breadcrumb-area .breadcrumb-inner .meta{
+    display:flex!important;align-items:center!important;
+    justify-content:center!important;gap:8px!important;margin-bottom:14px!important;
+}
+.echo-breadcrumb-area .breadcrumb-inner .meta .next,
+.echo-breadcrumb-area .breadcrumb-inner a.next{
+    font-family:"Inter",sans-serif!important;
+    font-size:.72rem!important;font-weight:700!important;
+    letter-spacing:.18em!important;text-transform:uppercase!important;
+    color:rgba(201,162,39,.85)!important;text-decoration:none!important;
+}
+.echo-breadcrumb-area .breadcrumb-inner a.next:hover{color:#e5c76b!important;}
+.echo-breadcrumb-area .breadcrumb-inner .meta span{color:rgba(201,162,39,.40)!important;font-size:.70rem!important;}
+.echo-breadcrumb-area .breadcrumb-inner .title{
+    font-family:"Playfair Display",Georgia,serif!important;
+    font-size:clamp(2.2rem,5vw,3.8rem)!important;
+    font-weight:700!important;line-height:1.10!important;
+    color:#f8fafc!important;letter-spacing:-.02em!important;
+    margin:0!important;text-shadow:0 2px 24px rgba(0,0,0,.30)!important;
+}
+@media(max-width:768px){
+    .echo-breadcrumb-area{padding:30px 0 26px!important;}
+    .echo-breadcrumb-area .breadcrumb-inner .title{font-size:2rem!important;}
+}
+</style>' . PHP_EOL;
+        return $html;
+    }, 99, 1);
+
     // ── Hero Intro Banner ──────────────────────────────────────────────────────
     Shortcode::register('hero-intro', __('Hero Intro Banner'), __('Full-width hero banner with background image, play icon and title'), function (ShortcodeCompiler $shortcode): ?string {
         return Theme::partial('shortcodes.hero-intro.index', compact('shortcode'));
