@@ -293,5 +293,47 @@ app('events')->listen(RenderingThemeOptionSettings::class, function (): void {
                 'value' => 'Fr. Morson Livingston',
                 'options' => ['class' => 'form-control'],
             ],
+        ])
+
+        // ── Live Streams Page ──────────────────────────────────────────────────
+        ->setField([
+            'id'         => 'live_page_hero_image',
+            'section_id' => 'opt-text-subsection-general',
+            'type'       => 'mediaImage',
+            'label'      => __('Live Page: Hero Background Image (optional)'),
+            'attributes' => ['name' => 'live_page_hero_image', 'value' => null],
+        ])
+        ->setField([
+            'id'         => 'live_page_hero_badge',
+            'section_id' => 'opt-text-subsection-general',
+            'type'       => 'text',
+            'label'      => __('Live Page: Hero Badge Text'),
+            'attributes' => [
+                'name'    => 'live_page_hero_badge',
+                'value'   => 'Broadcasting Live',
+                'options' => ['class' => 'form-control'],
+            ],
+        ])
+        ->setField([
+            'id'         => 'live_page_hero_title',
+            'section_id' => 'opt-text-subsection-general',
+            'type'       => 'text',
+            'label'      => __('Live Page: Hero Title'),
+            'attributes' => [
+                'name'    => 'live_page_hero_title',
+                'value'   => 'Live Catholic Streams',
+                'options' => ['class' => 'form-control'],
+            ],
+        ])
+        ->setField([
+            'id'         => 'live_page_hero_subtitle',
+            'section_id' => 'opt-text-subsection-general',
+            'type'       => 'textarea',
+            'label'      => __('Live Page: Hero Subtitle / Description'),
+            'attributes' => [
+                'name'    => 'live_page_hero_subtitle',
+                'value'   => 'Mass, Rosary, Adoration and more — broadcasting live from churches and organisations around the world.',
+                'options' => ['class' => 'form-control', 'rows' => 3],
+            ],
         ]);
 });
