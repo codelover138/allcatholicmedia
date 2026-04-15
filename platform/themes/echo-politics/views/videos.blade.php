@@ -6,6 +6,8 @@
     $now = now();
 @endphp
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 {{-- ══ Inline styles (Theme::header() doesn't support @stack) ══ --}}
 <style>
 /* ── Variables ─────────────────────────────────────── */
@@ -28,57 +30,88 @@ html[data-theme='dark'] {
 /* ── Hero ──────────────────────────────────────────── */
 .acm-vhero {
     position: relative;
-    padding: 60px 0 44px;
+    padding: 80px 0 68px;
     text-align: center;
     overflow: hidden;
-    background: linear-gradient(135deg, #091523 0%, #0d2a4e 50%, #091523 100%);
+    background: linear-gradient(158deg, #040a14 0%, #0b1a35 38%, #0d2a4e 65%, #060d1a 100%);
 }
-.acm-vhero::after {
+/* Radial blue glow */
+.acm-vhero::before {
     content: '';
     position: absolute;
     top: -80px; left: 50%; transform: translateX(-50%);
     width: 700px; height: 500px;
-    background: radial-gradient(ellipse at center, rgba(4,107,210,.3) 0%, transparent 65%);
+    background: radial-gradient(ellipse at center, rgba(4,107,210,.22) 0%, transparent 65%);
     pointer-events: none;
 }
-.acm-vhero-inner { position: relative; z-index: 1; }
-.acm-vhero-top {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-bottom: 14px;
+/* Bottom gold accent line */
+.acm-vhero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent 5%, rgba(201,162,39,.40) 50%, transparent 95%);
 }
+/* Dot-grid texture */
+.acm-vhero-tex {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(4,107,210,.045) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+}
+.acm-vhero-inner { position: relative; z-index: 2; }
 
 .acm-vhero-eyebrow {
-    display: inline-flex; align-items: center; gap: 7px;
-    background: rgba(220,38,38,.15); border: 1px solid rgba(220,38,38,.35);
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(220,38,38,.14); border: 1px solid rgba(220,38,38,.40);
     color: #fca5a5; font-size: .68rem; font-weight: 700;
-    letter-spacing: .1em; text-transform: uppercase;
-    padding: 5px 14px; border-radius: 100px; margin: 0;
+    letter-spacing: .14em; text-transform: uppercase;
+    padding: 7px 20px; border-radius: 100px; margin-bottom: 24px;
+    backdrop-filter: blur(6px);
 }
-.acm-vhero-dot { width: 7px; height: 7px; background: #f87171; border-radius: 50%; animation: vdot 1.4s ease-in-out infinite; }
+.acm-vhero-dot { width: 7px; height: 7px; background: #f87171; border-radius: 50%; animation: vdot 1.4s ease-in-out infinite; flex-shrink: 0; }
 @keyframes vdot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.6)} }
 
 .acm-vhero-title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(2rem, 4.5vw, 2.8rem);
-    font-weight: 700; color: #f0f6ff;
-    line-height: 1.18; letter-spacing: -.025em;
-    margin: 0;
-    display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: center;
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    font-weight: 700; color: #f8fafc;
+    line-height: 1.07; letter-spacing: -.03em;
+    margin: 0 0 16px;
+    text-shadow: 0 4px 20px rgba(0,0,0,.24);
 }
-.acm-vhero-icon { color: var(--vp); flex-shrink: 0; }
 .acm-vhero-sub {
-    font-size: 1rem; color: rgba(226,232,240,.68);
-    margin: 0 0 20px; letter-spacing: .01em;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: clamp(.92rem, 1.6vw, 1.06rem);
+    font-weight: 300;
+    color: rgba(226,232,240,.82);
+    max-width: 540px; margin: 0 auto 40px;
+    line-height: 1.8;
+}
+/* Multi-item stats pill */
+.acm-vhero-stats {
+    display: inline-flex;
+    border: 1px solid rgba(201,162,39,.28);
+    border-radius: 100px;
+    background: rgba(255,255,255,.04);
+    backdrop-filter: blur(12px);
+    overflow: hidden;
 }
 .acm-vhero-stat {
-    display: inline-flex; align-items: center; gap: 7px;
-    background: rgba(201,162,39,.12); border: 1px solid rgba(201,162,39,.28);
-    color: #fcd34d; font-size: .78rem; font-weight: 600;
-    padding: 5px 16px; border-radius: 100px;
+    padding: 12px 28px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: .72rem;
+    color: rgba(226,232,240,.65);
+    border-right: 1px solid rgba(201,162,39,.14);
+    text-align: center;
+    line-height: 1.3;
+}
+.acm-vhero-stat:last-child { border-right: none; }
+.acm-vhero-stat strong {
+    display: block;
+    font-size: 1.12rem; font-weight: 700;
+    color: #fbbf24;
+    font-family: 'Playfair Display', Georgia, serif;
+    margin-bottom: 3px;
 }
 
 /* ── Filter Bar ────────────────────────────────────── */
@@ -386,8 +419,10 @@ html[data-theme='dark'] .acm-vtag:hover { background: #60a5fa; color: #0f172a; }
 
 /* ── Responsive ────────────────────────────────────── */
 @media (max-width: 767px) {
-    .acm-vhero { padding: 40px 0 30px; }
-    .acm-vhero-top { gap: 12px; margin-bottom: 12px; }
+    .acm-vhero { padding: 56px 0 44px; }
+    .acm-vhero-stats { flex-direction: column; border-radius: 14px; }
+    .acm-vhero-stat { border-right: none; border-bottom: 1px solid rgba(201,162,39,.12); }
+    .acm-vhero-stat:last-child { border-bottom: none; }
     .acm-filter-bar { position: static; }
     .acm-filter-inner { gap: 10px; }
     .acm-videos-section { padding: 24px 0 60px; }
@@ -399,23 +434,35 @@ html[data-theme='dark'] .acm-vtag:hover { background: #60a5fa; color: #0f172a; }
      HERO
 ══════════════════════════════════════════════════════ --}}
 <section class="acm-vhero">
+    <div class="acm-vhero-tex" aria-hidden="true"></div>
     <div class="acm-vhero-inner container">
-        <div class="acm-vhero-top">
-        <div class="acm-vhero-eyebrow">
-            <span class="acm-vhero-dot"></span> {{ __('LIVE & ON DEMAND') }}
+
+        <div>
+            <span class="acm-vhero-eyebrow">
+                <span class="acm-vhero-dot"></span>
+                {{ __('Video Library') }}
+            </span>
         </div>
-        <h1 class="acm-vhero-title">
-            <svg class="acm-vhero-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-            {{ __('Catholic Video Library') }}
-        </h1>
-        </div>
-        <p class="acm-vhero-sub">{{ __('Mass · Rosary · Adoration · Divine Mercy · Homilies — all in one place.') }}</p>
-        @if($totalVideos)
+
+        <h1 class="acm-vhero-title">{{ __('Catholic Video Library') }}</h1>
+
+        <p class="acm-vhero-sub">{{ __('Mass · Rosary · Adoration · Divine Mercy · Homilies — all in one place, free to watch anytime.') }}</p>
+
+        <div class="acm-vhero-stats">
             <div class="acm-vhero-stat">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                {{ number_format($totalVideos) }} {{ __('videos') }}
+                <strong>{{ number_format($totalVideos) }}</strong>
+                {{ __('Videos') }}
             </div>
-        @endif
+            <div class="acm-vhero-stat">
+                <strong>{{ $videoTags->count() ?: '10+' }}</strong>
+                {{ __('Topics') }}
+            </div>
+            <div class="acm-vhero-stat">
+                <strong>{{ __('Free') }}</strong>
+                {{ __('To Watch') }}
+            </div>
+        </div>
+
     </div>
 </section>
 

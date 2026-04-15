@@ -119,14 +119,16 @@ html[data-theme='dark'] {
 
 .lv-hero-inner { position: relative; z-index: 2; }
 
-/* Cross watermark */
+/* Cross watermarks */
 .lv-hero-cross {
     position: absolute;
-    right: 7%; top: 50%; transform: translateY(-50%);
+    top: 50%; transform: translateY(-50%);
     width: 160px; height: 160px;
     opacity: .04;
     pointer-events: none;
 }
+.lv-hero-cross.right { right: 7%; }
+.lv-hero-cross.left  { left: 7%; }
 
 /* Live badge pill */
 .lv-hero-badge {
@@ -724,6 +726,7 @@ html[data-theme='dark'] .lv-utime-hm { color: var(--lg); }
     .lv-hero-stat { border-right: none; border-bottom: 1px solid rgba(201,162,39,.12); }
     .lv-hero-stat:last-child { border-bottom: none; }
     .lv-hero-cross { display: none; }
+    .lv-hero-cross.left { display: none; }
     .lv-grid { grid-template-columns: 1fr; gap: 16px; }
     .lv-uloc,.lv-countdown { display: none; }
     .lv-info-strip { flex-direction: column; gap: 20px; text-align: center; padding: 28px 22px; }
@@ -744,8 +747,12 @@ html[data-theme='dark'] .lv-utime-hm { color: var(--lg); }
 <section class="lv-hero">
     <div class="lv-hero-tex" aria-hidden="true"></div>
 
-    {{-- Cross watermark SVG --}}
-    <svg class="lv-hero-cross" viewBox="0 0 100 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    {{-- Cross watermarks --}}
+    <svg class="lv-hero-cross left" viewBox="0 0 100 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="38" y="0" width="24" height="160" rx="6" fill="white"/>
+        <rect x="0" y="42" width="100" height="24" rx="6" fill="white"/>
+    </svg>
+    <svg class="lv-hero-cross right" viewBox="0 0 100 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <rect x="38" y="0" width="24" height="160" rx="6" fill="white"/>
         <rect x="0" y="42" width="100" height="24" rx="6" fill="white"/>
     </svg>

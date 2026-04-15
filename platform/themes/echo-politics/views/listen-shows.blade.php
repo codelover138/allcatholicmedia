@@ -2,23 +2,99 @@
     Theme::layout('full-width');
     SeoHelper::setTitle('Catholic Podcasts & Audio Shows | AllCatholicMedia');
     SeoHelper::setDescription('Browse Catholic podcast shows - homilies, rosaries, Bible studies, news, and devotional audio. Open any show to listen to its episodes.');
-    $heroImage = setting('listen_page_hero_image', url('ref_image/header.png'));
     $totalEpisodes = $shows->sum('episodes_count');
 @endphp
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-/* ── Hero (user-designed, kept as-is) ─────────────────────────────────── */
-.acm-listen-hero{position:relative;overflow:hidden;background:url('{{ $heroImage }}') center center/cover no-repeat;padding:118px 0 112px;text-align:center}
-.acm-listen-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,19,10,.55) 0%,rgba(10,23,13,.48) 30%,rgba(8,19,10,.68) 100%);pointer-events:none}
-.acm-listen-hero::after{content:'';position:absolute;inset:auto 0 0 0;height:6px;background:linear-gradient(90deg,transparent,rgba(201,162,39,.5),transparent);pointer-events:none}
+/* ── Animated eyebrow dot ────────────────────────────── */
+@keyframes lsDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.5)}}
+.acm-listen-eyebrow-dot{width:7px;height:7px;border-radius:50%;background:#f3d46d;animation:lsDot 2s ease-in-out infinite;flex-shrink:0}
+
+/* ── Hero ────────────────────────────────────────────── */
+.acm-listen-hero{
+    position:relative;overflow:hidden;
+    background:linear-gradient(158deg,#060e1d 0%,#0d1f3c 42%,#0b1a35 72%,#050c18 100%);
+    padding:80px 0 68px;text-align:center
+}
+/* Radial gold glow — same as Saints / Live */
+.acm-listen-hero::before{
+    content:'';position:absolute;
+    top:-130px;left:50%;transform:translateX(-50%);
+    width:900px;height:620px;
+    background:radial-gradient(ellipse at 50% 32%,
+        rgba(201,162,39,.18) 0%,rgba(4,107,210,.07) 48%,transparent 68%);
+    pointer-events:none;
+}
+/* Bottom gold accent line */
+.acm-listen-hero::after{
+    content:'';position:absolute;
+    bottom:0;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent 5%,rgba(201,162,39,.40) 50%,transparent 95%);
+    pointer-events:none
+}
+/* Dot-grid texture */
+.acm-listen-hero-tex{
+    position:absolute;inset:0;
+    background-image:radial-gradient(circle,rgba(201,162,39,.04) 1px,transparent 1px);
+    background-size:32px 32px;
+    pointer-events:none;
+}
+/* Cross watermarks */
+.acm-listen-cross{
+    position:absolute;
+    top:50%;transform:translateY(-50%);
+    width:160px;height:160px;
+    opacity:.04;pointer-events:none;
+}
+.acm-listen-cross.left{left:7%}
+.acm-listen-cross.right{right:7%}
 .acm-listen-hero-inner{position:relative;z-index:1}
-.acm-listen-eyebrow{display:inline-flex;align-items:center;gap:9px;margin-bottom:20px;padding:9px 18px;border-radius:999px;background:rgba(15,23,42,.28);border:1px solid rgba(201,162,39,.45);color:#f3d46d;font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;backdrop-filter:blur(6px)}
-.acm-listen-title{margin:0 0 12px;color:#fff;font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.4rem,4.7vw,4rem);font-weight:700;letter-spacing:-.03em;text-shadow:0 10px 28px rgba(0,0,0,.24)}
-.acm-listen-sub{max-width:860px;margin:0 auto 26px;color:rgba(255,255,255,.92);font-size:1.04rem;line-height:1.85;text-shadow:0 4px 18px rgba(0,0,0,.2)}
-.acm-listen-stats{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
-.acm-listen-stat{min-width:168px;padding:14px 18px;border-radius:18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px);box-shadow:0 16px 40px rgba(0,0,0,.12)}
-.acm-listen-stat-label{display:block;margin-bottom:4px;color:rgba(255,255,255,.72);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.acm-listen-stat-value{display:block;color:#fff;font-size:1.45rem;font-weight:700;line-height:1}
+
+.acm-listen-eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    margin-bottom:24px;padding:7px 20px;border-radius:999px;
+    background:rgba(15,23,42,.28);border:1px solid rgba(201,162,39,.45);
+    color:#f3d46d;font-family:'Inter',system-ui,sans-serif;
+    font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    backdrop-filter:blur(6px)
+}
+
+.acm-listen-title{
+    margin:0 0 16px;color:#f8fafc;
+    font-family:'Playfair Display',Georgia,serif;
+    font-size:clamp(2.4rem,4.7vw,4.2rem);
+    font-weight:700;letter-spacing:-.03em;line-height:1.07;
+    text-shadow:0 4px 20px rgba(0,0,0,.24)
+}
+
+.acm-listen-sub{
+    max-width:540px;margin:0 auto 40px;
+    font-family:'Inter',system-ui,sans-serif;
+    font-size:clamp(.92rem,1.6vw,1.06rem);font-weight:300;
+    color:rgba(226,232,240,.82);line-height:1.8
+}
+
+/* Stats pill — matches live page */
+.acm-listen-stats{
+    display:inline-flex;
+    border:1px solid rgba(201,162,39,.28);border-radius:100px;
+    background:rgba(255,255,255,.04);backdrop-filter:blur(12px);
+    overflow:hidden;
+}
+.acm-listen-stat{
+    padding:12px 28px;
+    font-family:'Inter',system-ui,sans-serif;font-size:.72rem;
+    color:rgba(226,232,240,.65);
+    border-right:1px solid rgba(201,162,39,.14);
+    text-align:center;line-height:1.3;
+}
+.acm-listen-stat:last-child{border-right:none}
+.acm-listen-stat strong{
+    display:block;font-size:1.12rem;font-weight:700;
+    color:#fbbf24;font-family:'Playfair Display',Georgia,serif;margin-bottom:3px;
+}
 
 /* ── Directory section ────────────────────────────────────────────────── */
 .acm-listen-page{background:#111;padding-bottom:80px}
@@ -130,9 +206,13 @@
 }
 
 @media(max-width:767px){
-    .acm-listen-hero{padding:88px 0 80px}
+    .acm-listen-hero{padding:56px 0 44px}
+    .acm-listen-cross{display:none}
     .acm-listen-title{font-size:clamp(2rem,8vw,2.6rem)}
-    .acm-listen-sub{font-size:.96rem}
+    .acm-listen-sub{font-size:.96rem;margin-bottom:28px}
+    .acm-listen-stats{flex-direction:column;border-radius:14px}
+    .acm-listen-stat{border-right:none;border-bottom:1px solid rgba(201,162,39,.12)}
+    .acm-listen-stat:last-child{border-bottom:none}
     .acm-listen-chip{min-width:130px;padding:14px 16px}
     .acm-listen-sort{width:100%}
     .acm-listen-sort select{width:100%}
@@ -146,27 +226,46 @@
 {{-- Hero ----------------------------------------------------------------}}
 <div class="acm-listen-page">
     <section class="acm-listen-hero">
+        <div class="acm-listen-hero-tex" aria-hidden="true"></div>
+
+        {{-- Cross watermarks --}}
+        <svg class="acm-listen-cross left" viewBox="0 0 100 160" fill="none" aria-hidden="true">
+            <rect x="38" y="0" width="24" height="160" rx="6" fill="white"/>
+            <rect x="0" y="42" width="100" height="24" rx="6" fill="white"/>
+        </svg>
+        <svg class="acm-listen-cross right" viewBox="0 0 100 160" fill="none" aria-hidden="true">
+            <rect x="38" y="0" width="24" height="160" rx="6" fill="white"/>
+            <rect x="0" y="42" width="100" height="24" rx="6" fill="white"/>
+        </svg>
+
         <div class="container acm-listen-hero-inner">
-            <div class="acm-listen-eyebrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-                {{ __('Catholic Audio Directory') }}
+
+            <div>
+                <span class="acm-listen-eyebrow">
+                    <span class="acm-listen-eyebrow-dot"></span>
+                    {{ __('Catholic Audio Directory') }}
+                </span>
             </div>
+
             <h1 class="acm-listen-title">{{ __('Listen By Show') }}</h1>
-            <p class="acm-listen-sub">{{ __('Browse Catholic podcast shows and audio programs. Open any show to stream its episodes - homilies, rosaries, talks, news, and devotions.') }}</p>
+
+            <p class="acm-listen-sub">{{ __('Browse Catholic podcast shows and audio programs. Open any show to stream episodes — homilies, rosaries, talks, news, and devotions.') }}</p>
+
             <div class="acm-listen-stats">
                 <div class="acm-listen-stat">
-                    <span class="acm-listen-stat-label">{{ __('Shows') }}</span>
-                    <span class="acm-listen-stat-value">{{ number_format($shows->count()) }}</span>
+                    <strong>{{ number_format($shows->count()) }}</strong>
+                    {{ __('Shows') }}
                 </div>
                 <div class="acm-listen-stat">
-                    <span class="acm-listen-stat-label">{{ __('Episodes') }}</span>
-                    <span class="acm-listen-stat-value">{{ number_format($totalEpisodes) }}</span>
+                    <strong>{{ number_format($totalEpisodes) }}</strong>
+                    {{ __('Episodes') }}
                 </div>
                 <div class="acm-listen-stat">
-                    <span class="acm-listen-stat-label">{{ __('Streaming') }}</span>
-                    <span class="acm-listen-stat-value">{{ __('Ready') }}</span>
+                    <strong>{{ __('Free') }}</strong>
+                    {{ __('Streaming') }}
                 </div>
             </div>
+
         </div>
     </section>
 

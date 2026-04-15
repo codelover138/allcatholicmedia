@@ -20,6 +20,47 @@ Route::group(['middleware' => ['web', 'core']], function (): void {
 
     /*
     |--------------------------------------------------------------------------
+    | Catholic Articles — /read
+    |--------------------------------------------------------------------------
+    | Browse published blog articles (excludes video, audio, and saints posts).
+    | Supports filtering by category and sort order.
+    */
+    Route::get('read', function (Request $request) {
+        $catId = $request->integer('category');
+        $sort  = $request->input('sort', 'latest');
+
+        $baseQuery = fn () => Post::query()
+            ->with(['slugable', 'categories', 'tags'])
+            ->wherePublished()
+            ->whereDoesntHave('metadata', fn ($q) => $q
+                ->where('meta_key', 'video_url')
+                ->whereNotNull('meta_value')
+                ->where('meta_value', '!=', ''))
+            ->whereDoesntHave('metadata', fn ($q) => $q
+                ->where('meta_key', 'audio')
+                ->whereNotNull('meta_value')
+                ->where('meta_value', '!=', ''))
+            ->whereDoesntHave('categories', fn ($q) => $q->where('id', 3));
+
+        $totalArticles = $baseQuery()->count();
+
+        $posts = $baseQuery()
+            ->when($catId, fn ($q) => $q->whereHas('categories', fn ($cq) => $cq->where('id', $catId)))
+            ->when($sort === 'popular', fn ($q) => $q->orderByDesc('views'), fn ($q) => $q->latest())
+            ->paginate(12)
+            ->withQueryString();
+
+        $categories = Category::query()
+            ->whereHas('posts', fn ($q) => $q->wherePublished())
+            ->where('id', '!=', 3)
+            ->orderBy('name')
+            ->get();
+
+        return Theme::scope('read', compact('posts', 'categories', 'catId', 'sort', 'totalArticles'))->render();
+    })->name('public.read');
+
+    /*
+    |--------------------------------------------------------------------------
     | Search Autocomplete API — /api/search-suggest
     |--------------------------------------------------------------------------
     | Returns JSON of top matches across content types for autocomplete.
