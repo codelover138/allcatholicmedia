@@ -139,7 +139,7 @@ html[data-theme='dark'] {
     border: 1px solid rgba(220,38,38,.40);
     color: #fca5a5;
     font-family: var(--bf);
-    font-size: .68rem;
+    font-size: .88rem;
     font-weight: 700;
     letter-spacing: .14em;
     text-transform: uppercase;
@@ -190,7 +190,7 @@ html[data-theme='dark'] {
 /* Subtitle */
 .lv-hero-desc {
     font-family: var(--bf);
-    font-size: clamp(.92rem, 1.6vw, 1.06rem);
+    font-size: clamp(1.12rem, 2vw, 1.35rem);
     font-weight: 300;
     color: rgba(226,232,240,.82);
     max-width: 540px;
@@ -210,7 +210,7 @@ html[data-theme='dark'] {
 .lv-hero-stat {
     padding: 12px 28px;
     font-family: var(--bf);
-    font-size: .72rem;
+    font-size: .90rem;
     color: rgba(226,232,240,.65);
     border-right: 1px solid rgba(201,162,39,.14);
     text-align: center;
@@ -219,7 +219,7 @@ html[data-theme='dark'] {
 .lv-hero-stat:last-child { border-right: none; }
 .lv-hero-stat strong {
     display: block;
-    font-size: 1.12rem;
+    font-size: 1.45rem;
     font-weight: 700;
     color: #fbbf24;
     font-family: var(--hf);

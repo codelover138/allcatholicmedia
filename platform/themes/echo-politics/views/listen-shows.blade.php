@@ -57,7 +57,7 @@
     margin-bottom:24px;padding:7px 20px;border-radius:999px;
     background:rgba(15,23,42,.28);border:1px solid rgba(201,162,39,.45);
     color:#f3d46d;font-family:'Inter',system-ui,sans-serif;
-    font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    font-size:.88rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
     backdrop-filter:blur(6px)
 }
 
@@ -72,7 +72,7 @@
 .acm-listen-sub{
     max-width:540px;margin:0 auto 40px;
     font-family:'Inter',system-ui,sans-serif;
-    font-size:clamp(.92rem,1.6vw,1.06rem);font-weight:300;
+    font-size:clamp(1.12rem,2vw,1.35rem);font-weight:300;
     color:rgba(226,232,240,.82);line-height:1.8
 }
 
@@ -85,14 +85,14 @@
 }
 .acm-listen-stat{
     padding:12px 28px;
-    font-family:'Inter',system-ui,sans-serif;font-size:.72rem;
+    font-family:'Inter',system-ui,sans-serif;font-size:.90rem;
     color:rgba(226,232,240,.65);
     border-right:1px solid rgba(201,162,39,.14);
     text-align:center;line-height:1.3;
 }
 .acm-listen-stat:last-child{border-right:none}
 .acm-listen-stat strong{
-    display:block;font-size:1.12rem;font-weight:700;
+    display:block;font-size:1.45rem;font-weight:700;
     color:#fbbf24;font-family:'Playfair Display',Georgia,serif;margin-bottom:3px;
 }
 

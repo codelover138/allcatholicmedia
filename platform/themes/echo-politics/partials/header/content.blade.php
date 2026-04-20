@@ -1,5 +1,9 @@
 @push('footer')
 <style>
+/* Hide gear (dark/light toggle) and hamburger menu from navbar */
+.rts-darkmode,
+.echo-header-top-menu-bar-wrapper { display: none !important; }
+
 #acm-suggest-box { position: absolute; top: calc(100% + 6px); left: 0; right: 0; background: var(--bg-card,#fff); border: 1px solid var(--border-color,#e2e8f0); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,.12); z-index: 9999; overflow: hidden; display: none; }
 .acm-suggest-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; font-size: .88rem; color: var(--color-heading-1,#1e293b); text-decoration: none; border-bottom: 1px solid var(--border-color,#e2e8f0); }
 .acm-suggest-item:last-child { border-bottom: none; }
