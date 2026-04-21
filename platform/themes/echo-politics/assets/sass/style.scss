@@ -494,6 +494,42 @@ main p:has(> span > span:empty) {
     padding-right: 0 !important;
 }
 
+/* Remove editor-created wrappers before the homepage hero shortcode */
+main {
+    .main,
+    .main > div {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .main > div > p {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+
+        &:empty,
+        &:has(> br:only-child),
+        &:has(+ .hero-intro-section),
+        &:has(+ span + .hero-intro-section),
+        &:has(> span:only-child):not(:has(section)) {
+            display: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            height: 0 !important;
+            line-height: 0 !important;
+        }
+    }
+
+    .main {
+        .hero-intro-section:first-child {
+            margin-top: 0 !important;
+        }
+    }
+}
+
+.hero-intro-section:first-child {
+    margin-top: 0 !important;
+}
+
 .echo-trending-news-area, .echo-latest-news-area {
     .hm5-feature-title {
         .hm-5-main-title {

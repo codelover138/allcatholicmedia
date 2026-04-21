@@ -101,3 +101,31 @@ html[data-theme=dark] .echo-breadcrumb-area {
     .echo-breadcrumb-area .breadcrumb-inner .title { font-size: 2rem !important; }
 }
 
+/* homepage-editor-wrapper-gap-fix */
+main .main,
+main .main > div {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+main .main > div > p:empty,
+main .main > div > p:has(> br:only-child),
+main .main > div > p:has(+ .hero-intro-section),
+main .main > div > p:has(+ span + .hero-intro-section),
+main .main > div > p:has(> span:only-child):not(:has(section)) {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+    line-height: 0 !important;
+}
+
+main .main > div > p {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.hero-intro-section:first-child,
+main .main .hero-intro-section:first-child {
+    margin-top: 0 !important;
+}
