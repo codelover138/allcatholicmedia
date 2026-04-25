@@ -27,9 +27,9 @@ CREATE TABLE IF NOT EXISTS `activations` (
   KEY `activations_user_id_index` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.activations: ~1 rows (approximately)
+-- Dumping data for table allcatholicmedia.activations: ~0 rows (approximately)
 REPLACE INTO `activations` (`id`, `user_id`, `code`, `completed`, `completed_at`, `created_at`, `updated_at`) VALUES
-	(1, 1, '4lkwp5kz5e9gWd4OPSGMkARJ8fRhNvy6', 1, '2025-12-24 07:30:13', '2025-12-24 07:30:13', '2025-12-24 07:30:13');
+	(1, 1, '4lkwp5kz5e9gWd4OPSGMkARJ8fRhNvy6', 1, '2026-12-24 07:30:13', '2025-12-24 07:30:13', '2025-12-24 07:30:13');
 
 -- Dumping structure for table allcatholicmedia.admin_notifications
 CREATE TABLE IF NOT EXISTS `admin_notifications` (
@@ -139,9 +139,9 @@ CREATE TABLE IF NOT EXISTS `audit_histories` (
   PRIMARY KEY (`id`),
   KEY `audit_histories_user_id_index` (`user_id`),
   KEY `audit_histories_module_index` (`module`)
-) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=120 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.audit_histories: ~110 rows (approximately)
+-- Dumping data for table allcatholicmedia.audit_histories: ~60 rows (approximately)
 REPLACE INTO `audit_histories` (`id`, `user_id`, `user_type`, `module`, `request`, `action`, `user_agent`, `ip_address`, `actor_id`, `actor_type`, `reference_id`, `reference_name`, `type`, `created_at`, `updated_at`) VALUES
 	(1, 1, 'Botble\\ACL\\Models\\User', 'to the system', NULL, 'logged in', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '127.0.0.1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-03-27 22:30:53', '2026-03-27 22:30:53'),
 	(2, 1, 'Botble\\ACL\\Models\\User', 'of the system', '[]', 'logged out', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '127.0.0.1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-03-27 22:46:38', '2026-03-27 22:46:38'),
@@ -252,7 +252,16 @@ REPLACE INTO `audit_histories` (`id`, `user_id`, `user_type`, `module`, `request
 	(107, 1, 'Botble\\ACL\\Models\\User', 'announcement', '{"_method":"delete"}', 'deleted', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '127.0.0.1', 1, 'Botble\\ACL\\Models\\User', 2, 'Announcement 2', 'danger', '2026-04-04 16:19:38', '2026-04-04 16:19:38'),
 	(108, 1, 'Botble\\ACL\\Models\\User', 'announcement', '{"name":"Announcement 1","content":"<p><span style=\\"color:rgb(212,212,212);font-size:13px;\\"><span style=\\"-webkit-text-stroke-width:0px;display:inline !important;float:none;font-family:&quot;Segoe WPC&quot;, &quot;Segoe UI&quot;, sans-serif;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;\\">Important Update: We are currently improving the login experience and overall platform performance. During this time, some users may notice brief delays or temporary issues while accessing certain features. Thank you for your patience as we complete these updates<\\/span><\\/span><\\/p>","start_date":"2025-12-24 14:30:27","end_date":"2026-04-30 00:00:0","has_action":"0","action_label":null,"action_url":null,"action_open_new_tab":"0","submitter":"apply","is_active":"1"}', 'updated', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '127.0.0.1', 1, 'Botble\\ACL\\Models\\User', 1, 'Announcement 1', 'primary', '2026-04-04 16:29:53', '2026-04-04 16:29:53'),
 	(109, 1, 'Botble\\ACL\\Models\\User', 'to the system', NULL, 'logged in', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '127.0.0.1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-04-04 17:20:09', '2026-04-04 17:20:09'),
-	(110, 1, 'Botble\\ACL\\Models\\User', 'to the system', NULL, 'logged in', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '127.0.0.1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-04-10 19:49:53', '2026-04-10 19:49:53');
+	(110, 1, 'Botble\\ACL\\Models\\User', 'to the system', NULL, 'logged in', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '127.0.0.1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-04-10 19:49:53', '2026-04-10 19:49:53'),
+	(111, 1, 'Botble\\ACL\\Models\\User', 'to the system', NULL, 'logged in', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0', '::1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-04-22 16:56:28', '2026-04-22 16:56:28'),
+	(112, 1, 'Botble\\ACL\\Models\\User', 'from the admin panel', NULL, 'logged out', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0', '::1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-04-22 17:01:23', '2026-04-22 17:01:23'),
+	(113, 1, 'Botble\\ACL\\Models\\User', 'to the system', NULL, 'logged in', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0', '::1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-04-22 17:02:36', '2026-04-22 17:02:36'),
+	(114, 1, 'Botble\\ACL\\Models\\User', 'of the system', '[]', 'logged out', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0', '::1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-04-22 17:13:34', '2026-04-22 17:13:34'),
+	(115, 1, 'Botble\\ACL\\Models\\User', 'from the admin panel', NULL, 'logged out', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0', '::1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-04-22 17:13:34', '2026-04-22 17:13:34'),
+	(116, 10, 'Botble\\Member\\Models\\Member', 'from the customer portal', NULL, 'logged out', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '::1', 10, 'Botble\\Member\\Models\\Member', 10, 'Abdul Kader', 'info', '2026-04-22 17:31:54', '2026-04-22 17:31:54'),
+	(117, 1, 'Botble\\ACL\\Models\\User', 'to the system', NULL, 'logged in', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0', '::1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-04-22 17:32:12', '2026-04-22 17:32:12'),
+	(118, 10, 'Botble\\Member\\Models\\Member', 'from the customer portal', NULL, 'logged out', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '::1', 10, 'Botble\\Member\\Models\\Member', 10, 'Abdul Kader', 'info', '2026-04-22 19:08:32', '2026-04-22 19:08:32'),
+	(119, 1, 'Botble\\ACL\\Models\\User', 'to the system', NULL, 'logged in', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Avast/146.0.34394.179', '::1', 1, 'Botble\\ACL\\Models\\User', 1, 'System Admin', 'info', '2026-04-23 18:02:42', '2026-04-23 18:02:42');
 
 -- Dumping structure for table allcatholicmedia.cache
 CREATE TABLE IF NOT EXISTS `cache` (
@@ -341,7 +350,7 @@ CREATE TABLE IF NOT EXISTS `community_groups` (
   CONSTRAINT `community_groups_creator_id_foreign` FOREIGN KEY (`creator_id`) REFERENCES `members` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.community_groups: ~3 rows (approximately)
+-- Dumping data for table allcatholicmedia.community_groups: ~2 rows (approximately)
 REPLACE INTO `community_groups` (`id`, `name`, `slug`, `description`, `cover_image`, `privacy`, `creator_id`, `members_count`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 'Rosary Confraternity', 'rosary-confraternity', 'We pray the Rosary together daily and share intentions. All are welcome regardless of experience level.', NULL, 'public', 1, 5, 'published', '2026-03-28 00:02:51', '2026-03-28 00:50:17'),
 	(2, 'Traditional Latin Mass Community', 'traditional-latin-mass-community', 'For those who love the TLM — share resources, find locations.', NULL, 'public', 1, 6, 'published', '2026-03-28 00:03:25', '2026-03-28 00:50:17'),
@@ -688,7 +697,7 @@ CREATE TABLE IF NOT EXISTS `forum_categories` (
   UNIQUE KEY `forum_categories_slug_unique` (`slug`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.forum_categories: ~7 rows (approximately)
+-- Dumping data for table allcatholicmedia.forum_categories: ~6 rows (approximately)
 REPLACE INTO `forum_categories` (`id`, `name`, `slug`, `description`, `order_column`, `topics_count`, `created_at`, `updated_at`) VALUES
 	(1, 'Vatican & Pope', 'vatican-pope', 'Papal announcements, Vatican news, and magisterial teachings.', 1, 2, '2026-03-28 00:02:51', '2026-03-28 00:50:16'),
 	(2, 'Prayer & Spirituality', 'prayer-spirituality', 'Discussion on prayer forms, retreats, and spiritual direction.', 2, 5, '2026-03-28 00:02:51', '2026-03-28 00:50:16'),
@@ -865,7 +874,7 @@ CREATE TABLE IF NOT EXISTS `gallery_meta` (
   KEY `gallery_meta_reference_id_index` (`reference_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.gallery_meta: ~38 rows (approximately)
+-- Dumping data for table allcatholicmedia.gallery_meta: ~27 rows (approximately)
 REPLACE INTO `gallery_meta` (`id`, `images`, `reference_id`, `reference_type`, `created_at`, `updated_at`) VALUES
 	(1, '[{"img":"main\\/news\\/1.jpg","description":""},{"img":"main\\/news\\/2.jpg","description":""},{"img":"main\\/news\\/3.jpg","description":""},{"img":"main\\/news\\/4.jpg","description":""},{"img":"main\\/news\\/5.jpg","description":""},{"img":"main\\/news\\/6.jpg","description":""},{"img":"main\\/news\\/7.jpg","description":""},{"img":"main\\/news\\/8.jpg","description":""},{"img":"main\\/news\\/9.jpg","description":""},{"img":"main\\/news\\/10.jpg","description":""},{"img":"main\\/news\\/11.jpg","description":""},{"img":"main\\/news\\/12.jpg","description":""},{"img":"main\\/news\\/13.jpg","description":""},{"img":"main\\/news\\/14.jpg","description":""},{"img":"main\\/news\\/15.jpg","description":""},{"img":"main\\/news\\/16.jpg","description":""},{"img":"main\\/news\\/17.jpg","description":""},{"img":"main\\/news\\/18.jpg","description":""},{"img":"main\\/news\\/19.jpg","description":""},{"img":"main\\/news\\/20.jpg","description":""}]', 1, 'Botble\\Gallery\\Models\\Gallery', '2025-12-24 07:30:26', '2025-12-24 07:30:26'),
 	(2, '[{"img":"main\\/news\\/1.jpg","description":""},{"img":"main\\/news\\/2.jpg","description":""},{"img":"main\\/news\\/3.jpg","description":""},{"img":"main\\/news\\/4.jpg","description":""},{"img":"main\\/news\\/5.jpg","description":""},{"img":"main\\/news\\/6.jpg","description":""},{"img":"main\\/news\\/7.jpg","description":""},{"img":"main\\/news\\/8.jpg","description":""},{"img":"main\\/news\\/9.jpg","description":""},{"img":"main\\/news\\/10.jpg","description":""},{"img":"main\\/news\\/11.jpg","description":""},{"img":"main\\/news\\/12.jpg","description":""},{"img":"main\\/news\\/13.jpg","description":""},{"img":"main\\/news\\/14.jpg","description":""},{"img":"main\\/news\\/15.jpg","description":""},{"img":"main\\/news\\/16.jpg","description":""},{"img":"main\\/news\\/17.jpg","description":""},{"img":"main\\/news\\/18.jpg","description":""},{"img":"main\\/news\\/19.jpg","description":""},{"img":"main\\/news\\/20.jpg","description":""}]', 2, 'Botble\\Gallery\\Models\\Gallery', '2025-12-24 07:30:26', '2025-12-24 07:30:26'),
@@ -949,7 +958,7 @@ CREATE TABLE IF NOT EXISTS `languages` (
   KEY `lang_is_default_index` (`lang_is_default`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.languages: ~1 rows (approximately)
+-- Dumping data for table allcatholicmedia.languages: ~0 rows (approximately)
 REPLACE INTO `languages` (`lang_id`, `lang_name`, `lang_locale`, `lang_code`, `lang_flag`, `lang_is_default`, `lang_order`, `lang_is_rtl`) VALUES
 	(1, 'English', 'en', 'en_US', 'us', 1, 0, 0);
 
@@ -967,7 +976,7 @@ CREATE TABLE IF NOT EXISTS `language_meta` (
   KEY `meta_reference_type_index` (`reference_type`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.language_meta: ~8 rows (approximately)
+-- Dumping data for table allcatholicmedia.language_meta: ~7 rows (approximately)
 REPLACE INTO `language_meta` (`lang_meta_id`, `lang_meta_code`, `lang_meta_origin`, `reference_id`, `reference_type`) VALUES
 	(1, 'en_US', '001fcc084e868b136aafe2aec8c3e989', 1, 'Botble\\Menu\\Models\\MenuLocation'),
 	(2, 'en_US', 'f98c5f3fcb1218b82dfbffdc0f3410d5', 1, 'Botble\\Menu\\Models\\Menu'),
@@ -1031,7 +1040,7 @@ CREATE TABLE IF NOT EXISTS `media_files` (
   KEY `media_files_index` (`folder_id`,`user_id`,`created_at`)
 ) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.media_files: ~111 rows (approximately)
+-- Dumping data for table allcatholicmedia.media_files: ~98 rows (approximately)
 REPLACE INTO `media_files` (`id`, `user_id`, `name`, `alt`, `folder_id`, `mime_type`, `size`, `url`, `options`, `created_at`, `updated_at`, `deleted_at`, `visibility`) VALUES
 	(1, 0, 'about-1', 'about-1', 2, 'image/png', 8467, 'main/general/about-1.png', '[]', '2025-12-24 07:30:11', '2025-12-24 07:30:11', NULL, 'public'),
 	(2, 0, 'about-2', 'about-2', 2, 'image/png', 8467, 'main/general/about-2.png', '[]', '2025-12-24 07:30:11', '2025-12-24 07:30:11', NULL, 'public'),
@@ -1188,7 +1197,7 @@ CREATE TABLE IF NOT EXISTS `media_settings` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.media_settings: ~1 rows (approximately)
+-- Dumping data for table allcatholicmedia.media_settings: ~0 rows (approximately)
 REPLACE INTO `media_settings` (`id`, `key`, `value`, `media_id`, `user_id`, `created_at`, `updated_at`) VALUES
 	(1, 'recent_items', '[{"id":111,"is_folder":false},{"id":110,"is_folder":false},{"id":109,"is_folder":false},{"id":108,"is_folder":false},{"id":107,"is_folder":false},{"id":106,"is_folder":false},{"id":105,"is_folder":false},{"id":104,"is_folder":false},{"id":103,"is_folder":false},{"id":102,"is_folder":false},{"id":101,"is_folder":false},{"id":100,"is_folder":false},{"id":99,"is_folder":false},{"id":98,"is_folder":false},{"id":97,"is_folder":false},{"id":96,"is_folder":false},{"id":95,"is_folder":false},{"id":94,"is_folder":false},{"id":93,"is_folder":false},{"id":92,"is_folder":false}]', NULL, 1, '2026-03-27 22:58:04', '2026-04-02 21:37:37');
 
@@ -1214,7 +1223,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   UNIQUE KEY `members_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.members: ~10 rows (approximately)
+-- Dumping data for table allcatholicmedia.members: ~8 rows (approximately)
 REPLACE INTO `members` (`id`, `first_name`, `last_name`, `description`, `gender`, `email`, `password`, `avatar_id`, `dob`, `phone`, `confirmed_at`, `email_verify_token`, `remember_token`, `created_at`, `updated_at`, `status`) VALUES
 	(1, 'John', 'Smith', 'NOT marked \'poison,\' it is.', NULL, 'member@archielite.com', '$2y$12$OXloF7xmIvAsWc4mXt45..pW45gSJHfQj9vOCiuu2BlnbLX/G4Ncy', 16, '2009-02-05', '(470) 632-4613', '2025-12-24 14:30:14', NULL, NULL, '2025-12-24 07:30:14', '2025-12-24 07:30:14', 'published'),
 	(2, 'Blanca', 'Schultz', 'Hi, I’m Blanca Schultz, Your Blogging Journey Guide 🖋️. Writing, one blog post at a time, to inspire, inform, and ignite your curiosity. Join me as we explore the world through words and embark on a limitless adventure of knowledge and creativity. Let’s bring your thoughts to life on these digital pages. 🌟 #BloggingAdventures', NULL, 'duane70@gmail.com', '$2y$12$dH1AudJvyjW1rlBQNSMhwOK0Tw9aapi3JkieJjdwrEEVs00HMl/O2', 17, '1998-07-20', '+1.425.376.2772', '2025-12-24 14:30:14', NULL, NULL, '2025-12-24 07:30:14', '2025-12-24 07:30:14', 'published'),
@@ -1225,7 +1234,7 @@ REPLACE INTO `members` (`id`, `first_name`, `last_name`, `description`, `gender`
 	(7, 'Stan', 'Macejkovic', 'Hi, I’m Stan Macejkovic, Your Blogging Journey Guide 🖋️. Writing, one blog post at a time, to inspire, inform, and ignite your curiosity. Join me as we explore the world through words and embark on a limitless adventure of knowledge and creativity. Let’s bring your thoughts to life on these digital pages. 🌟 #BloggingAdventures', NULL, 'noble.quitzon@smith.com', '$2y$12$uQ3TjDkaM6QX85YMiQAqs.aN2BMj2IPIOmGb1hFFmoKDaxJTU5TTm', 22, '2021-07-12', '+1.220.744.2495', '2025-12-24 14:30:14', NULL, NULL, '2025-12-24 07:30:15', '2025-12-24 07:30:15', 'published'),
 	(8, 'Elisabeth', 'Gislason', 'Hi, I’m Elisabeth Gislason, Your Blogging Journey Guide 🖋️. Writing, one blog post at a time, to inspire, inform, and ignite your curiosity. Join me as we explore the world through words and embark on a limitless adventure of knowledge and creativity. Let’s bring your thoughts to life on these digital pages. 🌟 #BloggingAdventures', NULL, 'qhuels@zulauf.biz', '$2y$12$xdX8Or1ko3bqVXfg/DjUJOeQwMpoBqHsCw7Jyv6jZFqMM4hUsmRcy', 23, '2020-06-17', '(615) 499-4575', '2025-12-24 14:30:14', NULL, NULL, '2025-12-24 07:30:15', '2025-12-24 07:30:15', 'published'),
 	(9, 'test', 'test', NULL, NULL, 'babu313137@gmail.com', '$2y$12$AxfmBgPKwJX4NG.oYrBtF.ferY2Scc53IPoeAZZXzFCtF.JuRnjzy', NULL, NULL, NULL, '2026-03-29 11:14:44', NULL, NULL, '2026-03-29 09:14:43', '2026-03-29 09:14:44', 'published'),
-	(10, 'abdul', 'kader', NULL, NULL, 'babu313136@gmail.com', '$2y$12$ucVb2OeLH7AX.txLuCdE6u9SeWMaYMFzCkXjF1bMiN55XXcIwWx0u', NULL, NULL, NULL, '2026-04-04 18:00:09', NULL, NULL, '2026-04-04 16:00:09', '2026-04-04 16:00:09', 'published');
+	(10, 'abdul', 'kader', NULL, NULL, 'babu313136@gmail.com', '$2y$12$ucVb2OeLH7AX.txLuCdE6u9SeWMaYMFzCkXjF1bMiN55XXcIwWx0u', NULL, NULL, NULL, '2026-04-04 18:00:09', NULL, 'wPXRD0xvWTrSyaMhuIY7EdydLa57dFjAujfKgI1SVrPmrTbH3nSzgs7wXxZ0', '2026-04-04 16:00:09', '2026-04-04 16:00:09', 'published');
 
 -- Dumping structure for table allcatholicmedia.member_activity_logs
 CREATE TABLE IF NOT EXISTS `member_activity_logs` (
@@ -1267,7 +1276,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   UNIQUE KEY `menus_slug_unique` (`slug`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.menus: ~1 rows (approximately)
+-- Dumping data for table allcatholicmedia.menus: ~0 rows (approximately)
 REPLACE INTO `menus` (`id`, `name`, `slug`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 'Main menu', 'main-menu', 'published', '2025-12-24 07:30:28', '2026-03-29 09:30:59');
 
@@ -1282,7 +1291,7 @@ CREATE TABLE IF NOT EXISTS `menu_locations` (
   KEY `menu_locations_menu_id_created_at_index` (`menu_id`,`created_at`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.menu_locations: ~1 rows (approximately)
+-- Dumping data for table allcatholicmedia.menu_locations: ~0 rows (approximately)
 REPLACE INTO `menu_locations` (`id`, `menu_id`, `location`, `created_at`, `updated_at`) VALUES
 	(1, 1, 'main-menu', '2025-12-24 07:30:28', '2025-12-24 07:30:28');
 
@@ -1309,7 +1318,7 @@ CREATE TABLE IF NOT EXISTS `menu_nodes` (
   KEY `reference_type` (`reference_type`)
 ) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.menu_nodes: ~6 rows (approximately)
+-- Dumping data for table allcatholicmedia.menu_nodes: ~5 rows (approximately)
 REPLACE INTO `menu_nodes` (`id`, `menu_id`, `parent_id`, `reference_id`, `reference_type`, `url`, `icon_font`, `position`, `title`, `css_class`, `target`, `has_child`, `created_at`, `updated_at`) VALUES
 	(24, 1, 0, 0, NULL, '/', '', 0, 'Home', '', '_self', 0, '2026-03-27 22:28:10', '2026-03-29 09:30:59'),
 	(25, 1, 0, 0, NULL, '/watch', '', 1, 'Channels', '', '_self', 0, '2026-03-27 22:28:10', '2026-03-29 09:30:59'),
@@ -1331,7 +1340,7 @@ CREATE TABLE IF NOT EXISTS `meta_boxes` (
   KEY `meta_boxes_reference_id_index` (`reference_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.meta_boxes: ~61 rows (approximately)
+-- Dumping data for table allcatholicmedia.meta_boxes: ~54 rows (approximately)
 REPLACE INTO `meta_boxes` (`id`, `meta_key`, `meta_value`, `reference_id`, `reference_type`, `created_at`, `updated_at`) VALUES
 	(1, 'title', '["Chef Marketing Officer"]', 1, 'Botble\\Member\\Models\\Member', '2025-12-24 07:30:14', '2025-12-24 07:30:14'),
 	(2, 'social_links', '[[[{"key":"name","value":"Facebook"},{"key":"icon","value":"ti ti-brand-facebook"},{"key":"url","value":"https:\\/\\/www.facebook.com\\/"}],[{"key":"name","value":"Instagram"},{"key":"icon","value":"ti ti-brand-instagram"},{"key":"url","value":"https:\\/\\/www.instagram.com\\/"}],[{"key":"name","value":"Twitter"},{"key":"icon","value":"ti ti-brand-x"},{"key":"url","value":"https:\\/\\/www.twitter.com\\/"}],[{"key":"name","value":"YouTube"},{"key":"icon","value":"ti ti-brand-youtube"},{"key":"url","value":"https:\\/\\/www.youtube.com\\/"}],[{"key":"name","value":"Pinterest"},{"key":"icon","value":"ti ti-brand-pinterest"},{"key":"url","value":"https:\\/\\/www.pinterest.com\\/"}]]]', 1, 'Botble\\Member\\Models\\Member', '2025-12-24 07:30:14', '2025-12-24 07:30:14'),
@@ -1403,7 +1412,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.migrations: ~103 rows (approximately)
+-- Dumping data for table allcatholicmedia.migrations: ~97 rows (approximately)
 REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '0001_01_01_000001_create_cache_table', 1),
 	(2, '2013_04_09_032329_create_base_tables', 1),
@@ -1591,7 +1600,7 @@ CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.password_reset_tokens: ~1 rows (approximately)
+-- Dumping data for table allcatholicmedia.password_reset_tokens: ~0 rows (approximately)
 REPLACE INTO `password_reset_tokens` (`email`, `token`, `created_at`) VALUES
 	('babu313136@gmail.com', '$2y$12$7ssGAZ6SGxWpZlKKdXOii.TFlFc/q2R/7HNs75w6ZkTbk4xUeymSO', '2026-03-29 09:11:54');
 
@@ -1713,7 +1722,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
 REPLACE INTO `posts` (`id`, `name`, `description`, `content`, `status`, `author_id`, `author_type`, `is_featured`, `image`, `views`, `format_type`, `created_at`, `updated_at`) VALUES
 	(1, 'Pope Francis Calls for Global Peace at Sunday Angelus', 'Explore the intricate web of international relations and the impact of global alliances on political landscapes. Delve into the nuances that shape diplomatic strategies and geopolitical shifts.', '<p>Our mission is to assist you in achieving better financial shape, not just for today, but for the long term. We believe that financial security and freedom are within reach for everyone, and we’re dedicated to providing the guidance and support you need to get there.</p><shortcode>[content-quote author="Celine Dion" quote="‘‘Life Imposes Things On You That You Can’t Control, But You Still Have The Choice Of How You’re Going To Live Through This.’’"][/content-quote]</shortcode><shortcode>[content-image number_of_columns="col-2" quantity="2" image_1="main/news/6.jpg" image_2="main/news/2.jpg"][/content-image]</shortcode><h3>Better financial shape</h3><p>Our comprehensive range of financial services and expert guidance are designed to empower individuals, families, and businesses to make informed financial decisions. Whether you’re looking to manage debt, build savings, invest wisely, or plan for retirement, our team of seasoned financial professionals is committed to helping you reach your goals. We offer personalized financial assessments, tailored strategies, and cutting-edge tools to maximize your financial well-being. By partnering with us, you gain access to a wealth of knowledge and resources that can transform your financial future.</p><shortcode>[content-listing-style style="style-1" quantity="6" item_1="Diverse Solutions Guidance." item_2="Professionals Assisting You." item_3="Tailored Strategies for Success." item_4="Informed Decisions with Technology." item_5="Health Assessments Provided." item_6="Strategies for Building Prosperity."][/content-listing-style]</shortcode><p>Achieving financial stability and prosperity is a shared goal we all aspire to. At Echo, we understand the significance of being in better financial shape, and we are here to guide you on your journey.</p><p><br><br>&nbsp;</p>', 'published', 2, 'Botble\\Member\\Models\\Member', 1, 'channel-2-300x169.jpg', 241, NULL, '2025-12-24 07:30:26', '2026-04-02 21:18:39'),
 	(2, 'The Daily Rosary: A Guide for Families', 'Trace the evolution of political discourse through the ages, examining how communication styles, rhetoric, and public engagement have shaped the political narrative.', '<p>The title conveys a sense of confidence that the economy will weather the banking crisis without suffering severe damage. The term "banking crisis" likely refers to a situation where financial institutions face significant challenges, such as insolvency, liquidity problems, or other issues that could affect the stability of the financial sector.</p><div>[content-quote style="style-2" quote="Life Imposes Things On You That You Can’t Control, But You Still Have The Choice Of How You’re Going To Live Through This" author="Celine Dion" description="Acknowledgment of Life’s Challenges: The quote recognizes that life can be unpredictable and present challenges, obstacles, and hardships that are beyond an individual’s control. It emphasizes that adversity is a natural part of the human experience." top_left_image="main/general/blog-shape-image.png"][/content-quote]</div><h3>I love how relaxed and flowy this dress is and that it has really delicate</h3><p>Indulge in the epitome of comfort and style with our "Relaxed and Flowy" dress, a masterpiece of delicate design and effortless elegance. This dress offers the perfect blend of comfort and sophistication, allowing you to move gracefully through any occasion. Crafted with meticulous attention to detail, its delicate fabric and relaxed silhouette make it a wardrobe essential for those who appreciate both style and comfort. Whether you’re strolling through a garden party or enjoying a serene evening out, this dress will be your trusted companion. Discover the beauty of ease and elegance with this exquisite garment.</p><br> </br><div>[content-image number_of_columns="col-2" quantity="2" image_1="main/news/3.jpg" image_2="main/news/7.jpg"][/content-image]</div><div>[content-capitalize text="Step into the world of tranquility and charm with our Relaxed and Flowy dress. Its effortless design is a testament to the beauty of simplicity. The gentle, delicate fabric cascades with every movement, creating a mesmerizing dance of fabric and form. This dress embraces you in a feeling of relaxation and freedom, making it perfect for those serene, carefree moments you cherish"][/content-capitalize]</div><div>[content-capitalize blog_content="This dress has a captivating allure with its relaxed and flowy silhouette that exudes a sense of effortlessness. What truly sets it apart are the exquisite, delicate details that adorn the fabric. The dress strikes a harmonious balance between comfort and sophistication, making it a perfect choice for those who value both the ease of relaxed attire and the subtle, intricate beauty that these delicate features bring to the overall design."][/content-capitalize]</div><p>It encourages taking personal responsibility for one’s responses to life’s trials. Even when faced with difficult circumstances, individuals have the autonomy to choose their emotional and behavioral reactions.</p><br> </br><p>The subtle details and the relaxed fit come together to create an ensemble that effortlessly combines fashion and comfort. Whether you’re attending a summer soirée or savoring a quiet day by the beach, this dress will be your go-to choice for a look that is both relaxed and elegantly delicate. Elevate your style with this captivating dress that celebrates the beauty of flowy, effortless fashion."</p><br> </br><br> </br>', 'published', 3, 'Botble\\Member\\Models\\Member', 1, 'politics/news/2.jpg', 2295, NULL, '2025-12-24 07:30:26', '2026-03-27 23:27:34'),
-	(3, 'Feast of the Assumption: History and Meaning', 'Investigate the influence of supranational organizations on contemporary politics, analyzing their role in addressing global challenges and fostering cooperation among nations.', '<p>Introducing the Asus ROG Ally, your ultimate gaming companion that won’t compromise your budget. Packed with the high-performance AMD Z1 processor, this gaming laptop redefines what’s possible in the sub-$600 price range. Whether you’re a casual gamer or a hardcore enthusiast, the Asus ROG Ally has you covered with its impressive hardware and affordability.</p><h3>Data Center Loading &amp; Security</h3><p>The Asus ROG Ally: Unleash Gaming Power on a Budget! Starting at just $600, this gaming marvel is powered by the formidable AMD Z1 processor. Get ready for an immersive gaming experience that won’t break the bank, as the Asus ROG Ally combines affordability with cutting-edge technology to ensure you conquer virtual worlds like a true champion.</p><h3>Advance Features</h3><shortcode>[content-listing-style number_of_columns="col-2" quantity="6" item_1="Affordable Gaming Power" item_2="AMD Z1 Processor" item_3="Stylish Design" item_4="High-Refresh-Rate Display" item_5="Expandable Storage and Memory" item_6="Gaming Excellence on a Budget"][/content-listing-style]</shortcode><p>The Asus ROG Ally also offers ample storage and memory options to keep all your games and files within easy reach. You can expand and customize it to meet your specific needs, ensuring you’re always prepared for the latest gaming challenges.</p><p><br>&nbsp;</p><shortcode>[content-image number_of_columns="col-2" quantity="2" image_1="main/general/blog-4.png" image_2="main/general/blog-3.png"][/content-image]</shortcode><shortcode>[content-image number_of_columns="col-1" quantity="1" image_1="main/general/blog-5.png"][/content-image]</shortcode><h3>Features &amp; configurations</h3><shortcode>[content-listing-style number_of_columns="col-1" quantity="6" item_1="350-mile range (the bar is 300 miles)" item_2="Your smartphone can be your key to the vehicle" item_3="Reverse charging, so your car can power your house during a power outage" item_4="An impressive 0-60 time of around 3.6 seconds (I like performance)" item_5="A solar panel roof to increase range and supply emergency power" item_6="Convertible-like mode (which really opens the car up)"][/content-listing-style]</shortcode><p>Asus ROG Ally is your ticket to affordable gaming excellence. With a starting price of just $600, it’s a game-changer that will take your gaming adventures to the next level. Whether you’re a student, a professional, or just someone looking for a fantastic gaming experience without breaking the bank, the Asus ROG Ally with AMD Z1 is your ideal companion. Grab yours now and prepare to dominate the gaming world!</p><p><br>&nbsp;</p>', 'published', 1, 'Botble\\Member\\Models\\Member', 1, 'c35-300x169.jpg', 1782, NULL, '2025-12-24 07:30:26', '2026-04-02 21:20:19'),
+	(3, 'Feast of the Assumption: History and Meaning', 'Investigate the influence of supranational organizations on contemporary politics, analyzing their role in addressing global challenges and fostering cooperation among nations.', '<p>Introducing the Asus ROG Ally, your ultimate gaming companion that won’t compromise your budget. Packed with the high-performance AMD Z1 processor, this gaming laptop redefines what’s possible in the sub-$600 price range. Whether you’re a casual gamer or a hardcore enthusiast, the Asus ROG Ally has you covered with its impressive hardware and affordability.</p><h3>Data Center Loading &amp; Security</h3><p>The Asus ROG Ally: Unleash Gaming Power on a Budget! Starting at just $600, this gaming marvel is powered by the formidable AMD Z1 processor. Get ready for an immersive gaming experience that won’t break the bank, as the Asus ROG Ally combines affordability with cutting-edge technology to ensure you conquer virtual worlds like a true champion.</p><h3>Advance Features</h3><shortcode>[content-listing-style number_of_columns="col-2" quantity="6" item_1="Affordable Gaming Power" item_2="AMD Z1 Processor" item_3="Stylish Design" item_4="High-Refresh-Rate Display" item_5="Expandable Storage and Memory" item_6="Gaming Excellence on a Budget"][/content-listing-style]</shortcode><p>The Asus ROG Ally also offers ample storage and memory options to keep all your games and files within easy reach. You can expand and customize it to meet your specific needs, ensuring you’re always prepared for the latest gaming challenges.</p><p><br>&nbsp;</p><shortcode>[content-image number_of_columns="col-2" quantity="2" image_1="main/general/blog-4.png" image_2="main/general/blog-3.png"][/content-image]</shortcode><shortcode>[content-image number_of_columns="col-1" quantity="1" image_1="main/general/blog-5.png"][/content-image]</shortcode><h3>Features &amp; configurations</h3><shortcode>[content-listing-style number_of_columns="col-1" quantity="6" item_1="350-mile range (the bar is 300 miles)" item_2="Your smartphone can be your key to the vehicle" item_3="Reverse charging, so your car can power your house during a power outage" item_4="An impressive 0-60 time of around 3.6 seconds (I like performance)" item_5="A solar panel roof to increase range and supply emergency power" item_6="Convertible-like mode (which really opens the car up)"][/content-listing-style]</shortcode><p>Asus ROG Ally is your ticket to affordable gaming excellence. With a starting price of just $600, it’s a game-changer that will take your gaming adventures to the next level. Whether you’re a student, a professional, or just someone looking for a fantastic gaming experience without breaking the bank, the Asus ROG Ally with AMD Z1 is your ideal companion. Grab yours now and prepare to dominate the gaming world!</p><p><br>&nbsp;</p>', 'published', 1, 'Botble\\Member\\Models\\Member', 1, 'c35-300x169.jpg', 1783, NULL, '2025-12-24 07:30:26', '2026-04-02 21:20:19'),
 	(4, 'How Catholic Social Teaching Shapes Modern Policy', 'Uncover the ways in which activism, both offline and online, plays a pivotal role in shaping political movements and influencing policy decisions.', '<p>The title conveys a sense of confidence that the economy will weather the banking crisis without suffering severe damage. The term "banking crisis" likely refers to a situation where financial institutions face significant challenges, such as insolvency, liquidity problems, or other issues that could affect the stability of the financial sector.</p><div>[content-quote style="style-2" quote="Life Imposes Things On You That You Can’t Control, But You Still Have The Choice Of How You’re Going To Live Through This" author="Celine Dion" description="Acknowledgment of Life’s Challenges: The quote recognizes that life can be unpredictable and present challenges, obstacles, and hardships that are beyond an individual’s control. It emphasizes that adversity is a natural part of the human experience." top_left_image="main/general/blog-shape-image.png"][/content-quote]</div><h3>I love how relaxed and flowy this dress is and that it has really delicate</h3><p>Indulge in the epitome of comfort and style with our "Relaxed and Flowy" dress, a masterpiece of delicate design and effortless elegance. This dress offers the perfect blend of comfort and sophistication, allowing you to move gracefully through any occasion. Crafted with meticulous attention to detail, its delicate fabric and relaxed silhouette make it a wardrobe essential for those who appreciate both style and comfort. Whether you’re strolling through a garden party or enjoying a serene evening out, this dress will be your trusted companion. Discover the beauty of ease and elegance with this exquisite garment.</p><br> </br><div>[content-image number_of_columns="col-2" quantity="2" image_1="main/news/3.jpg" image_2="main/news/7.jpg"][/content-image]</div><div>[content-capitalize text="Step into the world of tranquility and charm with our Relaxed and Flowy dress. Its effortless design is a testament to the beauty of simplicity. The gentle, delicate fabric cascades with every movement, creating a mesmerizing dance of fabric and form. This dress embraces you in a feeling of relaxation and freedom, making it perfect for those serene, carefree moments you cherish"][/content-capitalize]</div><div>[content-capitalize blog_content="This dress has a captivating allure with its relaxed and flowy silhouette that exudes a sense of effortlessness. What truly sets it apart are the exquisite, delicate details that adorn the fabric. The dress strikes a harmonious balance between comfort and sophistication, making it a perfect choice for those who value both the ease of relaxed attire and the subtle, intricate beauty that these delicate features bring to the overall design."][/content-capitalize]</div><p>It encourages taking personal responsibility for one’s responses to life’s trials. Even when faced with difficult circumstances, individuals have the autonomy to choose their emotional and behavioral reactions.</p><br> </br><p>The subtle details and the relaxed fit come together to create an ensemble that effortlessly combines fashion and comfort. Whether you’re attending a summer soirée or savoring a quiet day by the beach, this dress will be your go-to choice for a look that is both relaxed and elegantly delicate. Elevate your style with this captivating dress that celebrates the beauty of flowy, effortless fashion."</p><br> </br><br> </br>', 'published', 1, 'Botble\\Member\\Models\\Member', 1, 'politics/news/4.jpg', 263, NULL, '2025-12-24 07:30:26', '2026-03-27 23:27:34'),
 	(5, 'Parish Communities Thriving Post-Pandemic', 'Examine the complexities surrounding populism and its impact on democratic institutions, analyzing the challenges posed by charismatic leaders and their populist agendas.', '<p>Introducing the Asus ROG Ally, your ultimate gaming companion that won’t compromise your budget. Packed with the high-performance AMD Z1 processor, this gaming laptop redefines what’s possible in the sub-$600 price range. Whether you’re a casual gamer or a hardcore enthusiast, the Asus ROG Ally has you covered with its impressive hardware and affordability.</p><h3>Data Center Loading &amp; Security</h3><p>The Asus ROG Ally: Unleash Gaming Power on a Budget! Starting at just $600, this gaming marvel is powered by the formidable AMD Z1 processor. Get ready for an immersive gaming experience that won’t break the bank, as the Asus ROG Ally combines affordability with cutting-edge technology to ensure you conquer virtual worlds like a true champion.</p><h3>Advance Features</h3><shortcode>[content-listing-style number_of_columns="col-2" quantity="6" item_1="Affordable Gaming Power" item_2="AMD Z1 Processor" item_3="Stylish Design" item_4="High-Refresh-Rate Display" item_5="Expandable Storage and Memory" item_6="Gaming Excellence on a Budget"][/content-listing-style]</shortcode><p>The Asus ROG Ally also offers ample storage and memory options to keep all your games and files within easy reach. You can expand and customize it to meet your specific needs, ensuring you’re always prepared for the latest gaming challenges.</p><p><br>&nbsp;</p><shortcode>[content-image number_of_columns="col-2" quantity="2" image_1="main/general/blog-4.png" image_2="main/general/blog-3.png"][/content-image]</shortcode><shortcode>[content-image number_of_columns="col-1" quantity="1" image_1="main/general/blog-5.png"][/content-image]</shortcode><h3>Features &amp; configurations</h3><shortcode>[content-listing-style number_of_columns="col-1" quantity="6" item_1="350-mile range (the bar is 300 miles)" item_2="Your smartphone can be your key to the vehicle" item_3="Reverse charging, so your car can power your house during a power outage" item_4="An impressive 0-60 time of around 3.6 seconds (I like performance)" item_5="A solar panel roof to increase range and supply emergency power" item_6="Convertible-like mode (which really opens the car up)"][/content-listing-style]</shortcode><p>Asus ROG Ally is your ticket to affordable gaming excellence. With a starting price of just $600, it’s a game-changer that will take your gaming adventures to the next level. Whether you’re a student, a professional, or just someone looking for a fantastic gaming experience without breaking the bank, the Asus ROG Ally with AMD Z1 is your ideal companion. Grab yours now and prepare to dominate the gaming world!</p><p><br>&nbsp;</p>', 'published', 2, 'Botble\\Member\\Models\\Member', 1, 'zero-3.png', 655, NULL, '2025-12-24 07:30:26', '2026-04-02 21:25:41'),
 	(6, 'Climate Care as a Catholic Moral Obligation', 'Evaluate the intersection of science and politics in the formulation of climate change policies, exploring the challenges and opportunities for global environmental governance.', '<p>Our mission is to assist you in achieving better financial shape, not just for today, but for the long term. We believe that financial security and freedom are within reach for everyone, and we’re dedicated to providing the guidance and support you need to get there.</p><div>[content-quote author="Celine Dion" quote="‘‘Life Imposes Things On You That You Can’t Control, But You Still Have The Choice Of How You’re Going To Live Through This.’’"][/content-quote]</div><div>[content-image number_of_columns="col-2" quantity="2" image_1="main/news/6.jpg" image_2="main/news/2.jpg"][/content-image]</div><h3>Better financial shape</h3><p>Our comprehensive range of financial services and expert guidance are designed to empower individuals, families, and businesses to make informed financial decisions. Whether you’re looking to manage debt, build savings, invest wisely, or plan for retirement, our team of seasoned financial professionals is committed to helping you reach your goals. We offer personalized financial assessments, tailored strategies, and cutting-edge tools to maximize your financial well-being. By partnering with us, you gain access to a wealth of knowledge and resources that can transform your financial future.</p><div>[content-listing-style style="style-1" quantity="6" item_1="Diverse Solutions Guidance." item_2="Professionals Assisting You." item_3="Tailored Strategies for Success." item_4="Informed Decisions with Technology." item_5="Health Assessments Provided." item_6="Strategies for Building Prosperity."][/content-listing-style]</div><p>Achieving financial stability and prosperity is a shared goal we all aspire to. At Echo, we understand the significance of being in better financial shape, and we are here to guide you on your journey.</p><br> </br><br> </br>', 'published', 2, 'Botble\\Member\\Models\\Member', 1, 'politics/news/6.jpg', 589, NULL, '2025-12-24 07:30:26', '2026-03-27 23:27:34'),
@@ -1744,7 +1753,7 @@ REPLACE INTO `posts` (`id`, `name`, `description`, `content`, `status`, `author_
 	(31, 'Catholic Social Teaching: A Primer on the Church\'s Vision for Society', 'The Church\'s social doctrine offers a comprehensive vision of the just society. Here is an introduction to its seven key principles.', '<p>Catholic Social Teaching (CST) is a body of doctrine that has developed over more than a century, beginning with Pope Leo XIII\'s landmark encyclical <em>Rerum Novarum</em> in 1891. It addresses the social, political, and economic questions of each age in the light of the Gospel.</p><p>The seven key principles include: the life and dignity of the human person; the call to family, community, and participation; rights and responsibilities; the option for the poor and vulnerable; the dignity of work and the rights of workers; solidarity; and care for God\'s creation.</p><p>CST is a rich treasury often called "the Church\'s best kept secret" — yet it offers the most coherent and comprehensive vision of the just society available in our time.</p>', 'published', 1, 'Botble\\ACL\\Models\\User', 1, 'politics/news/11.jpg', 2459, NULL, '2026-03-28 00:50:16', '2026-03-28 21:44:54'),
 	(32, 'St. Teresa of Ávila: Doctor of the Church and Master of Prayer', 'On her feast day, we explore the life and spiritual teachings of this 16th-century mystic and reformer.', '<p>Teresa of Ávila (1515–1582) was a Spanish mystic, Carmelite nun, author, and theologian. In 1970, she and Catherine of Siena became the first women to be declared Doctors of the Church by Pope Paul VI.</p><p>Her two most important works are <em>The Way of Perfection</em>, a guide to prayer and religious life, and <em>The Interior Castle</em> (or <em>The Mansions</em>), a masterful description of the soul\'s journey toward God. The latter uses the image of a castle with seven sets of rooms to describe the stages of prayer and spiritual growth.</p><p>Her famous words remain an encouragement to every Christian: "Let nothing disturb you, let nothing frighten you, all things are passing away: God never changes. Patience obtains all things. Whoever has God lacks nothing; God alone suffices."</p>', 'published', 1, 'Botble\\ACL\\Models\\User', 0, 'politics/news/12.jpg', 2649, NULL, '2026-03-28 00:50:16', '2026-03-28 21:44:54'),
 	(33, 'The Traditional Latin Mass: History, Beauty, and Ongoing Debate', 'The ancient Rite of Mass continues to attract a growing number of Catholics. We explore its history and its place in today\'s Church.', '<p>The Traditional Latin Mass (TLM), also called the Extraordinary Form or the Tridentine Mass, is the form of Mass codified by the Council of Trent in the 16th century and used by the Latin Rite of the Church until the liturgical reforms following the Second Vatican Council in the 1960s.</p><p>The TLM is celebrated primarily in Latin, with the priest facing the altar (ad orientem) for much of the Mass. It is characterized by a profound silence, rich ceremony, and a strong emphasis on the sacrificial nature of the Eucharist.</p><p>Pope Benedict XVI issued <em>Summorum Pontificum</em> in 2007, liberalizing access to the TLM. This decision was partially reversed by Pope Francis in <em>Traditionis Custodes</em> (2021), sparking an ongoing discussion in the Church about liturgical diversity and unity.</p>', 'published', 1, 'Botble\\ACL\\Models\\User', 1, 'politics/news/13.jpg', 3416, NULL, '2026-03-28 00:50:16', '2026-03-28 21:44:54'),
-	(34, 'Mercy and Justice: Cardinal Cupich on Prison Ministry', 'Cardinal Blase Cupich of Chicago speaks about the Church\'s commitment to those incarcerated and to restorative justice.', '<p>The Catholic Church has a long history of ministry to prisoners, inspired by Christ\'s words in Matthew 25: "I was in prison and you came to me." From prison chaplains to organizations like Dismas Ministry and Prison Fellowship, Catholics have sought to bring the Gospel behind bars.</p><p>Cardinal Cupich recently spoke at a symposium on restorative justice, emphasizing that the Church must advocate for a criminal justice system that prioritizes rehabilitation and human dignity over punishment alone.</p><p>"We cannot claim to be a Church of mercy," he said, "while remaining indifferent to a system that warehouses human beings and makes rehabilitation nearly impossible."</p>', 'published', 1, 'Botble\\Member\\Models\\Member', 0, 'test-300x169.png', 1784, NULL, '2026-03-28 00:50:16', '2026-04-02 21:09:39'),
+	(34, 'Mercy and Justice: Cardinal Cupich on Prison Ministry', 'Cardinal Blase Cupich of Chicago speaks about the Church\'s commitment to those incarcerated and to restorative justice.', '<p>The Catholic Church has a long history of ministry to prisoners, inspired by Christ\'s words in Matthew 25: "I was in prison and you came to me." From prison chaplains to organizations like Dismas Ministry and Prison Fellowship, Catholics have sought to bring the Gospel behind bars.</p><p>Cardinal Cupich recently spoke at a symposium on restorative justice, emphasizing that the Church must advocate for a criminal justice system that prioritizes rehabilitation and human dignity over punishment alone.</p><p>"We cannot claim to be a Church of mercy," he said, "while remaining indifferent to a system that warehouses human beings and makes rehabilitation nearly impossible."</p>', 'published', 1, 'Botble\\Member\\Models\\Member', 0, 'test-300x169.png', 1785, NULL, '2026-03-28 00:50:16', '2026-04-02 21:09:39'),
 	(35, 'The Liturgy of the Hours: Praying with the Church Throughout the Day', 'The Divine Office is the official prayer of the Catholic Church. Learn how laypeople can participate in this ancient practice.', '<p>The Liturgy of the Hours (also called the Divine Office or the Breviary) is the official prayer of the universal Church, traditionally prayed by priests, deacons, and members of religious orders throughout each day. In recent decades, many laypeople have discovered and embraced this ancient form of prayer.</p><p>The Hours divide the day into moments of prayer: Lauds (Morning Prayer), Daytime Prayer, Vespers (Evening Prayer), and Compline (Night Prayer). The Office of Readings allows for an extended meditation on Scripture and writings of the saints.</p><p>Digital apps like <em>iBreviary</em> and <em>Universalis</em> have made the Liturgy of the Hours more accessible than ever for busy laypeople who wish to unite their prayer with the worldwide Church.</p>', 'published', 1, 'Botble\\ACL\\Models\\User', 0, 'politics/news/15.jpg', 2418, NULL, '2026-03-28 00:50:16', '2026-03-28 21:44:54'),
 	(36, 'Youth Ministry in Crisis: How Parishes Are Winning Back Young Catholics', 'Many parishes are finding creative and effective ways to form and retain young people in the faith. Here are their strategies.', '<p>Statistics on young people leaving the Catholic Church are well known and sobering. Yet across the country, vibrant parishes are bucking this trend through intentional, relationship-based youth ministry.</p><p>The most effective programs share common characteristics: they prioritize personal encounter with Jesus Christ over mere information; they involve young people as active participants rather than passive audiences; they connect teens with adult mentors who model authentic Catholic faith; and they provide genuine community where belonging and friendship can grow.</p><p>Organizations like Life Teen, FOCUS (Fellowship of Catholic University Students), and NET Ministries have developed proven methodologies that are transforming parishes and campuses nationwide.</p>', 'published', 1, 'Botble\\ACL\\Models\\User', 0, 'politics/news/16.jpg', 1523, NULL, '2026-03-28 00:50:16', '2026-03-28 21:44:54'),
 	(37, 'Confession: Why This Sacrament Is the Greatest Gift for Sinners', 'The Sacrament of Penance is often misunderstood or feared. Discover why the saints called it the greatest sacrament after the Eucharist.', '<p>The Sacrament of Reconciliation (Confession) is one of the most misunderstood sacraments in the Church. Many Catholics have stopped going to Confession, either out of embarrassment, a sense that their sins are not serious enough, or a misunderstanding of the sacrament\'s nature.</p><p>Yet the saints consistently proclaimed Confession as a source of extraordinary grace and healing. Saint John Vianney, the patron of parish priests, spent up to 16 hours a day hearing confessions — the penitents who came to him numbered in the hundreds of thousands annually.</p><p>To receive the sacrament worthily, one needs: an examination of conscience, contrition (sorrow for sin), the intention to avoid future sin, confession of all mortal sins to a priest, and acceptance of a penance. The formula of absolution — "I absolve you from your sins in the name of the Father, and of the Son, and of the Holy Spirit" — are among the most powerful words a human being can hear.</p>', 'published', 1, 'Botble\\Member\\Models\\Member', 1, 'img1.png', 3175, NULL, '2026-03-28 00:50:16', '2026-04-02 21:07:41'),
@@ -1782,7 +1791,7 @@ CREATE TABLE IF NOT EXISTS `post_categories` (
   KEY `post_categories_post_id_index` (`post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.post_categories: ~48 rows (approximately)
+-- Dumping data for table allcatholicmedia.post_categories: ~39 rows (approximately)
 REPLACE INTO `post_categories` (`category_id`, `post_id`) VALUES
 	(1, 1),
 	(7, 2),
@@ -1841,7 +1850,7 @@ CREATE TABLE IF NOT EXISTS `post_tags` (
   KEY `post_tags_post_id_index` (`post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.post_tags: ~65 rows (approximately)
+-- Dumping data for table allcatholicmedia.post_tags: ~30 rows (approximately)
 REPLACE INTO `post_tags` (`tag_id`, `post_id`) VALUES
 	(1, 1),
 	(2, 2),
@@ -1975,9 +1984,9 @@ CREATE TABLE IF NOT EXISTS `request_logs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.request_logs: ~22 rows (approximately)
+-- Dumping data for table allcatholicmedia.request_logs: ~26 rows (approximately)
 REPLACE INTO `request_logs` (`id`, `status_code`, `url`, `count`, `user_id`, `referrer`, `created_at`, `updated_at`) VALUES
 	(1, 404, 'http://127.0.0.1:8000/storage/main/general/newsletter-popup.png', 130, NULL, NULL, '2026-03-27 21:44:59', '2026-04-02 20:36:07'),
 	(2, 404, 'http://127.0.0.1:8000/blog/scientists-make-breakthrough-in-cancer-research', 1, NULL, NULL, '2026-03-27 21:45:41', '2026-03-27 21:45:41'),
@@ -1998,9 +2007,13 @@ REPLACE INTO `request_logs` (`id`, `status_code`, `url`, `count`, `user_id`, `re
 	(17, 404, 'http://127.0.0.1:8000/storage/main/general/newsletter-popup-150x150.png', 1, NULL, NULL, '2026-04-02 20:39:30', '2026-04-02 20:39:30'),
 	(18, 404, 'http://127.0.0.1/main/public/css/watch-learn-pray.css', 1, NULL, NULL, '2026-04-04 16:24:21', '2026-04-04 16:24:21'),
 	(19, 404, 'http://127.0.0.1/main/public/themes/echo/plugins/fontawesome5/css/fontawesome.min.css?v=1.5.1', 14, NULL, NULL, '2026-04-04 16:25:27', '2026-04-04 16:41:37'),
-	(20, 404, 'http://localhost/main/public/css/watch-learn-pray.css', 32, NULL, NULL, '2026-04-04 16:30:39', '2026-04-20 19:55:33'),
-	(21, 404, 'http://localhost/main/public/themes/echo/plugins/fontawesome5/css/fontawesome.min.css?v=1.5.1', 4, NULL, NULL, '2026-04-04 17:15:52', '2026-04-10 19:50:25'),
-	(22, 404, 'http://localhost/main/public/themes/echo/plugins/bootstrap/bootstrap.min.css.map', 2, NULL, NULL, '2026-04-10 19:38:07', '2026-04-15 19:23:17');
+	(20, 404, 'http://localhost/main/public/css/watch-learn-pray.css', 86, NULL, NULL, '2026-04-04 16:30:39', '2026-04-22 19:25:07'),
+	(21, 404, 'http://localhost/main/public/themes/echo/plugins/fontawesome5/css/fontawesome.min.css?v=1.5.1', 55, NULL, NULL, '2026-04-04 17:15:52', '2026-04-23 18:26:30'),
+	(22, 404, 'http://localhost/main/public/themes/echo/plugins/bootstrap/bootstrap.min.css.map', 3, NULL, NULL, '2026-04-10 19:38:07', '2026-04-21 19:45:30'),
+	(23, 404, 'http://localhost/main/public/home', 2, NULL, NULL, '2026-04-21 20:06:07', '2026-04-21 20:08:11'),
+	(24, 404, 'http://localhost/main/public/storage/main/general/signature.png', 1, NULL, NULL, '2026-04-22 17:40:45', '2026-04-22 17:40:45'),
+	(25, 405, 'http://localhost/main/public', 8, NULL, NULL, '2026-04-22 19:08:33', '2026-04-22 19:13:26'),
+	(26, 404, 'http://localhost/main/public/public', 1, NULL, NULL, '2026-04-22 19:15:22', '2026-04-22 19:15:22');
 
 -- Dumping structure for table allcatholicmedia.revisions
 CREATE TABLE IF NOT EXISTS `revisions` (
@@ -2017,7 +2030,7 @@ CREATE TABLE IF NOT EXISTS `revisions` (
   KEY `revisions_revisionable_id_revisionable_type_index` (`revisionable_id`,`revisionable_type`)
 ) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.revisions: ~60 rows (approximately)
+-- Dumping data for table allcatholicmedia.revisions: ~28 rows (approximately)
 REPLACE INTO `revisions` (`id`, `revisionable_type`, `revisionable_id`, `user_id`, `key`, `old_value`, `new_value`, `created_at`, `updated_at`) VALUES
 	(1, 'Botble\\Blog\\Models\\Post', 21, NULL, 'image', NULL, 'politics/news/1.jpg', '2026-03-28 21:44:54', '2026-03-28 21:44:54'),
 	(2, 'Botble\\Blog\\Models\\Post', 22, NULL, 'image', NULL, 'politics/news/2.jpg', '2026-03-28 21:44:54', '2026-03-28 21:44:54'),
@@ -2098,7 +2111,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   KEY `roles_updated_by_index` (`updated_by`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.roles: ~1 rows (approximately)
+-- Dumping data for table allcatholicmedia.roles: ~0 rows (approximately)
 REPLACE INTO `roles` (`id`, `slug`, `name`, `permissions`, `description`, `is_default`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', 'Admin', '{"users.index":true,"users.create":true,"users.edit":true,"users.destroy":true,"roles.index":true,"roles.create":true,"roles.edit":true,"roles.destroy":true,"core.system":true,"core.cms":true,"core.manage.license":true,"systems.cronjob":true,"core.tools":true,"tools.data-synchronize":true,"media.index":true,"files.index":true,"files.create":true,"files.edit":true,"files.trash":true,"files.destroy":true,"folders.index":true,"folders.create":true,"folders.edit":true,"folders.trash":true,"folders.destroy":true,"settings.index":true,"settings.common":true,"settings.options":true,"settings.email":true,"settings.media":true,"settings.admin-appearance":true,"settings.cache":true,"settings.datatables":true,"settings.email.rules":true,"settings.phone-number":true,"settings.others":true,"menus.index":true,"menus.create":true,"menus.edit":true,"menus.destroy":true,"optimize.settings":true,"pages.index":true,"pages.create":true,"pages.edit":true,"pages.destroy":true,"plugins.index":true,"plugins.edit":true,"plugins.remove":true,"plugins.marketplace":true,"sitemap.settings":true,"core.appearance":true,"theme.index":true,"theme.activate":true,"theme.remove":true,"theme.options":true,"theme.custom-css":true,"theme.custom-js":true,"theme.custom-html":true,"theme.robots-txt":true,"settings.website-tracking":true,"widgets.index":true,"ads.index":true,"ads.create":true,"ads.edit":true,"ads.destroy":true,"ads.settings":true,"analytics.general":true,"analytics.page":true,"analytics.browser":true,"analytics.referrer":true,"analytics.settings":true,"announcements.index":true,"announcements.create":true,"announcements.edit":true,"announcements.destroy":true,"announcements.settings":true,"audit-log.index":true,"audit-log.destroy":true,"backups.index":true,"backups.create":true,"backups.restore":true,"backups.destroy":true,"plugins.blog":true,"posts.index":true,"posts.create":true,"posts.edit":true,"posts.destroy":true,"categories.index":true,"categories.create":true,"categories.edit":true,"categories.destroy":true,"tags.index":true,"blog.reports":true,"tags.create":true,"tags.edit":true,"tags.destroy":true,"blog.settings":true,"posts.export":true,"posts.import":true,"captcha.settings":true,"contacts.index":true,"contacts.edit":true,"contacts.destroy":true,"contact.custom-fields":true,"contact.settings":true,"fob-comment.index":true,"fob-comment.comments.index":true,"fob-comment.comments.edit":true,"fob-comment.comments.destroy":true,"fob-comment.comments.reply":true,"fob-comment.settings":true,"galleries.index":true,"galleries.create":true,"galleries.edit":true,"galleries.destroy":true,"languages.index":true,"languages.create":true,"languages.edit":true,"languages.destroy":true,"translations.import":true,"translations.export":true,"property-translations.import":true,"property-translations.export":true,"member.index":true,"member.create":true,"member.edit":true,"member.destroy":true,"member.settings":true,"newsletter.index":true,"newsletter.destroy":true,"newsletter.settings":true,"request-log.index":true,"request-log.destroy":true,"social-login.settings":true,"plugins.translation":true,"translations.locales":true,"translations.theme-translations":true,"translations.index":true,"theme-translations.export":true,"other-translations.export":true,"theme-translations.import":true,"other-translations.import":true,"api.settings":true,"api.sanctum-token.index":true,"api.sanctum-token.create":true,"api.sanctum-token.destroy":true}', 'Admin users role', 1, 1, 1, '2025-12-24 07:30:13', '2025-12-24 07:30:13');
 
@@ -2139,203 +2152,207 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `settings_key_unique` (`key`)
-) ENGINE=InnoDB AUTO_INCREMENT=296 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=300 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table allcatholicmedia.settings: ~193 rows (approximately)
 REPLACE INTO `settings` (`id`, `key`, `value`, `created_at`, `updated_at`) VALUES
-	(2, 'api_enabled', '0', NULL, '2026-04-04 15:56:51'),
-	(3, 'activated_plugins', '["language","language-advanced","ads","ai-writer","analytics","announcement","audit-log","backup","blog","captcha","contact","cookie-consent","fob-comment","gallery","member","newsletter","note","request-log","rss-feed","social-login","translation","live-stream","community"]', NULL, '2026-04-04 15:56:51'),
-	(4, 'ai_writer_proxy_enable', '0', NULL, '2026-04-04 15:56:51'),
-	(5, 'ai_writer_proxy_protocol', NULL, NULL, '2026-04-04 15:56:51'),
-	(6, 'ai_writer_proxy_ip', NULL, NULL, '2026-04-04 15:56:51'),
-	(7, 'ai_writer_proxy_port', NULL, NULL, '2026-04-04 15:56:51'),
-	(8, 'ai_writer_proxy_username', NULL, NULL, '2026-04-04 15:56:51'),
-	(9, 'ai_writer_proxy_password', NULL, NULL, '2026-04-04 15:56:51'),
-	(10, 'ai_writer_prompt_template', '[{"title":"Product Content","content":"You will be a marketer. I will give the information of the product, you will write an introductory article about that product, the article requires google seo standards and is highly persuasive to increase the rate of users closing orders.\\nParameters product:"},{"title":"Post Content","content":"You will be a marketer. Articles about:"}]', NULL, '2026-04-04 15:56:51'),
-	(11, 'ai_writer_openai_key', NULL, NULL, '2026-04-04 15:56:51'),
-	(12, 'ai_writer_openai_temperature', '1', NULL, '2026-04-04 15:56:51'),
-	(13, 'ai_writer_openai_max_tokens', '2000', NULL, '2026-04-04 15:56:51'),
-	(14, 'ai_writer_openai_frequency_penalty', '0', NULL, '2026-04-04 15:56:51'),
-	(15, 'ai_writer_openai_presence_penalty', '0', NULL, '2026-04-04 15:56:51'),
-	(16, 'ai_writer_openai_models', '["gpt-3.5-turbo"]', NULL, '2026-04-04 15:56:51'),
-	(17, 'ai_writer_openai_default_model', 'gpt-3.5-turbo', NULL, '2026-04-04 15:56:51'),
-	(18, 'ai_writer_spin_template', '[]', NULL, '2026-04-04 15:56:51'),
-	(21, 'language_hide_default', '1', NULL, '2026-04-04 15:56:51'),
-	(22, 'language_switcher_display', 'dropdown', NULL, '2026-04-04 15:56:51'),
-	(23, 'language_display', 'all', NULL, '2026-04-04 15:56:51'),
-	(24, 'language_hide_languages', '[]', NULL, '2026-04-04 15:56:51'),
-	(25, 'media_random_hash', '75c6b855656305f09bf2467e1f2739cd', NULL, '2026-04-04 15:56:51'),
-	(26, 'theme', 'echo-politics', NULL, '2026-04-04 15:56:51'),
-	(27, 'show_admin_bar', '1', NULL, '2026-04-04 15:56:51'),
-	(28, 'admin_favicon', 'header.png', NULL, '2026-04-04 15:56:51'),
-	(29, 'admin_logo', 'header.png', NULL, '2026-04-04 15:56:51'),
-	(30, 'permalink-botble-blog-models-post', 'blog', NULL, '2026-04-04 15:56:51'),
-	(31, 'permalink-botble-blog-models-category', 'blog', NULL, '2026-04-04 15:56:51'),
-	(32, 'theme-echo-politics-site_name', 'Echo - Politics', NULL, '2026-04-04 15:56:51'),
-	(33, 'theme-echo-politics-site_title', 'Catholic Media', NULL, '2026-04-04 15:56:51'),
-	(34, 'theme-echo-politics-seo_description', 'Catholic Media', NULL, '2026-04-04 15:56:51'),
-	(35, 'theme-echo-politics-homepage_id', '1', NULL, '2026-04-04 15:56:51'),
-	(36, 'theme-echo-politics-logo', 'header.png', NULL, '2026-04-04 15:56:51'),
-	(37, 'theme-echo-politics-logo_dark', 'header.png', NULL, '2026-04-04 15:56:51'),
-	(38, 'theme-echo-politics-favicon', 'header.png', NULL, '2026-04-04 15:56:51'),
-	(39, 'theme-echo-politics-blog_page_id', '4', NULL, '2026-04-04 15:56:51'),
-	(40, 'theme-echo-politics-primary_font', 'Istok Web', NULL, '2026-04-04 15:56:51'),
-	(41, 'theme-echo-politics-heading_font', 'Cutive', NULL, '2026-04-04 15:56:51'),
-	(42, 'theme-echo-politics-theme_style', 'dark', NULL, '2026-04-04 15:56:51'),
-	(43, 'theme-echo-politics-secondary_color', 'rgb(30, 58, 138)', NULL, '2026-04-04 15:56:51'),
-	(44, 'theme-echo-politics-breadcrumb_background_image', 'main/backgrounds/breadcrumb.png', NULL, '2026-04-04 15:56:51'),
-	(45, 'theme-echo-politics-breadcrumb_background_color', 'transparent', NULL, '2026-04-04 15:56:51'),
-	(46, 'theme-echo-politics-breadcrumb_text_color', 'transparent', NULL, '2026-04-04 15:56:51'),
-	(47, 'theme-echo-politics-blog_author_style', 'avatar_start', NULL, '2026-04-04 15:56:51'),
-	(48, 'theme-echo-politics-blog_description_style', 'normal', NULL, '2026-04-04 15:56:51'),
-	(49, 'theme-echo-politics-copyright', '©%Y Catholic Media. All Rights Reserved.', NULL, '2026-04-04 15:56:51'),
-	(50, 'theme-echo-politics-language_switcher_enabled', '1', NULL, '2026-04-04 15:56:51'),
-	(51, 'theme-echo-politics-newsletter_popup_enable', '1', NULL, '2026-04-04 15:56:51'),
-	(52, 'theme-echo-politics-newsletter_popup_image', 'trending-1.png', NULL, '2026-04-04 15:56:51'),
-	(53, 'theme-echo-politics-newsletter_popup_title', 'Let’s join our newsletter!', NULL, '2026-04-04 15:56:51'),
-	(54, 'theme-echo-politics-newsletter_popup_subtitle', 'Weekly Updates', NULL, '2026-04-04 15:56:51'),
-	(55, 'theme-echo-politics-newsletter_popup_description', 'Do not worry we don’t spam!', NULL, '2026-04-04 15:56:51'),
-	(56, 'theme-echo-politics-social_links', '[[{"key":"name","value":"Facebook"},{"key":"icon","value":"ti ti-brand-facebook"},{"key":"url","value":"https:\\/\\/www.facebook.com\\/"}],[{"key":"name","value":"Instagram"},{"key":"icon","value":"ti ti-brand-instagram"},{"key":"url","value":"https:\\/\\/www.instagram.com\\/"}],[{"key":"name","value":"Twitter"},{"key":"icon","value":"ti ti-brand-x"},{"key":"url","value":"https:\\/\\/www.twitter.com\\/"}],[{"key":"name","value":"YouTube"},{"key":"icon","value":"ti ti-brand-youtube"},{"key":"url","value":"https:\\/\\/www.youtube.com\\/"}],[{"key":"name","value":"Pinterest"},{"key":"icon","value":"ti ti-brand-pinterest"},{"key":"url","value":"https:\\/\\/www.pinterest.com\\/"}]]', NULL, '2026-04-04 15:56:51'),
-	(57, 'theme-echo-politics-social_sharing', '[[{"key":"social","value":"facebook"},{"key":"icon","value":"ti ti-brand-facebook"}],[{"key":"social","value":"x"},{"key":"icon","value":"ti ti-brand-x"}],[{"key":"social","value":"pinterest"},{"key":"icon","value":"ti ti-brand-pinterest"}],[{"key":"social","value":"linkedin"},{"key":"icon","value":"ti ti-brand-linkedin"}],[{"key":"social","value":"whatsapp"},{"key":"icon","value":"ti ti-brand-whatsapp"}],[{"key":"social","value":"email"},{"key":"icon","value":"ti ti-mail"}]]', NULL, '2026-04-04 15:56:51'),
-	(58, 'theme-echo-politics-primary_color', 'rgb(30, 58, 138)', NULL, '2026-04-04 15:56:51'),
-	(59, 'announcement_max_width', '1390', NULL, '2026-04-04 15:56:51'),
-	(60, 'announcement_text_color', '#fefefe', NULL, '2026-04-04 15:56:51'),
-	(61, 'announcement_background_color', '#ff390e', NULL, '2026-04-04 15:56:51'),
-	(62, 'announcement_text_alignment', 'center', NULL, '2026-04-04 15:56:51'),
-	(63, 'announcement_dismissible', '1', NULL, '2026-04-04 15:56:51'),
-	(64, 'announcement_font_size', '14', NULL, '2026-04-04 15:56:51'),
-	(65, 'announcement_font_size_unit', 'px', NULL, '2026-04-04 15:56:51'),
-	(99, 'license_activated_at', '2026-03-27T23:34:18+00:00', NULL, '2026-04-04 15:56:51'),
-	(100, 'license_last_verified_at', '2026-04-04T17:29:45+00:00', NULL, '2026-04-04 15:56:51'),
-	(101, 'license_next_check_at', '2026-04-11T17:29:45+00:00', NULL, '2026-04-04 15:56:51'),
-	(102, 'license_verification_count', '2', NULL, '2026-04-04 15:56:51'),
-	(103, 'license_purchase_code_hash', '79c684a5b2364e21fc8cd9bfebef211cda5c50e46dd9a4ba26d3567f974ac00b', NULL, '2026-04-04 15:56:51'),
-	(104, 'license_server_ip', '2a02:b125:8013:8b08:a1f9:7af0:6732:5d5f', NULL, '2026-04-04 15:56:51'),
-	(105, 'license_domain', '127.0.0.1', NULL, '2026-04-04 15:56:51'),
-	(106, 'licensed_to', 'codelover138', NULL, '2026-04-04 15:56:51'),
-	(108, 'theme-echo-politics-heading_color', 'rgb(201, 162, 39)', '2026-03-27 22:50:14', '2026-04-04 15:56:51'),
-	(109, 'theme-echo-politics-text_color', '#475569', '2026-03-27 22:50:14', '2026-04-04 15:56:51'),
-	(110, 'theme-echo-politics-footer_background_color', 'rgb(30, 58, 138)', '2026-03-27 22:50:14', '2026-04-04 15:56:51'),
-	(111, 'theme-echo-politics-footer_heading_color', '#f8fafc', '2026-03-27 22:50:14', '2026-04-04 15:56:51'),
-	(112, 'theme-echo-politics-footer_text_color', '#94a3b8', '2026-03-27 22:50:14', '2026-04-04 15:56:51'),
-	(113, 'theme-echo-politics-back_to_top_enabled', '1', '2026-03-27 22:50:14', '2026-04-04 15:56:51'),
-	(114, 'theme-echo-politics-footer_background_image', '', '2026-03-27 22:50:14', '2026-04-04 15:56:51'),
-	(142, 'theme-echo-politics-admin_logo', 'header.png', NULL, '2026-04-04 15:56:51'),
-	(143, 'theme-echo-politics-admin_favicon', 'header.png', NULL, '2026-04-04 15:56:51'),
-	(144, 'is_completed_get_started', '1', NULL, '2026-04-04 15:56:51'),
-	(145, 'theme-echo-politics-logo_height', '60', NULL, '2026-04-04 15:56:51'),
-	(146, 'theme-echo-politics-favicon_type', 'image/png', NULL, '2026-04-04 15:56:51'),
-	(147, 'watch_page_hero_image', 'http://127.0.0.1:8000/uploads/watch-hero/watch-hero-20260329115059-dJIokW.png', NULL, '2026-04-04 15:56:51'),
-	(148, 'listen_page_hero_image', 'http://127.0.0.1:8000/uploads/listen-hero/listen-hero-20260329143109-COBeW5.png', NULL, '2026-04-04 15:56:51'),
-	(149, 'theme-echo-sports-site_name', 'Echo - Politics', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(150, 'theme-echo-sports-site_title', 'Catholic Media', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(151, 'theme-echo-sports-seo_description', 'Echo is a modern, clean, and professional Laravel script that is suitable for news, magazine, blog, and any kind of website.', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(152, 'theme-echo-sports-homepage_id', '1', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(153, 'theme-echo-sports-logo', 'header.png', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(154, 'theme-echo-sports-logo_dark', 'header.png', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(155, 'theme-echo-sports-favicon', 'header.png', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(156, 'theme-echo-sports-blog_page_id', '4', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(157, 'theme-echo-sports-primary_font', 'Istok Web', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(158, 'theme-echo-sports-heading_font', 'Cutive', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(159, 'theme-echo-sports-theme_style', 'dark', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(160, 'theme-echo-sports-secondary_color', 'rgb(30, 58, 138)', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(161, 'theme-echo-sports-breadcrumb_background_image', 'main/backgrounds/breadcrumb.png', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(162, 'theme-echo-sports-breadcrumb_background_color', 'transparent', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(163, 'theme-echo-sports-breadcrumb_text_color', 'transparent', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(164, 'theme-echo-sports-blog_author_style', 'avatar_start', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(165, 'theme-echo-sports-blog_description_style', 'normal', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(166, 'theme-echo-sports-copyright', '©%Y Archi Elite JSC. All Rights Reserved.', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(167, 'theme-echo-sports-language_switcher_enabled', '1', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(168, 'theme-echo-sports-newsletter_popup_enable', '1', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(169, 'theme-echo-sports-newsletter_popup_image', 'main/general/newsletter-popup.png', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(170, 'theme-echo-sports-newsletter_popup_title', 'Let’s join our newsletter!', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(171, 'theme-echo-sports-newsletter_popup_subtitle', 'Weekly Updates', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(172, 'theme-echo-sports-newsletter_popup_description', 'Do not worry we don’t spam!', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(173, 'theme-echo-sports-social_links', '[[{"key":"name","value":"Facebook"},{"key":"icon","value":"ti ti-brand-facebook"},{"key":"url","value":"https:\\/\\/www.facebook.com\\/"}],[{"key":"name","value":"Instagram"},{"key":"icon","value":"ti ti-brand-instagram"},{"key":"url","value":"https:\\/\\/www.instagram.com\\/"}],[{"key":"name","value":"Twitter"},{"key":"icon","value":"ti ti-brand-x"},{"key":"url","value":"https:\\/\\/www.twitter.com\\/"}],[{"key":"name","value":"YouTube"},{"key":"icon","value":"ti ti-brand-youtube"},{"key":"url","value":"https:\\/\\/www.youtube.com\\/"}],[{"key":"name","value":"Pinterest"},{"key":"icon","value":"ti ti-brand-pinterest"},{"key":"url","value":"https:\\/\\/www.pinterest.com\\/"}]]', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(174, 'theme-echo-sports-social_sharing', '[[{"key":"social","value":"facebook"},{"key":"icon","value":"ti ti-brand-facebook"}],[{"key":"social","value":"x"},{"key":"icon","value":"ti ti-brand-x"}],[{"key":"social","value":"pinterest"},{"key":"icon","value":"ti ti-brand-pinterest"}],[{"key":"social","value":"linkedin"},{"key":"icon","value":"ti ti-brand-linkedin"}],[{"key":"social","value":"whatsapp"},{"key":"icon","value":"ti ti-brand-whatsapp"}],[{"key":"social","value":"email"},{"key":"icon","value":"ti ti-mail"}]]', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(175, 'theme-echo-sports-primary_color', 'rgb(30, 58, 138)', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(176, 'theme-echo-sports-heading_color', 'rgb(201, 162, 39)', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(177, 'theme-echo-sports-text_color', '#475569', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(178, 'theme-echo-sports-footer_background_color', 'rgb(30, 58, 138)', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(179, 'theme-echo-sports-footer_heading_color', '#f8fafc', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(180, 'theme-echo-sports-footer_text_color', '#94a3b8', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(181, 'theme-echo-sports-back_to_top_enabled', '1', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(182, 'theme-echo-sports-footer_background_image', '', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(183, 'theme-echo-sports-admin_logo', 'header.png', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(184, 'theme-echo-sports-admin_favicon', 'header.png', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(185, 'theme-echo-sports-logo_height', '60', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(186, 'theme-echo-sports-favicon_type', 'image/png', '2026-03-29 15:28:20', '2026-04-04 15:56:51'),
-	(225, 'theme-echo-politics-preloader_enabled', 'yes', NULL, '2026-04-04 15:56:51'),
-	(226, 'theme-echo-politics-show_site_name', '0', NULL, '2026-04-04 15:56:51'),
-	(227, 'theme-echo-politics-site_title_separator', '-', NULL, '2026-04-04 15:56:51'),
-	(228, 'theme-echo-politics-seo_title', 'Catholic Media', NULL, '2026-04-04 15:56:51'),
-	(229, 'theme-echo-politics-seo_index', '1', NULL, '2026-04-04 15:56:51'),
-	(230, 'theme-echo-politics-seo_og_image', '', NULL, '2026-04-04 15:56:51'),
-	(231, 'theme-echo-politics-term_and_privacy_policy_url', '', NULL, '2026-04-04 15:56:51'),
-	(232, 'theme-echo-politics-lazy_load_images', '0', NULL, '2026-04-04 15:56:51'),
-	(233, 'theme-echo-politics-lazy_load_placeholder_image', '', NULL, '2026-04-04 15:56:51'),
-	(234, 'theme-echo-politics-date_format', 'M d, Y', NULL, '2026-04-04 15:56:51'),
-	(235, 'theme-echo-politics-watch_learn_pray_background_image', 'landing-page-3.png', NULL, '2026-04-04 15:56:51'),
-	(236, 'theme-echo-politics-watch_learn_pray_heading', 'Watch, Learn, Pray.', NULL, '2026-04-04 15:56:51'),
-	(237, 'theme-echo-politics-watch_learn_pray_subtext', 'OnlyCatholic.org is your digital home for everything Catholic. From live Mass and news to videos, podcasts, and prayer resources — we unite faithful voices in one trusted space. Join us in celebrating our one faith, one family, one place', NULL, '2026-04-04 15:56:52'),
-	(238, 'theme-echo-politics-watch_learn_pray_motto_prefix', 'One', NULL, '2026-04-04 15:56:52'),
-	(239, 'theme-echo-politics-watch_learn_pray_motto_word_1', 'faith', NULL, '2026-04-04 15:56:52'),
-	(240, 'theme-echo-politics-watch_learn_pray_motto_color_1', '#0a417a', NULL, '2026-04-04 15:56:52'),
-	(241, 'theme-echo-politics-watch_learn_pray_motto_word_2', 'family', NULL, '2026-04-04 15:56:52'),
-	(242, 'theme-echo-politics-watch_learn_pray_motto_color_2', '#b22222', NULL, '2026-04-04 15:56:52'),
-	(243, 'theme-echo-politics-watch_learn_pray_motto_word_3', 'place', NULL, '2026-04-04 15:56:52'),
-	(244, 'theme-echo-politics-watch_learn_pray_motto_color_3', '#c9a227', NULL, '2026-04-04 15:56:52'),
-	(245, 'theme-echo-politics-watch_learn_pray_signature', 'Fr. Morson Livingston', NULL, '2026-04-04 15:56:52'),
-	(246, 'theme-echo-politics-hero_intro_background_image', 'hero-image.png', NULL, '2026-04-04 15:56:52'),
-	(247, 'theme-echo-politics-hero_intro_title', 'Watch, Learn, Pray.', NULL, '2026-04-04 15:56:52'),
-	(248, 'theme-echo-politics-hero_intro_link', '', NULL, '2026-04-04 15:56:52'),
-	(249, 'theme-echo-politics-hero_intro_card_1_image', 'hero-bottom-1.png', NULL, '2026-04-04 15:56:52'),
-	(250, 'theme-echo-politics-hero_intro_card_1_text', 'Sunday Mass — Live &amp; On Demand', NULL, '2026-04-04 15:56:52'),
-	(251, 'theme-echo-politics-hero_intro_card_1_link', '', NULL, '2026-04-04 15:56:52'),
-	(252, 'theme-echo-politics-hero_intro_card_2_image', 'trending-4.png', NULL, '2026-04-04 15:56:52'),
-	(253, 'theme-echo-politics-hero_intro_card_2_text', 'Catholic Teaching &amp; Formation', NULL, '2026-04-04 15:56:52'),
-	(254, 'theme-echo-politics-hero_intro_card_2_link', '', NULL, '2026-04-04 15:56:52'),
-	(255, 'theme-echo-politics-hero_intro_card_3_image', 'hero-bottom-3.png', NULL, '2026-04-04 15:56:52'),
-	(256, 'theme-echo-politics-hero_intro_card_3_text', 'Adoration, Rosary &amp; Prayer', NULL, '2026-04-04 15:56:52'),
-	(257, 'theme-echo-politics-hero_intro_card_3_link', '', NULL, '2026-04-04 15:56:52'),
-	(258, 'theme-echo-politics-hero_intro_card_4_image', 'hero-bottom-4.png', NULL, '2026-04-04 15:56:52'),
-	(259, 'theme-echo-politics-hero_intro_card_4_text', 'Saints, Feasts &amp; Sacred Music', NULL, '2026-04-04 15:56:52'),
-	(260, 'theme-echo-politics-hero_intro_card_4_link', '', NULL, '2026-04-04 15:56:52'),
-	(261, 'theme-echo-politics-wlr_background_image', 'watch-page.png', NULL, '2026-04-04 15:56:52'),
-	(262, 'theme-echo-politics-wlr_card_1_title', 'Watch', NULL, '2026-04-04 15:56:52'),
-	(263, 'theme-echo-politics-wlr_card_1_desc', 'Experience your faith come alive. Watch powerful reflections, Mass celebrations, and inspiring stories that bring you closer to God—anytime, anywhere.', NULL, '2026-04-04 15:56:52'),
-	(264, 'theme-echo-politics-wlr_card_1_color', '#1e3a8a', NULL, '2026-04-04 15:56:52'),
-	(265, 'theme-echo-politics-wlr_card_2_title', 'Listen', NULL, '2026-04-04 15:56:52'),
-	(266, 'theme-echo-politics-wlr_card_2_desc', 'Let the Word of God speak to you. Tune into prayers, sermons, and audio reflections that uplift your spirit—even in the busiest moments of your day.', NULL, '2026-04-04 15:56:52'),
-	(267, 'theme-echo-politics-wlr_card_2_color', '#7f1d1d', NULL, '2026-04-04 15:56:52'),
-	(268, 'theme-echo-politics-wlr_card_3_title', 'Read', NULL, '2026-04-04 15:56:52'),
-	(269, 'theme-echo-politics-wlr_card_3_desc', 'Dive deeper into God\'s Word. Explore scripture, devotionals, and faith-filled articles designed to guide, inspire, and strengthen your journey.', NULL, '2026-04-04 15:56:52'),
-	(270, 'theme-echo-politics-wlr_card_3_color', '#c9a227', NULL, '2026-04-04 15:56:52'),
-	(271, 'theme-echo-politics-newsletter_popup_tablet_image', 'trending-1.png', NULL, '2026-04-04 15:56:52'),
-	(272, 'theme-echo-politics-newsletter_popup_mobile_image', 'trending-1.png', NULL, '2026-04-04 15:56:52'),
-	(273, 'theme-echo-politics-newsletter_popup_delay', '5', NULL, '2026-04-04 15:56:52'),
-	(274, 'theme-echo-politics-newsletter_popup_display_pages', '["public.index"]', NULL, '2026-04-04 15:56:52'),
-	(275, 'social_login_enable', '1', NULL, '2026-04-04 15:56:52'),
-	(276, 'social_login_style', 'default', NULL, '2026-04-04 15:56:52'),
-	(277, 'social_login_facebook_enable', '1', NULL, '2026-04-04 15:56:52'),
-	(278, 'social_login_facebook_app_id', 'http://127.0.0.1:8000/auth/callback/facebook', NULL, '2026-04-04 15:56:52'),
-	(279, 'social_login_facebook_app_secret', 'http://127.0.0.1:8000/facebook/data-deletion-request-callback', NULL, '2026-04-04 15:56:52'),
-	(280, 'social_login_google_enable', '1', NULL, '2026-04-04 15:56:52'),
-	(281, 'social_login_google_use_google_button', '', NULL, '2026-04-04 15:56:52'),
-	(282, 'social_login_google_app_id', 'ZxzxZxZxZXxxxxddddsasaaasawwwwwwwwww', NULL, '2026-04-04 15:56:52'),
-	(283, 'social_login_google_app_secret', 'http://127.0.0.1:8000/auth/callback/google', NULL, '2026-04-04 15:56:52'),
-	(284, 'social_login_github_enable', '0', NULL, '2026-04-04 15:56:52'),
-	(285, 'social_login_github_app_id', '', NULL, '2026-04-04 15:56:52'),
-	(286, 'social_login_github_app_secret', '', NULL, '2026-04-04 15:56:52'),
-	(287, 'social_login_linkedin_enable', '0', NULL, '2026-04-04 15:56:52'),
-	(288, 'social_login_linkedin_app_id', '', NULL, '2026-04-04 15:56:52'),
-	(289, 'social_login_linkedin_app_secret', '', NULL, '2026-04-04 15:56:52'),
-	(290, 'social_login_linkedin-openid_enable', '0', NULL, '2026-04-04 15:56:52'),
-	(291, 'social_login_linkedin-openid_app_id', '', NULL, '2026-04-04 15:56:52'),
-	(292, 'social_login_linkedin-openid_app_secret', '', NULL, '2026-04-04 15:56:52'),
-	(293, 'social_login_x_enable', '1', NULL, '2026-04-04 15:56:52'),
-	(294, 'social_login_x_app_id', 'asdadasdasd', NULL, '2026-04-04 15:56:52'),
-	(295, 'social_login_x_app_secret', 'http://127.0.0.1:8000/auth/callback/x', NULL, '2026-04-04 15:56:52');
+	(2, 'api_enabled', '0', NULL, '2026-04-22 17:44:22'),
+	(3, 'activated_plugins', '["language","language-advanced","ads","ai-writer","analytics","announcement","audit-log","backup","blog","captcha","contact","cookie-consent","fob-comment","gallery","member","newsletter","note","request-log","rss-feed","social-login","translation","live-stream","community"]', NULL, '2026-04-22 17:44:22'),
+	(4, 'ai_writer_proxy_enable', '0', NULL, '2026-04-22 17:44:22'),
+	(5, 'ai_writer_proxy_protocol', NULL, NULL, '2026-04-22 17:44:22'),
+	(6, 'ai_writer_proxy_ip', NULL, NULL, '2026-04-22 17:44:22'),
+	(7, 'ai_writer_proxy_port', NULL, NULL, '2026-04-22 17:44:22'),
+	(8, 'ai_writer_proxy_username', NULL, NULL, '2026-04-22 17:44:22'),
+	(9, 'ai_writer_proxy_password', NULL, NULL, '2026-04-22 17:44:22'),
+	(10, 'ai_writer_prompt_template', '[{"title":"Product Content","content":"You will be a marketer. I will give the information of the product, you will write an introductory article about that product, the article requires google seo standards and is highly persuasive to increase the rate of users closing orders.\\nParameters product:"},{"title":"Post Content","content":"You will be a marketer. Articles about:"}]', NULL, '2026-04-22 17:44:22'),
+	(11, 'ai_writer_openai_key', NULL, NULL, '2026-04-22 17:44:22'),
+	(12, 'ai_writer_openai_temperature', '1', NULL, '2026-04-22 17:44:22'),
+	(13, 'ai_writer_openai_max_tokens', '2000', NULL, '2026-04-22 17:44:22'),
+	(14, 'ai_writer_openai_frequency_penalty', '0', NULL, '2026-04-22 17:44:22'),
+	(15, 'ai_writer_openai_presence_penalty', '0', NULL, '2026-04-22 17:44:22'),
+	(16, 'ai_writer_openai_models', '["gpt-3.5-turbo"]', NULL, '2026-04-22 17:44:22'),
+	(17, 'ai_writer_openai_default_model', 'gpt-3.5-turbo', NULL, '2026-04-22 17:44:22'),
+	(18, 'ai_writer_spin_template', '[]', NULL, '2026-04-22 17:44:22'),
+	(21, 'language_hide_default', '1', NULL, '2026-04-22 17:44:22'),
+	(22, 'language_switcher_display', 'dropdown', NULL, '2026-04-22 17:44:22'),
+	(23, 'language_display', 'all', NULL, '2026-04-22 17:44:22'),
+	(24, 'language_hide_languages', '[]', NULL, '2026-04-22 17:44:22'),
+	(25, 'media_random_hash', '75c6b855656305f09bf2467e1f2739cd', NULL, '2026-04-22 17:44:22'),
+	(26, 'theme', 'echo-politics', NULL, '2026-04-22 17:44:22'),
+	(27, 'show_admin_bar', '1', NULL, '2026-04-22 17:44:22'),
+	(28, 'admin_favicon', 'header.png', NULL, '2026-04-22 17:44:22'),
+	(29, 'admin_logo', 'header.png', NULL, '2026-04-22 17:44:22'),
+	(30, 'permalink-botble-blog-models-post', 'blog', NULL, '2026-04-22 17:44:22'),
+	(31, 'permalink-botble-blog-models-category', 'blog', NULL, '2026-04-22 17:44:22'),
+	(32, 'theme-echo-politics-site_name', 'Echo - Politics', NULL, '2026-04-22 17:44:22'),
+	(33, 'theme-echo-politics-site_title', 'Catholic Media', NULL, '2026-04-22 17:44:22'),
+	(34, 'theme-echo-politics-seo_description', 'Catholic Media', NULL, '2026-04-22 17:44:22'),
+	(35, 'theme-echo-politics-homepage_id', '1', NULL, '2026-04-22 17:44:22'),
+	(36, 'theme-echo-politics-logo', 'header.png', NULL, '2026-04-22 17:44:22'),
+	(37, 'theme-echo-politics-logo_dark', 'header.png', NULL, '2026-04-22 17:44:22'),
+	(38, 'theme-echo-politics-favicon', 'header.png', NULL, '2026-04-22 17:44:22'),
+	(39, 'theme-echo-politics-blog_page_id', '4', NULL, '2026-04-22 17:44:22'),
+	(40, 'theme-echo-politics-primary_font', 'Istok Web', NULL, '2026-04-22 17:44:22'),
+	(41, 'theme-echo-politics-heading_font', 'Cutive', NULL, '2026-04-22 17:44:22'),
+	(42, 'theme-echo-politics-theme_style', 'dark', NULL, '2026-04-22 17:44:22'),
+	(43, 'theme-echo-politics-secondary_color', 'rgb(30, 58, 138)', NULL, '2026-04-22 17:44:22'),
+	(44, 'theme-echo-politics-breadcrumb_background_image', 'main/backgrounds/breadcrumb.png', NULL, '2026-04-22 17:44:22'),
+	(45, 'theme-echo-politics-breadcrumb_background_color', 'transparent', NULL, '2026-04-22 17:44:22'),
+	(46, 'theme-echo-politics-breadcrumb_text_color', 'transparent', NULL, '2026-04-22 17:44:22'),
+	(47, 'theme-echo-politics-blog_author_style', 'avatar_start', NULL, '2026-04-22 17:44:22'),
+	(48, 'theme-echo-politics-blog_description_style', 'normal', NULL, '2026-04-22 17:44:22'),
+	(49, 'theme-echo-politics-copyright', '©%Y Catholic Media. All Rights Reserved.', NULL, '2026-04-22 17:44:22'),
+	(50, 'theme-echo-politics-language_switcher_enabled', '1', NULL, '2026-04-22 17:44:22'),
+	(51, 'theme-echo-politics-newsletter_popup_enable', '1', NULL, '2026-04-22 17:44:22'),
+	(52, 'theme-echo-politics-newsletter_popup_image', 'trending-1.png', NULL, '2026-04-22 17:44:22'),
+	(53, 'theme-echo-politics-newsletter_popup_title', 'Let’s join our newsletter!', NULL, '2026-04-22 17:44:22'),
+	(54, 'theme-echo-politics-newsletter_popup_subtitle', 'Weekly Updates', NULL, '2026-04-22 17:44:22'),
+	(55, 'theme-echo-politics-newsletter_popup_description', 'Do not worry we don’t spam!', NULL, '2026-04-22 17:44:22'),
+	(56, 'theme-echo-politics-social_links', '[[{"key":"name","value":"Facebook"},{"key":"icon","value":"ti ti-brand-facebook"},{"key":"url","value":"https:\\/\\/www.facebook.com\\/"}],[{"key":"name","value":"Instagram"},{"key":"icon","value":"ti ti-brand-instagram"},{"key":"url","value":"https:\\/\\/www.instagram.com\\/"}],[{"key":"name","value":"Twitter"},{"key":"icon","value":"ti ti-brand-x"},{"key":"url","value":"https:\\/\\/www.twitter.com\\/"}],[{"key":"name","value":"YouTube"},{"key":"icon","value":"ti ti-brand-youtube"},{"key":"url","value":"https:\\/\\/www.youtube.com\\/"}],[{"key":"name","value":"Pinterest"},{"key":"icon","value":"ti ti-brand-pinterest"},{"key":"url","value":"https:\\/\\/www.pinterest.com\\/"}]]', NULL, '2026-04-22 17:44:22'),
+	(57, 'theme-echo-politics-social_sharing', '[[{"key":"social","value":"facebook"},{"key":"icon","value":"ti ti-brand-facebook"}],[{"key":"social","value":"x"},{"key":"icon","value":"ti ti-brand-x"}],[{"key":"social","value":"pinterest"},{"key":"icon","value":"ti ti-brand-pinterest"}],[{"key":"social","value":"linkedin"},{"key":"icon","value":"ti ti-brand-linkedin"}],[{"key":"social","value":"whatsapp"},{"key":"icon","value":"ti ti-brand-whatsapp"}],[{"key":"social","value":"email"},{"key":"icon","value":"ti ti-mail"}]]', NULL, '2026-04-22 17:44:22'),
+	(58, 'theme-echo-politics-primary_color', 'rgb(30, 58, 138)', NULL, '2026-04-22 17:44:22'),
+	(59, 'announcement_max_width', '1390', NULL, '2026-04-22 17:44:22'),
+	(60, 'announcement_text_color', '#fefefe', NULL, '2026-04-22 17:44:22'),
+	(61, 'announcement_background_color', '#ff390e', NULL, '2026-04-22 17:44:22'),
+	(62, 'announcement_text_alignment', 'center', NULL, '2026-04-22 17:44:22'),
+	(63, 'announcement_dismissible', '1', NULL, '2026-04-22 17:44:22'),
+	(64, 'announcement_font_size', '14', NULL, '2026-04-22 17:44:22'),
+	(65, 'announcement_font_size_unit', 'px', NULL, '2026-04-22 17:44:22'),
+	(99, 'license_activated_at', '2026-03-27T23:34:18+00:00', NULL, '2026-04-22 17:44:22'),
+	(100, 'license_last_verified_at', '2026-04-04T17:29:45+00:00', NULL, '2026-04-22 17:44:22'),
+	(101, 'license_next_check_at', '2026-04-11T17:29:45+00:00', NULL, '2026-04-22 17:44:22'),
+	(102, 'license_verification_count', '2', NULL, '2026-04-22 17:44:22'),
+	(103, 'license_purchase_code_hash', '79c684a5b2364e21fc8cd9bfebef211cda5c50e46dd9a4ba26d3567f974ac00b', NULL, '2026-04-22 17:44:22'),
+	(104, 'license_server_ip', '2a02:b125:8013:8b08:a1f9:7af0:6732:5d5f', NULL, '2026-04-22 17:44:22'),
+	(105, 'license_domain', '127.0.0.1', NULL, '2026-04-22 17:44:22'),
+	(106, 'licensed_to', 'codelover138', NULL, '2026-04-22 17:44:22'),
+	(108, 'theme-echo-politics-heading_color', 'rgb(201, 162, 39)', '2026-03-27 22:50:14', '2026-04-22 17:44:22'),
+	(109, 'theme-echo-politics-text_color', '#475569', '2026-03-27 22:50:14', '2026-04-22 17:44:22'),
+	(110, 'theme-echo-politics-footer_background_color', 'rgb(30, 58, 138)', '2026-03-27 22:50:14', '2026-04-22 17:44:22'),
+	(111, 'theme-echo-politics-footer_heading_color', '#f8fafc', '2026-03-27 22:50:14', '2026-04-22 17:44:22'),
+	(112, 'theme-echo-politics-footer_text_color', '#94a3b8', '2026-03-27 22:50:14', '2026-04-22 17:44:22'),
+	(113, 'theme-echo-politics-back_to_top_enabled', '1', '2026-03-27 22:50:14', '2026-04-22 17:44:22'),
+	(114, 'theme-echo-politics-footer_background_image', '', '2026-03-27 22:50:14', '2026-04-22 17:44:22'),
+	(142, 'theme-echo-politics-admin_logo', 'header.png', NULL, '2026-04-22 17:44:22'),
+	(143, 'theme-echo-politics-admin_favicon', 'header.png', NULL, '2026-04-22 17:44:22'),
+	(144, 'is_completed_get_started', '1', NULL, '2026-04-22 17:44:22'),
+	(145, 'theme-echo-politics-logo_height', '60', NULL, '2026-04-22 17:44:22'),
+	(146, 'theme-echo-politics-favicon_type', 'image/png', NULL, '2026-04-22 17:44:22'),
+	(147, 'watch_page_hero_image', 'http://127.0.0.1:8000/uploads/watch-hero/watch-hero-20260329115059-dJIokW.png', NULL, '2026-04-22 17:44:22'),
+	(148, 'listen_page_hero_image', 'http://127.0.0.1:8000/uploads/listen-hero/listen-hero-20260329143109-COBeW5.png', NULL, '2026-04-22 17:44:22'),
+	(149, 'theme-echo-sports-site_name', 'Echo - Politics', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(150, 'theme-echo-sports-site_title', 'Catholic Media', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(151, 'theme-echo-sports-seo_description', 'Echo is a modern, clean, and professional Laravel script that is suitable for news, magazine, blog, and any kind of website.', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(152, 'theme-echo-sports-homepage_id', '1', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(153, 'theme-echo-sports-logo', 'header.png', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(154, 'theme-echo-sports-logo_dark', 'header.png', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(155, 'theme-echo-sports-favicon', 'header.png', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(156, 'theme-echo-sports-blog_page_id', '4', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(157, 'theme-echo-sports-primary_font', 'Istok Web', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(158, 'theme-echo-sports-heading_font', 'Cutive', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(159, 'theme-echo-sports-theme_style', 'dark', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(160, 'theme-echo-sports-secondary_color', 'rgb(30, 58, 138)', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(161, 'theme-echo-sports-breadcrumb_background_image', 'main/backgrounds/breadcrumb.png', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(162, 'theme-echo-sports-breadcrumb_background_color', 'transparent', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(163, 'theme-echo-sports-breadcrumb_text_color', 'transparent', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(164, 'theme-echo-sports-blog_author_style', 'avatar_start', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(165, 'theme-echo-sports-blog_description_style', 'normal', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(166, 'theme-echo-sports-copyright', '©%Y Archi Elite JSC. All Rights Reserved.', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(167, 'theme-echo-sports-language_switcher_enabled', '1', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(168, 'theme-echo-sports-newsletter_popup_enable', '1', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(169, 'theme-echo-sports-newsletter_popup_image', 'main/general/newsletter-popup.png', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(170, 'theme-echo-sports-newsletter_popup_title', 'Let’s join our newsletter!', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(171, 'theme-echo-sports-newsletter_popup_subtitle', 'Weekly Updates', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(172, 'theme-echo-sports-newsletter_popup_description', 'Do not worry we don’t spam!', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(173, 'theme-echo-sports-social_links', '[[{"key":"name","value":"Facebook"},{"key":"icon","value":"ti ti-brand-facebook"},{"key":"url","value":"https:\\/\\/www.facebook.com\\/"}],[{"key":"name","value":"Instagram"},{"key":"icon","value":"ti ti-brand-instagram"},{"key":"url","value":"https:\\/\\/www.instagram.com\\/"}],[{"key":"name","value":"Twitter"},{"key":"icon","value":"ti ti-brand-x"},{"key":"url","value":"https:\\/\\/www.twitter.com\\/"}],[{"key":"name","value":"YouTube"},{"key":"icon","value":"ti ti-brand-youtube"},{"key":"url","value":"https:\\/\\/www.youtube.com\\/"}],[{"key":"name","value":"Pinterest"},{"key":"icon","value":"ti ti-brand-pinterest"},{"key":"url","value":"https:\\/\\/www.pinterest.com\\/"}]]', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(174, 'theme-echo-sports-social_sharing', '[[{"key":"social","value":"facebook"},{"key":"icon","value":"ti ti-brand-facebook"}],[{"key":"social","value":"x"},{"key":"icon","value":"ti ti-brand-x"}],[{"key":"social","value":"pinterest"},{"key":"icon","value":"ti ti-brand-pinterest"}],[{"key":"social","value":"linkedin"},{"key":"icon","value":"ti ti-brand-linkedin"}],[{"key":"social","value":"whatsapp"},{"key":"icon","value":"ti ti-brand-whatsapp"}],[{"key":"social","value":"email"},{"key":"icon","value":"ti ti-mail"}]]', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(175, 'theme-echo-sports-primary_color', 'rgb(30, 58, 138)', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(176, 'theme-echo-sports-heading_color', 'rgb(201, 162, 39)', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(177, 'theme-echo-sports-text_color', '#475569', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(178, 'theme-echo-sports-footer_background_color', 'rgb(30, 58, 138)', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(179, 'theme-echo-sports-footer_heading_color', '#f8fafc', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(180, 'theme-echo-sports-footer_text_color', '#94a3b8', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(181, 'theme-echo-sports-back_to_top_enabled', '1', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(182, 'theme-echo-sports-footer_background_image', '', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(183, 'theme-echo-sports-admin_logo', 'header.png', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(184, 'theme-echo-sports-admin_favicon', 'header.png', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(185, 'theme-echo-sports-logo_height', '60', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(186, 'theme-echo-sports-favicon_type', 'image/png', '2026-03-29 15:28:20', '2026-04-22 17:44:22'),
+	(225, 'theme-echo-politics-preloader_enabled', 'yes', NULL, '2026-04-22 17:44:22'),
+	(226, 'theme-echo-politics-show_site_name', '0', NULL, '2026-04-22 17:44:22'),
+	(227, 'theme-echo-politics-site_title_separator', '-', NULL, '2026-04-22 17:44:22'),
+	(228, 'theme-echo-politics-seo_title', 'Catholic Media', NULL, '2026-04-22 17:44:22'),
+	(229, 'theme-echo-politics-seo_index', '1', NULL, '2026-04-22 17:44:22'),
+	(230, 'theme-echo-politics-seo_og_image', '', NULL, '2026-04-22 17:44:22'),
+	(231, 'theme-echo-politics-term_and_privacy_policy_url', '', NULL, '2026-04-22 17:44:22'),
+	(232, 'theme-echo-politics-lazy_load_images', '0', NULL, '2026-04-22 17:44:22'),
+	(233, 'theme-echo-politics-lazy_load_placeholder_image', '', NULL, '2026-04-22 17:44:22'),
+	(234, 'theme-echo-politics-date_format', 'M d, Y', NULL, '2026-04-22 17:44:22'),
+	(235, 'theme-echo-politics-watch_learn_pray_background_image', 'landing-page-3.png', NULL, '2026-04-22 17:44:22'),
+	(236, 'theme-echo-politics-watch_learn_pray_heading', 'Watch, Learn, Pray.', NULL, '2026-04-22 17:44:22'),
+	(237, 'theme-echo-politics-watch_learn_pray_subtext', 'OnlyCatholic.org is your digital home for everything Catholic. From live Mass and news to videos, podcasts, and prayer resources — we unite faithful voices in one trusted space. Join us in celebrating our one faith, one family, one place', NULL, '2026-04-22 17:44:22'),
+	(238, 'theme-echo-politics-watch_learn_pray_motto_prefix', 'One', NULL, '2026-04-22 17:44:22'),
+	(239, 'theme-echo-politics-watch_learn_pray_motto_word_1', 'faith', NULL, '2026-04-22 17:44:22'),
+	(240, 'theme-echo-politics-watch_learn_pray_motto_color_1', '#0a417a', NULL, '2026-04-22 17:44:22'),
+	(241, 'theme-echo-politics-watch_learn_pray_motto_word_2', 'family', NULL, '2026-04-22 17:44:22'),
+	(242, 'theme-echo-politics-watch_learn_pray_motto_color_2', '#b22222', NULL, '2026-04-22 17:44:22'),
+	(243, 'theme-echo-politics-watch_learn_pray_motto_word_3', 'place', NULL, '2026-04-22 17:44:22'),
+	(244, 'theme-echo-politics-watch_learn_pray_motto_color_3', '#c9a227', NULL, '2026-04-22 17:44:22'),
+	(245, 'theme-echo-politics-watch_learn_pray_signature', 'Fr. Morson Livingston', NULL, '2026-04-22 17:44:22'),
+	(246, 'theme-echo-politics-hero_intro_background_image', 'hero-image.png', NULL, '2026-04-22 17:44:22'),
+	(247, 'theme-echo-politics-hero_intro_title', 'Watch, Learn, Pray.', NULL, '2026-04-22 17:44:22'),
+	(248, 'theme-echo-politics-hero_intro_link', '', NULL, '2026-04-22 17:44:22'),
+	(249, 'theme-echo-politics-hero_intro_card_1_image', 'hero-bottom-1.png', NULL, '2026-04-22 17:44:22'),
+	(250, 'theme-echo-politics-hero_intro_card_1_text', 'Sunday Mass — Live &amp; On Demand', NULL, '2026-04-22 17:44:22'),
+	(251, 'theme-echo-politics-hero_intro_card_1_link', '', NULL, '2026-04-22 17:44:22'),
+	(252, 'theme-echo-politics-hero_intro_card_2_image', 'trending-4.png', NULL, '2026-04-22 17:44:22'),
+	(253, 'theme-echo-politics-hero_intro_card_2_text', 'Catholic Teaching &amp; Formation', NULL, '2026-04-22 17:44:22'),
+	(254, 'theme-echo-politics-hero_intro_card_2_link', '', NULL, '2026-04-22 17:44:22'),
+	(255, 'theme-echo-politics-hero_intro_card_3_image', 'hero-bottom-3.png', NULL, '2026-04-22 17:44:22'),
+	(256, 'theme-echo-politics-hero_intro_card_3_text', 'Adoration, Rosary &amp; Prayer', NULL, '2026-04-22 17:44:22'),
+	(257, 'theme-echo-politics-hero_intro_card_3_link', '', NULL, '2026-04-22 17:44:22'),
+	(258, 'theme-echo-politics-hero_intro_card_4_image', 'hero-bottom-4.png', NULL, '2026-04-22 17:44:22'),
+	(259, 'theme-echo-politics-hero_intro_card_4_text', 'Saints, Feasts &amp; Sacred Music', NULL, '2026-04-22 17:44:22'),
+	(260, 'theme-echo-politics-hero_intro_card_4_link', '', NULL, '2026-04-22 17:44:22'),
+	(261, 'theme-echo-politics-wlr_background_image', 'watch-page.png', NULL, '2026-04-22 17:44:22'),
+	(262, 'theme-echo-politics-wlr_card_1_title', 'Watch', NULL, '2026-04-22 17:44:22'),
+	(263, 'theme-echo-politics-wlr_card_1_desc', 'Experience your faith come alive. Watch powerful reflections, Mass celebrations, and inspiring stories that bring you closer to God—anytime, anywhere.', NULL, '2026-04-22 17:44:22'),
+	(264, 'theme-echo-politics-wlr_card_1_color', '#1e3a8a', NULL, '2026-04-22 17:44:22'),
+	(265, 'theme-echo-politics-wlr_card_2_title', 'Listen', NULL, '2026-04-22 17:44:22'),
+	(266, 'theme-echo-politics-wlr_card_2_desc', 'Let the Word of God speak to you. Tune into prayers, sermons, and audio reflections that uplift your spirit—even in the busiest moments of your day.', NULL, '2026-04-22 17:44:22'),
+	(267, 'theme-echo-politics-wlr_card_2_color', '#7f1d1d', NULL, '2026-04-22 17:44:22'),
+	(268, 'theme-echo-politics-wlr_card_3_title', 'Read', NULL, '2026-04-22 17:44:22'),
+	(269, 'theme-echo-politics-wlr_card_3_desc', 'Dive deeper into God\'s Word. Explore scripture, devotionals, and faith-filled articles designed to guide, inspire, and strengthen your journey.', NULL, '2026-04-22 17:44:22'),
+	(270, 'theme-echo-politics-wlr_card_3_color', '#c9a227', NULL, '2026-04-22 17:44:22'),
+	(271, 'theme-echo-politics-newsletter_popup_tablet_image', 'trending-1.png', NULL, '2026-04-22 17:44:22'),
+	(272, 'theme-echo-politics-newsletter_popup_mobile_image', 'trending-1.png', NULL, '2026-04-22 17:44:22'),
+	(273, 'theme-echo-politics-newsletter_popup_delay', '5', NULL, '2026-04-22 17:44:22'),
+	(274, 'theme-echo-politics-newsletter_popup_display_pages', '["public.index"]', NULL, '2026-04-22 17:44:22'),
+	(275, 'social_login_enable', '1', NULL, '2026-04-22 17:44:22'),
+	(276, 'social_login_style', 'default', NULL, '2026-04-22 17:44:22'),
+	(277, 'social_login_facebook_enable', '1', NULL, '2026-04-22 17:44:22'),
+	(278, 'social_login_facebook_app_id', 'http://127.0.0.1:8000/auth/callback/facebook', NULL, '2026-04-22 17:44:22'),
+	(279, 'social_login_facebook_app_secret', 'http://127.0.0.1:8000/facebook/data-deletion-request-callback', NULL, '2026-04-22 17:44:22'),
+	(280, 'social_login_google_enable', '1', NULL, '2026-04-22 17:44:22'),
+	(281, 'social_login_google_use_google_button', '', NULL, '2026-04-22 17:44:22'),
+	(282, 'social_login_google_app_id', 'ZxzxZxZxZXxxxxddddsasaaasawwwwwwwwww', NULL, '2026-04-22 17:44:22'),
+	(283, 'social_login_google_app_secret', 'http://127.0.0.1:8000/auth/callback/google', NULL, '2026-04-22 17:44:22'),
+	(284, 'social_login_github_enable', '0', NULL, '2026-04-22 17:44:22'),
+	(285, 'social_login_github_app_id', '', NULL, '2026-04-22 17:44:22'),
+	(286, 'social_login_github_app_secret', '', NULL, '2026-04-22 17:44:22'),
+	(287, 'social_login_linkedin_enable', '0', NULL, '2026-04-22 17:44:22'),
+	(288, 'social_login_linkedin_app_id', '', NULL, '2026-04-22 17:44:22'),
+	(289, 'social_login_linkedin_app_secret', '', NULL, '2026-04-22 17:44:22'),
+	(290, 'social_login_linkedin-openid_enable', '0', NULL, '2026-04-22 17:44:22'),
+	(291, 'social_login_linkedin-openid_app_id', '', NULL, '2026-04-22 17:44:22'),
+	(292, 'social_login_linkedin-openid_app_secret', '', NULL, '2026-04-22 17:44:22'),
+	(293, 'social_login_x_enable', '1', NULL, '2026-04-22 17:44:22'),
+	(294, 'social_login_x_app_id', 'asdadasdasd', NULL, '2026-04-22 17:44:22'),
+	(295, 'social_login_x_app_secret', 'http://127.0.0.1:8000/auth/callback/x', NULL, '2026-04-22 17:44:22'),
+	(296, 'theme-echo-politics-live_page_hero_image', '', NULL, '2026-04-22 17:44:22'),
+	(297, 'theme-echo-politics-live_page_hero_badge', 'Broadcasting Live', NULL, '2026-04-22 17:44:22'),
+	(298, 'theme-echo-politics-live_page_hero_title', 'Live Catholic Streams', NULL, '2026-04-22 17:44:22'),
+	(299, 'theme-echo-politics-live_page_hero_subtitle', 'Mass, Rosary, Adoration and more — broadcasting live from churches and organisations around the world.', NULL, '2026-04-22 17:44:22');
 
 -- Dumping structure for table allcatholicmedia.slugs
 CREATE TABLE IF NOT EXISTS `slugs` (
@@ -2355,7 +2372,7 @@ CREATE TABLE IF NOT EXISTS `slugs` (
   KEY `idx_slugs_reference` (`reference_type`,`reference_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.slugs: ~108 rows (approximately)
+-- Dumping data for table allcatholicmedia.slugs: ~99 rows (approximately)
 REPLACE INTO `slugs` (`id`, `key`, `reference_id`, `reference_type`, `prefix`, `created_at`, `updated_at`) VALUES
 	(1, 'smith', 1, 'Botble\\Member\\Models\\Member', 'author', '2025-12-24 07:30:15', '2025-12-24 07:30:28'),
 	(2, 'schultz', 2, 'Botble\\Member\\Models\\Member', 'author', '2025-12-24 07:30:15', '2025-12-24 07:30:28'),
@@ -2562,9 +2579,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_username_unique` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.users: ~1 rows (approximately)
+-- Dumping data for table allcatholicmedia.users: ~0 rows (approximately)
 REPLACE INTO `users` (`id`, `email`, `phone`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `first_name`, `last_name`, `username`, `avatar_id`, `super_user`, `manage_supers`, `permissions`, `last_login`, `sessions_invalidated_at`) VALUES
-	(1, 'babu313136@gmail.com', NULL, '2026-03-29 11:16:04', '$2y$12$AxfmBgPKwJX4NG.oYrBtF.ferY2Scc53IPoeAZZXzFCtF.JuRnjzy', 'f2yKq26vBoOPtVUB4Aspn6kAQZuKKOjqD7JcgJuSqsPnDe55pFlDL8T4h08Z', '2025-12-24 07:30:13', '2026-04-10 19:49:53', 'System', 'Admin', 'admin', NULL, 1, 1, NULL, '2026-04-10 19:49:53', NULL);
+	(1, 'babu313136@gmail.com', NULL, '2026-03-29 11:16:04', '$2y$12$AxfmBgPKwJX4NG.oYrBtF.ferY2Scc53IPoeAZZXzFCtF.JuRnjzy', 'gP71J4v6PMi7tuSlGL6fRI5N3OMjrQdzieFLrQso7YUHmwTX24WJ8HcMacj0', '2025-12-24 07:30:13', '2026-04-23 18:02:42', 'System', 'Admin', 'admin', NULL, 1, 1, NULL, '2026-04-23 18:02:42', NULL);
 
 -- Dumping structure for table allcatholicmedia.user_meta
 CREATE TABLE IF NOT EXISTS `user_meta` (
@@ -2611,7 +2628,7 @@ CREATE TABLE IF NOT EXISTS `widgets` (
   UNIQUE KEY `widgets_unique_index` (`theme`,`sidebar_id`,`widget_id`,`position`)
 ) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.widgets: ~44 rows (approximately)
+-- Dumping data for table allcatholicmedia.widgets: ~45 rows (approximately)
 REPLACE INTO `widgets` (`id`, `widget_id`, `sidebar_id`, `theme`, `position`, `data`, `created_at`, `updated_at`) VALUES
 	(1, 'BlogPostsWidget', 'menu_sidebar', 'echo-politics', 1, '{"type":"recent","category_ids":[1,2,3],"limit":3}', '2025-12-24 07:30:28', '2025-12-24 07:30:28'),
 	(2, 'SocialLinksWidget', 'menu_sidebar', 'echo-politics', 2, '[]', '2025-12-24 07:30:28', '2025-12-24 07:30:28'),
@@ -2714,7 +2731,7 @@ CREATE TABLE IF NOT EXISTS `youtube_channel_videos` (
   CONSTRAINT `youtube_channel_videos_youtube_channel_id_foreign` FOREIGN KEY (`youtube_channel_id`) REFERENCES `youtube_channels` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table allcatholicmedia.youtube_channel_videos: ~144 rows (approximately)
+-- Dumping data for table allcatholicmedia.youtube_channel_videos: ~98 rows (approximately)
 REPLACE INTO `youtube_channel_videos` (`id`, `youtube_channel_id`, `youtube_video_id`, `title`, `slug`, `description`, `thumbnail`, `published_at`, `video_url`, `embed_url`, `duration`, `view_count`, `is_live`, `position`, `raw_payload`, `created_at`, `updated_at`) VALUES
 	(1, 1, 'lMGGCF3RhSg', 'La Santa Misa | Domingo de Ramos de la Pasión del Señor', 'la-santa-misa-domingo-de-ramos-de-la-pasion-del-senor', 'El Padre Carlos Suarez celebra la santa misa del 29 de marzo de 2026.\n\nSubscribe to our YouTube channel so you never miss a daily Mass: http://bit.ly/31Ceiuu\n\nJoin this channel to get access to perks like custom CatholicTV emojis:\nhttps://www.youtube.com/channel/UCORAZZmab8apqy2TMHZlZVQ/join\n\nDonate to CatholicTV and join us in our mission: https://www.catholictv.org/donate\nCatholicTV website: http://bit.ly/2KlLFuX\nLike us on Facebook: http://bit.ly/2LWw1tm\nFollow us on Twitter: http://bit.ly/31eG1lf\nFollow us on Instagram: http://bit.ly/339rEAf\n\n#CatholicMass #DailyMass #CatholicMassToday #CatholicMassOnline #VirtualMass #CatholicTV #BishopReed', 'https://i.ytimg.com/vi/lMGGCF3RhSg/maxresdefault.jpg', '2026-03-28 15:15:00', 'https://www.youtube.com/watch?v=lMGGCF3RhSg', 'https://www.youtube.com/embed/lMGGCF3RhSg', 'PT28M48S', 516, 0, 0, '{"id": "lMGGCF3RhSg", "etag": "xZ4i3rwmRFEAENeETgDw2mhHTYM", "kind": "youtube#video", "snippet": {"tags": ["Sunday Spanish Mass", "La Santa Misa", "Catholic", "spanish mass", "espanol mass", "misa espanol"], "title": "La Santa Misa | Domingo de Ramos de la Pasión del Señor", "channelId": "UCORAZZmab8apqy2TMHZlZVQ", "localized": {"title": "La Santa Misa | Domingo de Ramos de la Pasión del Señor", "description": "El Padre Carlos Suarez celebra la santa misa del 29 de marzo de 2026.\\n\\nSubscribe to our YouTube channel so you never miss a daily Mass: http://bit.ly/31Ceiuu\\n\\nJoin this channel to get access to perks like custom CatholicTV emojis:\\nhttps://www.youtube.com/channel/UCORAZZmab8apqy2TMHZlZVQ/join\\n\\nDonate to CatholicTV and join us in our mission: https://www.catholictv.org/donate\\nCatholicTV website: http://bit.ly/2KlLFuX\\nLike us on Facebook: http://bit.ly/2LWw1tm\\nFollow us on Twitter: http://bit.ly/31eG1lf\\nFollow us on Instagram: http://bit.ly/339rEAf\\n\\n#CatholicMass #DailyMass #CatholicMassToday #CatholicMassOnline #VirtualMass #CatholicTV #BishopReed"}, "categoryId": "29", "thumbnails": {"high": {"url": "https://i.ytimg.com/vi/lMGGCF3RhSg/hqdefault.jpg", "width": 480, "height": 360}, "maxres": {"url": "https://i.ytimg.com/vi/lMGGCF3RhSg/maxresdefault.jpg", "width": 1280, "height": 720}, "medium": {"url": "https://i.ytimg.com/vi/lMGGCF3RhSg/mqdefault.jpg", "width": 320, "height": 180}, "default": {"url": "https://i.ytimg.com/vi/lMGGCF3RhSg/default.jpg", "width": 120, "height": 90}, "standard": {"url": "https://i.ytimg.com/vi/lMGGCF3RhSg/sddefault.jpg", "width": 640, "height": 480}}, "description": "El Padre Carlos Suarez celebra la santa misa del 29 de marzo de 2026.\\n\\nSubscribe to our YouTube channel so you never miss a daily Mass: http://bit.ly/31Ceiuu\\n\\nJoin this channel to get access to perks like custom CatholicTV emojis:\\nhttps://www.youtube.com/channel/UCORAZZmab8apqy2TMHZlZVQ/join\\n\\nDonate to CatholicTV and join us in our mission: https://www.catholictv.org/donate\\nCatholicTV website: http://bit.ly/2KlLFuX\\nLike us on Facebook: http://bit.ly/2LWw1tm\\nFollow us on Twitter: http://bit.ly/31eG1lf\\nFollow us on Instagram: http://bit.ly/339rEAf\\n\\n#CatholicMass #DailyMass #CatholicMassToday #CatholicMassOnline #VirtualMass #CatholicTV #BishopReed", "publishedAt": "2026-03-28T16:15:00Z", "channelTitle": "The CatholicTV Network", "defaultLanguage": "es", "defaultAudioLanguage": "en-US", "liveBroadcastContent": "none"}, "statistics": {"likeCount": "20", "viewCount": "516", "commentCount": "3", "favoriteCount": "0"}, "contentDetails": {"caption": "true", "duration": "PT28M48S", "dimension": "2d", "definition": "hd", "projection": "rectangular", "contentRating": [], "licensedContent": false}}', '2026-03-29 09:18:51', '2026-03-29 09:33:12'),
 	(2, 1, 'keSjA0_Rrjg', 'Catholic Mass Today | Sunday March 29, 2026 | CatholicTV Daily Mass', 'catholic-mass-today-sunday-march-29-2026-catholictv-daily-mass', 'Welcome! Join The CatholicTV Network as we begin this holiest of weeks celebrating Palm Sunday of the Passion of the Lord. Together, we enter into the sacred mysteries of our redemption, following our Savior from His triumphant entry into Jerusalem to the profound sacrifice of the Cross.\n\nIn today’s moving Homily, Bishop Robert P. Reed reflects on how we should respond to the "tremendous display of divine love" revealed in the Passion. He invites us to meet this great act of self-sacrifice with deep gratitude and a commitment to imitation. By mirroring Christ\'s spirit of generosity and compassion, we turn our own acts of love into "cobblestones on the road to heaven". This Mass is a powerful invitation to let our attitudes be like that of Christ as we follow Him through suffering and death toward the hope of the Resurrection.\n\nThe Scriptures highlight the prophetic suffering and the ultimate obedience of the Son of God:\n-The First Reading (Isaiah 50:4-7): The Prophet speaks of the "well-trained tongue" given by God to rouse the weary. He describes a servant who does not rebel but remains steadfast even through buffets and spitting, setting his "face like flint" in the knowledge that the Lord God is his help.\n-The Responsorial Psalm (Ps 22): A cry of both anguish and trust: "My God, my God, why have you abandoned me?".\n-The Second Reading (Philippians 2:6-11): St. Paul describes Christ’s total self-emptying—taking the form of a slave and becoming obedient to the point of death on a cross. Because of this humility, God exalted Him and bestowed the name at which every knee shall bend.\n-The Holy Gospel (Matthew 26:14–27:66): The Passion narrative recounts Jesus\' trial before Pilate, His rejection by the crowd in favor of Barabbas, the mockery of the soldiers, and His crucifixion at Golgotha. As He gives up His spirit, the centurion declares, "Truly, this was the Son of God".\n\nMay we be nourished by these sacred gifts and led to the fullness of what we believe as we follow Christ this week.\n\nMass Chapters for Navigation\n\n-Introductory Rites / Penitential Act: 0:47\n-Collect (Opening Prayer): 1:32\n-First Reading: 2:14\n-Responsorial Psalm: 3:10\n-Second Reading: 5:05\n-Gospel: 7:00\n-Homily: 12:59\n-Nicene Creed: 15:22\n-Prayers of the Faithful: 16:44\n-Liturgy of the Eucharist Begins: 17:40\n-Eucharistic Prayer / Consecration: 18:42\n-The Lord\'s Prayer: 23:49\n-Communion: 25:20\n-Concluding Rites / Final Blessing: 26:25\n\nTheological & Liturgical Context\n-Season: Palm Sunday of the Passion of the Lord, the gateway to Holy Week.\n-Gospel Focus: The Kenosis (Self-Emptying) of Christ; through His suffering, Jesus reveals the heart of God’s mercy, gathering the human family into one and purchasing our justification through His death and resurrection.\n-Homily Key Message: We are called to "behold and to be grateful" for this personal show of love; our Lenten journey culminates in a call to follow Jesus’ way of generosity, ensuring that our lives mirror the light of the paschal candle.\n\nIf today\'s Mass helped you prepare for Holy Week, please Like this video and Subscribe to The CatholicTV Network. You can text your intentions to 844-697-5221 so our community can pray with you. Your support allows us to continue bringing this "great prayer" to the whole world!\n\nSubscribe to our YouTube channel so you never miss a daily Mass: http://bit.ly/31Ceiuu\n\nJoin this channel to get access to perks like custom CatholicTV emojis:\nhttps://www.youtube.com/channel/UCORAZZmab8apqy2TMHZlZVQ/join\n\nDonate to CatholicTV and join us in our mission: https://www.catholictv.org/donate\nCatholicTV website: http://bit.ly/2KlLFuX\nLike us on Facebook: http://bit.ly/2LWw1tm\nFollow us on Twitter: http://bit.ly/31eG1lf\nFollow us on Instagram: http://bit.ly/339rEAf\n\n#PalmSunday #CatholicMass #HolyWeek2026 #PassionOfChrist #GospelOfMatthew #Lent2026 #Isaiah50 #DivineMercy #Catholic #Theology #VirtualMass #CatholicTV', 'https://i.ytimg.com/vi/keSjA0_Rrjg/maxresdefault.jpg', '2026-03-28 15:00:00', 'https://www.youtube.com/watch?v=keSjA0_Rrjg', 'https://www.youtube.com/embed/keSjA0_Rrjg', 'PT28M26S', 13674, 0, 1, '{"id": "keSjA0_Rrjg", "etag": "ucBK_i--01607ox0BDyrShbowsc", "kind": "youtube#video", "snippet": {"tags": ["daily Mass", "Catholic", "tv mass", "streaming mass", "roman catholic", "youtube mass", "archdiocese of boston mass", "todays mass", "online liturgy", "Sunday Mass", "Bishop Robert P. Reed"], "title": "Catholic Mass Today | Sunday March 29, 2026 | CatholicTV Daily Mass", "channelId": "UCORAZZmab8apqy2TMHZlZVQ", "localized": {"title": "Catholic Mass Today | Sunday March 29, 2026 | CatholicTV Daily Mass", "description": "Welcome! Join The CatholicTV Network as we begin this holiest of weeks celebrating Palm Sunday of the Passion of the Lord. Together, we enter into the sacred mysteries of our redemption, following our Savior from His triumphant entry into Jerusalem to the profound sacrifice of the Cross.\\n\\nIn today’s moving Homily, Bishop Robert P. Reed reflects on how we should respond to the \\"tremendous display of divine love\\" revealed in the Passion. He invites us to meet this great act of self-sacrifice with deep gratitude and a commitment to imitation. By mirroring Christ\'s spirit of generosity and compassion, we turn our own acts of love into \\"cobblestones on the road to heaven\\". This Mass is a powerful invitation to let our attitudes be like that of Christ as we follow Him through suffering and death toward the hope of the Resurrection.\\n\\nThe Scriptures highlight the prophetic suffering and the ultimate obedience of the Son of God:\\n-The First Reading (Isaiah 50:4-7): The Prophet speaks of the \\"well-trained tongue\\" given by God to rouse the weary. He describes a servant who does not rebel but remains steadfast even through buffets and spitting, setting his \\"face like flint\\" in the knowledge that the Lord God is his help.\\n-The Responsorial Psalm (Ps 22): A cry of both anguish and trust: \\"My God, my God, why have you abandoned me?\\".\\n-The Second Reading (Philippians 2:6-11): St. Paul describes Christ’s total self-emptying—taking the form of a slave and becoming obedient to the point of death on a cross. Because of this humility, God exalted Him and bestowed the name at which every knee shall bend.\\n-The Holy Gospel (Matthew 26:14–27:66): The Passion narrative recounts Jesus\' trial before Pilate, His rejection by the crowd in favor of Barabbas, the mockery of the soldiers, and His crucifixion at Golgotha. As He gives up His spirit, the centurion declares, \\"Truly, this was the Son of God\\".\\n\\nMay we be nourished by these sacred gifts and led to the fullness of what we believe as we follow Christ this week.\\n\\nMass Chapters for Navigation\\n\\n-Introductory Rites / Penitential Act: 0:47\\n-Collect (Opening Prayer): 1:32\\n-First Reading: 2:14\\n-Responsorial Psalm: 3:10\\n-Second Reading: 5:05\\n-Gospel: 7:00\\n-Homily: 12:59\\n-Nicene Creed: 15:22\\n-Prayers of the Faithful: 16:44\\n-Liturgy of the Eucharist Begins: 17:40\\n-Eucharistic Prayer / Consecration: 18:42\\n-The Lord\'s Prayer: 23:49\\n-Communion: 25:20\\n-Concluding Rites / Final Blessing: 26:25\\n\\nTheological & Liturgical Context\\n-Season: Palm Sunday of the Passion of the Lord, the gateway to Holy Week.\\n-Gospel Focus: The Kenosis (Self-Emptying) of Christ; through His suffering, Jesus reveals the heart of God’s mercy, gathering the human family into one and purchasing our justification through His death and resurrection.\\n-Homily Key Message: We are called to \\"behold and to be grateful\\" for this personal show of love; our Lenten journey culminates in a call to follow Jesus’ way of generosity, ensuring that our lives mirror the light of the paschal candle.\\n\\nIf today\'s Mass helped you prepare for Holy Week, please Like this video and Subscribe to The CatholicTV Network. You can text your intentions to 844-697-5221 so our community can pray with you. Your support allows us to continue bringing this \\"great prayer\\" to the whole world!\\n\\nSubscribe to our YouTube channel so you never miss a daily Mass: http://bit.ly/31Ceiuu\\n\\nJoin this channel to get access to perks like custom CatholicTV emojis:\\nhttps://www.youtube.com/channel/UCORAZZmab8apqy2TMHZlZVQ/join\\n\\nDonate to CatholicTV and join us in our mission: https://www.catholictv.org/donate\\nCatholicTV website: http://bit.ly/2KlLFuX\\nLike us on Facebook: http://bit.ly/2LWw1tm\\nFollow us on Twitter: http://bit.ly/31eG1lf\\nFollow us on Instagram: http://bit.ly/339rEAf\\n\\n#PalmSunday #CatholicMass #HolyWeek2026 #PassionOfChrist #GospelOfMatthew #Lent2026 #Isaiah50 #DivineMercy #Catholic #Theology #VirtualMass #CatholicTV"}, "categoryId": "29", "thumbnails": {"high": {"url": "https://i.ytimg.com/vi/keSjA0_Rrjg/hqdefault.jpg", "width": 480, "height": 360}, "maxres": {"url": "https://i.ytimg.com/vi/keSjA0_Rrjg/maxresdefault.jpg", "width": 1280, "height": 720}, "medium": {"url": "https://i.ytimg.com/vi/keSjA0_Rrjg/mqdefault.jpg", "width": 320, "height": 180}, "default": {"url": "https://i.ytimg.com/vi/keSjA0_Rrjg/default.jpg", "width": 120, "height": 90}, "standard": {"url": "https://i.ytimg.com/vi/keSjA0_Rrjg/sddefault.jpg", "width": 640, "height": 480}}, "description": "Welcome! Join The CatholicTV Network as we begin this holiest of weeks celebrating Palm Sunday of the Passion of the Lord. Together, we enter into the sacred mysteries of our redemption, following our Savior from His triumphant entry into Jerusalem to the profound sacrifice of the Cross.\\n\\nIn today’s moving Homily, Bishop Robert P. Reed reflects on how we should respond to the \\"tremendous display of divine love\\" revealed in the Passion. He invites us to meet this great act of self-sacrifice with deep gratitude and a commitment to imitation. By mirroring Christ\'s spirit of generosity and compassion, we turn our own acts of love into \\"cobblestones on the road to heaven\\". This Mass is a powerful invitation to let our attitudes be like that of Christ as we follow Him through suffering and death toward the hope of the Resurrection.\\n\\nThe Scriptures highlight the prophetic suffering and the ultimate obedience of the Son of God:\\n-The First Reading (Isaiah 50:4-7): The Prophet speaks of the \\"well-trained tongue\\" given by God to rouse the weary. He describes a servant who does not rebel but remains steadfast even through buffets and spitting, setting his \\"face like flint\\" in the knowledge that the Lord God is his help.\\n-The Responsorial Psalm (Ps 22): A cry of both anguish and trust: \\"My God, my God, why have you abandoned me?\\".\\n-The Second Reading (Philippians 2:6-11): St. Paul describes Christ’s total self-emptying—taking the form of a slave and becoming obedient to the point of death on a cross. Because of this humility, God exalted Him and bestowed the name at which every knee shall bend.\\n-The Holy Gospel (Matthew 26:14–27:66): The Passion narrative recounts Jesus\' trial before Pilate, His rejection by the crowd in favor of Barabbas, the mockery of the soldiers, and His crucifixion at Golgotha. As He gives up His spirit, the centurion declares, \\"Truly, this was the Son of God\\".\\n\\nMay we be nourished by these sacred gifts and led to the fullness of what we believe as we follow Christ this week.\\n\\nMass Chapters for Navigation\\n\\n-Introductory Rites / Penitential Act: 0:47\\n-Collect (Opening Prayer): 1:32\\n-First Reading: 2:14\\n-Responsorial Psalm: 3:10\\n-Second Reading: 5:05\\n-Gospel: 7:00\\n-Homily: 12:59\\n-Nicene Creed: 15:22\\n-Prayers of the Faithful: 16:44\\n-Liturgy of the Eucharist Begins: 17:40\\n-Eucharistic Prayer / Consecration: 18:42\\n-The Lord\'s Prayer: 23:49\\n-Communion: 25:20\\n-Concluding Rites / Final Blessing: 26:25\\n\\nTheological & Liturgical Context\\n-Season: Palm Sunday of the Passion of the Lord, the gateway to Holy Week.\\n-Gospel Focus: The Kenosis (Self-Emptying) of Christ; through His suffering, Jesus reveals the heart of God’s mercy, gathering the human family into one and purchasing our justification through His death and resurrection.\\n-Homily Key Message: We are called to \\"behold and to be grateful\\" for this personal show of love; our Lenten journey culminates in a call to follow Jesus’ way of generosity, ensuring that our lives mirror the light of the paschal candle.\\n\\nIf today\'s Mass helped you prepare for Holy Week, please Like this video and Subscribe to The CatholicTV Network. You can text your intentions to 844-697-5221 so our community can pray with you. Your support allows us to continue bringing this \\"great prayer\\" to the whole world!\\n\\nSubscribe to our YouTube channel so you never miss a daily Mass: http://bit.ly/31Ceiuu\\n\\nJoin this channel to get access to perks like custom CatholicTV emojis:\\nhttps://www.youtube.com/channel/UCORAZZmab8apqy2TMHZlZVQ/join\\n\\nDonate to CatholicTV and join us in our mission: https://www.catholictv.org/donate\\nCatholicTV website: http://bit.ly/2KlLFuX\\nLike us on Facebook: http://bit.ly/2LWw1tm\\nFollow us on Twitter: http://bit.ly/31eG1lf\\nFollow us on Instagram: http://bit.ly/339rEAf\\n\\n#PalmSunday #CatholicMass #HolyWeek2026 #PassionOfChrist #GospelOfMatthew #Lent2026 #Isaiah50 #DivineMercy #Catholic #Theology #VirtualMass #CatholicTV", "publishedAt": "2026-03-28T16:00:00Z", "channelTitle": "The CatholicTV Network", "defaultLanguage": "en", "defaultAudioLanguage": "en-US", "liveBroadcastContent": "none"}, "statistics": {"likeCount": "511", "viewCount": "13674", "commentCount": "92", "favoriteCount": "0"}, "contentDetails": {"caption": "true", "duration": "PT28M26S", "dimension": "2d", "definition": "hd", "projection": "rectangular", "contentRating": [], "licensedContent": false}}', '2026-03-29 09:18:51', '2026-03-29 09:33:12'),

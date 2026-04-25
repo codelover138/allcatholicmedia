@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Admin\PodcastShowController;
 use App\Http\Controllers\Admin\YouTubeChannelController;
+use App\Http\Controllers\DonationController;
 use Botble\Base\Facades\AdminHelper;
+use Botble\Theme\Facades\Theme;
 use Illuminate\Support\Facades\Route;
 
 AdminHelper::registerRoutes(function (): void {
@@ -36,3 +38,19 @@ AdminHelper::registerRoutes(function (): void {
         Route::delete('{podcastShow}/episodes/{episode}', [PodcastShowController::class, 'destroyEpisode'])->name('episodes.destroy');
     });
 });
+
+// Donation routes — member-only, registered via Theme to get the front-end middleware stack
+if (defined('THEME_MODULE_SCREEN_NAME')) {
+    Theme::registerRoutes(function (): void {
+        Route::middleware(['web', 'core', 'member'])
+            ->prefix('account/donate')
+            ->name('donation.')
+            ->group(function (): void {
+                Route::get('/', [DonationController::class, 'index'])->name('index');
+                Route::post('/', [DonationController::class, 'initiate'])->name('initiate');
+                Route::get('/return/{donation}', [DonationController::class, 'return'])->name('return');
+                Route::get('/cancel/{donation}', [DonationController::class, 'cancel'])->name('cancel');
+                Route::get('/history', [DonationController::class, 'history'])->name('history');
+            });
+    });
+}

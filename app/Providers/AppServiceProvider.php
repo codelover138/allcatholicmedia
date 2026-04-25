@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use Botble\ACL\Models\User;
 use Botble\Base\Facades\DashboardMenu;
+use Botble\Base\Supports\DashboardMenu as DashboardMenuSupport;
 use Botble\Theme\Events\RenderingThemeOptionSettings;
 use Illuminate\Support\ServiceProvider;
 
@@ -179,6 +181,24 @@ class AppServiceProvider extends ServiceProvider
             'permissions' => false,
         ]);
 
+        DashboardMenu::default()->beforeRetrieving(function (DashboardMenuSupport $menu): void {
+            $user = auth()->user();
+            if ($user instanceof User && ! $user->isSuperUser()) {
+                $menu->removeItem(['cms-core-plugins', 'cms-core-theme']);
+            }
+        });
+
         DashboardMenu::default()->clearCachesForCurrentUser();
+
+        DashboardMenu::for('member')->beforeRetrieving(function (): void {
+            DashboardMenu::make()->registerItem(
+                \Botble\Base\Supports\DashboardMenuItem::make()
+                    ->id('cms-member-donate')
+                    ->priority(25)
+                    ->name('Donate')
+                    ->url(fn () => \Illuminate\Support\Facades\Route::has('donation.index') ? route('donation.index') : '#')
+                    ->icon('ti ti-heart')
+            );
+        });
     }
 }
